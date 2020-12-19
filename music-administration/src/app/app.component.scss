@@ -1,0 +1,13 @@
+@import '../assets/styles/variables.scss';
+
+.app-root{
+    &__columns-content{
+        display: flex;
+    }
+    &__menu {
+        width: $size-menu-width;
+    }
+    &__body {
+        width: 100%;
+    }
+}

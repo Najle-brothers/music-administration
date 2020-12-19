@@ -1,0 +1,8 @@
+@import '../../../assets/styles/variables.scss';
+
+
+.app-footer {
+    height: $size-footer-height;
+    width: 100%;
+    background-color: $background-color-secondary;
+}
