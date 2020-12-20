@@ -2,6 +2,6 @@
 
 .app-body {
     width: 100%;
-    height: 500px; // TODO: Ajustar tamaño 
+    height: calc(100% - #{$size-footer-height});
     background-color: $background-color-main;
 }
