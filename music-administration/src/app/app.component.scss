@@ -1,12 +1,17 @@
 @import '../assets/styles/variables.scss';
 
 .app-root{
+    height: 100%;
+
     &__columns-content{
         display: flex;
+        height: calc(100% - #{$size-header-height});
     }
+
     &__menu {
         width: $size-menu-width;
     }
+
     &__body {
         width: 100%;
     }
