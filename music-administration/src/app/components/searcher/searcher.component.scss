@@ -1,8 +1,8 @@
 @import '../../../assets/styles/variables.scss';
 
 .app-searcher {
+    position: relative;
     &__div{
-        position: relative;
         box-sizing: border-box;
     }
     &__input{
