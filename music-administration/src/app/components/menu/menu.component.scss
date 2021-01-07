@@ -1,0 +1,39 @@
+@import '../../../assets/styles/variables.scss';
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-menu {
+    &__list{
+        list-style-type: none;
+        &__item{
+            padding-left: 20%;
+            padding-top: 15px;
+            cursor: pointer;
+            :hover{
+                color: $text-color-active;
+            }
+            :active{
+                color: $text-color-active;
+                background-color: $background-color-secondary;
+            }
+        }
+    }
+    &__div{
+        display: flex;
+        align-items: center;
+    }
+    &__icon{
+        width: 50px;
+        height: 50px;
+        background: none;
+    }
+    &__span{
+        text-align: center;
+        color: white;
+        padding-left: 15px;
+    }
+}
