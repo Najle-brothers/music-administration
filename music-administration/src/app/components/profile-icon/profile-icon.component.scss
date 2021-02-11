@@ -1,0 +1,14 @@
+@import '../../../assets/styles/variables.scss';
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-profile-icon{
+    &__img{
+        width: 50px;
+        border-radius: 100%;
+    }
+}
