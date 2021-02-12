@@ -8,11 +8,16 @@
 .app-card{
     width: 250px;
     height: 400px;
+    :hover{
+        background-color: $background-color-secondary;
+    }
+    &__img{
+        border-radius: 10px;
+    }
     &__trackID{
         text-align: center;
     }
     &__artist{
         text-align: center;
-
     }
 }
