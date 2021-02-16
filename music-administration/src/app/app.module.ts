@@ -9,6 +9,7 @@ import { BodyComponent } from './components/body/body.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProfileIconComponent } from './components/profile-icon/profile-icon.com
     BodyComponent,
     SearcherComponent,
     MenuComponent,
-    ProfileIconComponent
+    ProfileIconComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule

@@ -5,5 +5,16 @@
     height: $size-header-height;
     background-color: $background-color-secondary;
     color: $text-color-primary;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    &__searcher{
+        width: 90%;
+        padding-top: 20px;
+        padding-left: 215px;
+    }
+    &__profile-icon{
+        width: 10%;
+        padding-top: 15px;
+        padding-left: 30px;
+    }
 }

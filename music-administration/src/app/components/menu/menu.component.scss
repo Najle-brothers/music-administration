@@ -23,12 +23,16 @@
         align-items: center;
         }
     }
+    &__div{
+        display: flex;
+    }
     &__icon{
         width: 50px;
         height: 50px;
         background: none;
     }
     &__span{
+        padding-top:20px;
         text-align: center;
         color: $text-color-primary;
         padding-left: 15px;
