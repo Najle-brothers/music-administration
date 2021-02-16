@@ -9,8 +9,7 @@
 .app-menu {
     &__list{
         list-style-type: none;
-        &__item{
-            padding-left: 20%;
+        &-item{
             padding-top: 15px;
             cursor: pointer;
             :hover{
@@ -20,11 +19,9 @@
                 color: $text-color-active;
                 background-color: $background-color-secondary;
             }
-        }
-    }
-    &__div{
         display: flex;
         align-items: center;
+        }
     }
     &__icon{
         width: 50px;
@@ -33,7 +30,7 @@
     }
     &__span{
         text-align: center;
-        color: white;
+        color: $text-color-primary;
         padding-left: 15px;
     }
 }

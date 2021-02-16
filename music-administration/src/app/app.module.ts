@@ -7,6 +7,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { BodyComponent } from './components/body/body.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { SearcherComponent } from './components/searcher/searcher.component';
     FooterComponent,
     SideNavComponent,
     BodyComponent,
-    SearcherComponent
+    SearcherComponent,
+    MenuComponent,
+    ProfileIconComponent
   ],
   imports: [
     BrowserModule
