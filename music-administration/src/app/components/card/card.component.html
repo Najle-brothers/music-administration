@@ -1,5 +1,7 @@
 <div class="app-card">
-    <img src="../../../assets/img/headphones.png" alt="" class="app-card__img">
-    <h2 class="app-card__trackID">BlaBla</h2>
-    <p class="app-card__artist">Gigi</p>
+    <div class="app-card__container" *ngFor="let album of albums">
+        <img [src]="album.picture" alt="" class="app-card__img">
+        <h2 class="app-card__artist">{{ album.artist }}</h2>
+        <p class="app-card__title">{{ album.title }}</p>
+    </div>
 </div>
