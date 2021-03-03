@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArtistService } from 'src/app/services/artist.service';
 
 @Component({
   selector: 'app-card',
@@ -6,12 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  public artist = {
+    name: '',
+    id: 0
+  };
   public albums = [
     {
       artist: 'Artista 01',
@@ -39,4 +38,18 @@ export class CardComponent implements OnInit {
       picture: '../../../assets/img/headphones.png'
     }
   ]
+
+  constructor(
+    private artistService: ArtistService
+  ) { }
+
+  ngOnInit(): void {
+    this.artistService.getArtistDatabyName('conxuro').subscribe((response) => {
+      this.artist = {
+        name: response.name,
+        id: response.id
+      }
+      console.log(this.artist);
+    });
+  }
 }
