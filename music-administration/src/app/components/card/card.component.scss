@@ -1,9 +1,10 @@
 @import '../../../assets/styles/variables.scss';
 
 .app-card{
-    width: 250px;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
+    flex-wrap: wrap;
+
     :hover{
         background-color: $background-color-secondary;
         border-radius: 10px;
@@ -11,6 +12,7 @@
     }
     &__container{
         margin-right: 25px;
+        width: 250px;
     }
     &__img{
         border-radius: 10px;
