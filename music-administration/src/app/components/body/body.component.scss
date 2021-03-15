@@ -5,6 +5,8 @@
     height: calc(100% - #{$size-footer-height});
     background-color: $background-color-main;
     display: flex;
+    overflow: auto;
+
     &__app-card{
         padding-top: 50px;
         padding-left: 25px;
