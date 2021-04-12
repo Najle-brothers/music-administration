@@ -8,6 +8,7 @@
     overflow: auto;
 
     &__app-card{
+        width: calc(100% - 100px);
         padding-top: 50px;
         padding-left: 25px;
     }

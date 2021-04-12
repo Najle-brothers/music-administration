@@ -1,7 +1,25 @@
-<div class="app-card">
+<div class="app-card" *ngIf="!isSongShowed">
     <div class="app-card__container" *ngFor="let album of albums">
-        <img [src]="album.picture" alt="" class="app-card__img">
-        <h2 class="app-card__artist">{{ album.artist }}</h2>
-        <p class="app-card__title">{{ album.title }}</p>
+        <div (click)="handleClick(album)">
+            <img [src]="album.picture" alt="" class="app-card__img">
+            <h2 class="app-card__title">{{ album.title }}</h2>
+            <div class="app-card__more-info">
+                <h3 class="app-card__artist">{{ album.artist }}</h3>
+                <h4 class="app-card__date">{{ getYearFromDate(album.releaseDate) }}</h4>
+            </div>
+        </div>
     </div>
+</div>
+
+<div class="app-card-song" *ngIf="isSongShowed" (click)="handleClickBack()">
+    <ol class="app-card-song__list" *ngFor="let song of songs">
+        <li class="app-card-song__item">
+            <spam class="app-card-song__song-position">{{ song.position }}</spam>
+            <div class="app-card-song__name">
+                <h3 class="app-card-song__title">{{ song.title }}</h3>
+                <h4 class="app-card-song__album">{{ selectedAlbum.title }}</h4>
+            </div>
+            <spam class="app-card-song__song-duration">{{ secondsToMinutes(song.duration) }}</spam>
+        </li>
+    </ol>
 </div>
