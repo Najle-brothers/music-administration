@@ -15,10 +15,10 @@ export class ArtistService {
   }
 
   getArtistDatabyId(id: number): Observable<any> {
-    return this.httpService.get('/api/artist/' + id);
+    return this.httpService.get('/api/artist/' + id.toString());
   }
 
-  getArtistAlbums(id: number): Observable<any> {
-    return this.httpService.get('/api/artist/' + id + '/albums');
+  getAlbumsByArtistId(id: number): Observable<any> {
+    return this.httpService.get('/api/artist/' + id.toString() + '/albums');
   }
 }
