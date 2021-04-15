@@ -11,6 +11,7 @@ import { SearcherComponent } from './components/searcher/searcher.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 import { CardComponent } from './components/card/card.component';
+import { GenreCardComponent } from './components/genre-card/genre-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CardComponent } from './components/card/card.component';
     SearcherComponent,
     MenuComponent,
     ProfileIconComponent,
-    CardComponent
+    CardComponent,
+    GenreCardComponent
   ],
   imports: [
     BrowserModule,

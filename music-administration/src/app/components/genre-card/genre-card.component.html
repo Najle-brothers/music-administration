@@ -1,0 +1,15 @@
+<div class="app-genre-card" *ngIf="!isGenreShown">
+    <div class="app-genre-card__container" *ngFor="let genre of genres">
+        <div (click)="handleClick(genre)">
+            <img [src]="genre.picture" alt="" class="app-genre-card__img">
+            <h2 class="app-genre-card__title">{{ genre.title }}</h2>
+        </div>
+    </div>
+</div>
+
+<div class="app-genre-card" *ngIf="isGenreShown" (click)="handleClickBack()">
+    <div class="app-genre-card__container" *ngFor="let artist of artists">
+        <img [src]="artist.picture" alt="" class="app-genre-card__img">
+        <h2 class="app-genre-card__title">{{ artist.title }}</h2>
+    </div>
+</div>

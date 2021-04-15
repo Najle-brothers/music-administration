@@ -5,9 +5,16 @@
     height: calc(100% - #{$size-footer-height});
     background-color: $background-color-main;
     display: flex;
+    flex-wrap: wrap;
     overflow: auto;
 
     &__app-card{
+        width: calc(100% - 100px);
+        padding-top: 50px;
+        padding-left: 25px;
+    }
+
+    &__app-genre-card{
         width: calc(100% - 100px);
         padding-top: 50px;
         padding-left: 25px;

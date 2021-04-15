@@ -1,4 +1,4 @@
-<div class="app-card" *ngIf="!isSongShowed">
+<div class="app-card" *ngIf="!isSongShown">
     <div class="app-card__container" *ngFor="let album of albums">
         <div (click)="handleClick(album)">
             <img [src]="album.picture" alt="" class="app-card__img">
@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div class="app-card-song" *ngIf="isSongShowed" (click)="handleClickBack()">
+<div class="app-card-song" *ngIf="isSongShown" (click)="handleClickBack()">
     <ol class="app-card-song__list" *ngFor="let song of songs">
         <li class="app-card-song__item">
             <spam class="app-card-song__song-position">{{ song.position }}</spam>

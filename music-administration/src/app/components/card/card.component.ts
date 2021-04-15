@@ -22,7 +22,7 @@ export class CardComponent implements OnInit {
     id: 0,
     releaseDate: ''
   }
-  public isSongShowed : boolean = false
+  public isSongShown : boolean = false
 
   constructor(
     private artistService: ArtistService,
@@ -30,7 +30,7 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.artistService.getArtistDatabyName('daft-punk').subscribe((response) => {
+    this.artistService.getArtistDatabyName('conxuro').subscribe((response) => {
       this.artist = {
         name: response.name,
         id: response.id
@@ -52,7 +52,7 @@ export class CardComponent implements OnInit {
   }
 
   handleClick(album: any): void {
-    this.isSongShowed = true;
+    this.isSongShown = true;
     this.selectedAlbum = album
     this.albumService.getSongsByAlbumId(album.id).subscribe((response) => {
       this.songs = response.data.map((song) => {
@@ -66,7 +66,7 @@ export class CardComponent implements OnInit {
   }
 
   handleClickBack(): void {
-    this.isSongShowed = false
+    this.isSongShown = false
   }
 
   getYearFromDate(date: string): string {
