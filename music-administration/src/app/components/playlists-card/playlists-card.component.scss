@@ -1,0 +1,163 @@
+@import '../../../assets/styles/variables.scss';
+
+.app-playlists-card{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+
+    :hover{
+        background-color: $background-color-secondary;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    &__container{
+        margin-right: 25px;
+        padding: 5px;
+        width: 250px;
+    }
+
+    &__img{
+        border-radius: 10px;
+    }
+
+    &__title{
+        text-align: left;
+        margin: 10px 0px;
+        font-size: 20px;
+    }
+
+    &__duration{
+        text-align: left;
+        margin: 10px 0px;
+        font-size: 15px;
+    }
+}
+
+.app-playlists-site{    
+    font-family: Arial, Helvetica, sans-serif;
+
+    &__container{
+        width: 100%;
+        padding: 0px;
+    }
+
+    &__header{
+        margin-bottom: 10px;
+        position: relative;
+    }
+    
+    &__information{
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        width: 50%;
+        height: 100%;
+        background-color: $background-color-main-transparency;
+        //background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $background-color-main-transparency);
+    }
+
+    &__info-box{
+        position: absolute;
+        bottom: 25px;
+        justify-content: left;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        padding-left: 30px;
+    }
+
+    &__title{
+        font-size: 50px;
+    }
+
+    &__description{
+        font-size: 25px;
+    }
+
+    &__fans{
+        display: block;
+        font-size: 20px;
+    }
+
+    &__duration{
+        display: block;
+        font-size: 20px;
+    }
+
+    &__img{
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 400px;
+    }
+
+    // Tracklist style
+
+    &__tracklist{
+        display: flex;
+        flex-wrap: wrap;
+
+        :hover{
+            background-color: $background-color-secondary;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+
+    &__list{
+        display: flex;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    &__item{
+        width: 100%;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        padding: 5px 0px;
+    }
+
+    &__song-title{
+        flex: 4;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding-left: 20px;
+        font-size: 20px;
+    }
+
+    &__info{
+        flex: 3;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: center;
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    &__artist{
+        font-size: 20px;
+        text-decoration: none;
+        margin: 0px;
+        padding-bottom: 5px;
+        display: block;
+    }
+
+    &__album{
+        font-size: 10px;
+        text-decoration: none;
+        margin: 0px;
+        display: block;
+    }
+
+    &__song-duration{
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

@@ -75,6 +75,15 @@ export class CardComponent implements OnInit {
 
   secondsToMinutes(seconds: number): string {
     const minutes: number = Math.floor(seconds / 60);
-    return minutes + ":" + (seconds - minutes * 60)
+    return this.twoDigits(minutes) + ":" + this.twoDigits(seconds - minutes * 60)
+  }
+  
+  twoDigits(digit): string {
+    let isItADigit = digit <  10
+    if (isItADigit) {
+      return "0" + digit
+    } else {
+      return digit
+    }
   }
 }
