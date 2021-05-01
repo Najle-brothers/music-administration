@@ -12,6 +12,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 import { CardComponent } from './components/card/card.component';
 import { GenreCardComponent } from './components/genre-card/genre-card.component';
+import { PlaylistsCardComponent } from './components/playlists-card/playlists-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GenreCardComponent } from './components/genre-card/genre-card.component
     MenuComponent,
     ProfileIconComponent,
     CardComponent,
-    GenreCardComponent
+    GenreCardComponent,
+    PlaylistsCardComponent
   ],
   imports: [
     BrowserModule,
