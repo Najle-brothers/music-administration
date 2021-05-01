@@ -44,7 +44,12 @@
         background-color: $background-color-secondary;
         border-radius: 10px;
         cursor: pointer;
-        //color: $text-color-active;
+    }
+    :active{
+        color: $text-color-active;
+        background-color: $background-color-secondary;
+        border-radius: 10px;
+        cursor: pointer;
     }
 
     &__list{
