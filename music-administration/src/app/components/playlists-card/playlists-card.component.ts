@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 
 @Component({
@@ -6,7 +6,9 @@ import { PlaylistsService } from 'src/app/services/playlists.service';
   templateUrl: './playlists-card.component.html',
   styleUrls: ['./playlists-card.component.scss']
 })
-export class PlaylistsCardComponent implements OnInit {
+export class PlaylistsCardComponent implements OnInit, OnChanges {
+
+  @Input() inputSearch: string = ""
 
   public playlists = []
   public selectedPlaylistInfo = {
@@ -16,6 +18,9 @@ export class PlaylistsCardComponent implements OnInit {
     description: '',
     fans: 0,
     duration: 0
+  }
+  public artistId = {
+    id: 0
   }
   public selectedPlaylist = {
     id: 0
@@ -28,7 +33,16 @@ export class PlaylistsCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.playlistsService.getPlaylistByArtistId(27).subscribe((response) => {
+    this.getArtistsPlaylists()
+  }
+
+  ngOnChanges(): void {
+    this.areTracksShown = false
+    this.getArtistId()
+  }
+
+  getArtistsPlaylists(): void {
+    this.playlistsService.getPlaylistByArtistId(this.artistId.id).subscribe((response) => {
       this.playlists = response.data.map((playlist) => {
         return {
           title: playlist.title,
@@ -36,6 +50,16 @@ export class PlaylistsCardComponent implements OnInit {
           picture: playlist.picture_medium
         }
       })
+    })
+  }
+
+  getArtistId(): void {
+    this.playlistsService.getIdByArtist(this.inputSearch).subscribe((response) => {
+      console.log(response)
+      this.artistId = {
+        id: response.data[0].id
+      }
+      this.getArtistsPlaylists()
     })
   }
 
@@ -65,7 +89,7 @@ export class PlaylistsCardComponent implements OnInit {
       })
     })
   }
-
+  
   handleClickBack(): void {
     this.areTracksShown = false
   }

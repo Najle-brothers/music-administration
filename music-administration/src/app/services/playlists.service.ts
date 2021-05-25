@@ -23,4 +23,8 @@ export class PlaylistsService {
     return this.httpService.get('/api/playlist/' + id.toString() + '/tracks')
   }
 
+  getIdByArtist(artist: string): Observable <any> {
+    return this.httpService.get('/api/search/artist?q=' + artist.toString());
+  }
+
 }
