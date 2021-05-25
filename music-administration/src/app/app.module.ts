@@ -13,6 +13,7 @@ import { ProfileIconComponent } from './components/profile-icon/profile-icon.com
 import { CardComponent } from './components/card/card.component';
 import { GenreCardComponent } from './components/genre-card/genre-card.component';
 import { PlaylistsCardComponent } from './components/playlists-card/playlists-card.component';
+import { ArtistWebsiteComponent } from './components/artist-website/artist-website.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PlaylistsCardComponent } from './components/playlists-card/playlists-ca
     ProfileIconComponent,
     CardComponent,
     GenreCardComponent,
-    PlaylistsCardComponent
+    PlaylistsCardComponent,
+    ArtistWebsiteComponent
   ],
   imports: [
     BrowserModule,
