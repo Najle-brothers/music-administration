@@ -1,6 +1,6 @@
 <div class="app-searcher">
     <div class="app-searcher__form">
-        <button type="submit" class="app-searcher__button"><img src="../../../assets/img/lupa.png" alt="" class="app-searcher__icon"></button>
-        <input type="search" class="app-searcher__input" placeholder="Haga su búsqueda aquí..." name="" id="">
+        <button type="submit" class="app-searcher__button" (click)="sendSearch(search.value)"><img src="../../../assets/img/lupa.png" alt="" class="app-searcher__icon"></button>
+        <input type="text" class="app-searcher__input" placeholder="Haga su búsqueda aquí..." name="" id="" #search>
     </div>
 </div>

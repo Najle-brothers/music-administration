@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'music-administration';
+
+  public search: string = "";
+
+  sendSearch(search: string) {
+    this.search = search
+  }
+  
 }

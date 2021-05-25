@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { AlbumService } from 'src/app/services/album.service';
 import { ArtistService } from 'src/app/services/artist.service';
 
@@ -7,7 +7,10 @@ import { ArtistService } from 'src/app/services/artist.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnChanges {
+
+  @Input() inputSearch: string = ""
+
   public artist = {
     name: '',
     id: 0
@@ -30,7 +33,16 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.artistService.getArtistDatabyName('conxuro').subscribe((response) => {
+    this.getArtistAlbum()
+  }
+
+  ngOnChanges(): void {
+    this.isSongShown = false
+    this.getArtistAlbum()
+  }
+
+  getArtistAlbum(): void {
+    this.artistService.getArtistDatabyName(this.inputSearch).subscribe((response) => {
       this.artist = {
         name: response.name,
         id: response.id

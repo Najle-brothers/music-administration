@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { GenreService } from 'src/app/services/genre.service';
 
 @Component({
@@ -6,7 +6,10 @@ import { GenreService } from 'src/app/services/genre.service';
   templateUrl: './genre-card.component.html',
   styleUrls: ['./genre-card.component.scss']
 })
-export class GenreCardComponent implements OnInit {
+export class GenreCardComponent implements OnInit, OnChanges {
+
+  @Input() inputSearch: string = ""
+
   public genre = {
     id: 0,
     name: ''
@@ -26,6 +29,16 @@ export class GenreCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getGenres()
+  }
+
+  ngOnChanges(): void {
+    this.isGenreShown = false;
+    this.getGenres()
+
+  }
+
+  getGenres() {
     this.genreService.getAllGenres().subscribe((response) => {
       this.genre = {
         id: response.id,
