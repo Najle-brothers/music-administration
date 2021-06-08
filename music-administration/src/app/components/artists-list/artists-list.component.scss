@@ -1,0 +1,40 @@
+@import '../../../assets/styles/variables.scss';
+
+.app-artists-card{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+
+    :hover{
+        background-color: $background-color-secondary;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    /*&__generos{
+        font-size: 20px;
+        display: block;
+    }*/
+
+    &__container{
+        margin-right: 25px;
+        padding: 5px;
+        width: 250px;
+    }
+
+    &__title{
+        text-align: left;
+        margin: 10px 0px;
+        font-size: 20px;
+    }
+
+    &__fans{
+        text-align: left;
+        margin: 10px 0px;
+        font-size: 20px;
+    }
+
+    &__img{
+        border-radius: 10px;
+    }
+}

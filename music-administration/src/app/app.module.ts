@@ -12,7 +12,23 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 import { CardComponent } from './components/card/card.component';
 import { GenreCardComponent } from './components/genre-card/genre-card.component';
-import { PlaylistsCardComponent } from './components/playlists-card/playlists-card.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AlbumPageComponent } from './pages/album-page/album-page.component';
+import { ArtistPageComponent } from './pages/artist-page/artist-page.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { AlbumsListComponent } from './components/albums-list/albums-list.component';
+import { PlaylistsListComponent } from './components/playlists-list/playlists-list.component';
+import { TracksListComponent } from './components/tracks-list/tracks-list.component';
+import { ArtistsListComponent } from './components/artists-list/artists-list.component';
+import { AlbumPageHeaderComponent } from './components/album-page-header/album-page-header.component';
+import { AlbumPageTracklistComponent } from './components/album-page-tracklist/album-page-tracklist.component';
+import { ArtistPageHeaderComponent } from './components/artist-page-header/artist-page-header.component';
+import { ArtistPageTracklistComponent } from './components/artist-page-tracklist/artist-page-tracklist.component';
+import { PlaylistPageComponent } from './pages/playlist-page/playlist-page.component';
+import { ArtistPageAlbumComponent } from './components/artist-page-album/artist-page-album.component';
+import { ArtistPagePlaylistComponent } from './components/artist-page-playlist/artist-page-playlist.component';
+import { PlaylistPageHeaderComponent } from './components/playlist-page-header/playlist-page-header.component';
+import { PlaylistPageTracklistComponent } from './components/playlist-page-tracklist/playlist-page-tracklist.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +42,27 @@ import { PlaylistsCardComponent } from './components/playlists-card/playlists-ca
     ProfileIconComponent,
     CardComponent,
     GenreCardComponent,
-    PlaylistsCardComponent
+    AlbumPageComponent,
+    ArtistPageComponent,
+    SearchPageComponent,
+    AlbumsListComponent,
+    PlaylistsListComponent,
+    TracksListComponent,
+    ArtistsListComponent,
+    AlbumPageHeaderComponent,
+    AlbumPageTracklistComponent,
+    ArtistPageHeaderComponent,
+    ArtistPageTracklistComponent,
+    PlaylistPageComponent,
+    ArtistPageAlbumComponent,
+    ArtistPagePlaylistComponent,
+    PlaylistPageHeaderComponent,
+    PlaylistPageTracklistComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

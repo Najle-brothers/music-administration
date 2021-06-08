@@ -1,0 +1,84 @@
+@import '../../../assets/styles/variables.scss';
+
+
+.app-album-page{
+    font-family: Arial, Helvetica, sans-serif;
+    
+    &__tracklist{
+        display: flex;
+        flex-wrap: wrap;
+
+        :hover{
+            background-color: $background-color-secondary;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        :active{
+            color: $text-color-active;
+            background-color: $background-color-secondary;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+
+    &__list{
+        display: flex;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    &__item{
+        width: 100%;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        padding: 5px 0px;
+    }
+
+    &__position{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__info{
+        flex: 3;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: center;
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    &__title{
+        font-size: 20px;
+        margin: 0px;
+        padding-bottom: 5px;
+        /*flex: 4;
+        display: flex;
+        justify-content: left; ESTO NO SE QUE ES. FIJARME SI QUEDA MEJOR O NO
+        align-items: center;
+        padding-left: 20px;
+        font-size: 20px;*/
+    }
+
+    &__artist{
+        font-size: 15px;
+        text-decoration: none;
+        margin: 0px;
+        /*font-size: 20px;
+        text-decoration: none;
+        margin: 0px;
+        padding-bottom: 5px;
+        display: block;*/
+    }
+
+    &__song-duration{
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

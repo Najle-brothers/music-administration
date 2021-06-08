@@ -1,0 +1,13 @@
+<div class="app-playlists-tracks__container">
+    <ol class="app-playlists-site__list" *ngFor="let track of inputTracklist">
+        <li class="app-playlists-site__item">
+            <img [src]="track.picture" alt="" class="app-playlists-tracks__img">
+            <h2 class="app-playlists-site__title">{{ track.title }}</h2>
+            <div class="app-playlists-site__info">
+                <h3 class="app-playlists-site__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
+                <h4 class="app-playlists-site__album" (click)="sendToAlbumPage(track.albumId)">{{ track.album }}</h4>
+            </div>
+            <span class="app-playlists-site__duration">{{ track.duration }}</span>
+        </li>
+    </ol>
+</div>

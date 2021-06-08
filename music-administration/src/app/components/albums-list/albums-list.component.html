@@ -1,0 +1,14 @@
+<h1>ComponenteAlbumList</h1>
+<div> {{ inputAlbums | json }} </div>
+
+
+<div class="app-album-card__container" *ngFor="let album of inputAlbums">
+    <div (click)="sendToAlbumPage(album.id)">
+        <img [src]="album.picture" alt="" class="app-album-card__img">
+        <h2 class="app-album-card__title">{{ album.title }}</h2>
+        <div class="app-album-card__info-box">
+            <h3 class="app-album-card__artist">{{ album.artist }}</h3>
+            <h4 class="app-album-card__date">{{ album.releaseYear }}</h4>
+        </div>
+    </div>
+</div>

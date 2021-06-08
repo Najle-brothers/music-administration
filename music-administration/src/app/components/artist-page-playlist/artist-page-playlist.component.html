@@ -1,0 +1,9 @@
+<div class="app-playlists-card">
+    <div class="app-playlists-card__container" *ngFor="let playlist of inputPlaylists">
+        <div (click)="sendToPlaylistPage(playlist.id)">
+            <img [src]="playlist.picture" alt="" class="app-playlists-card__img">
+            <h2 class="app-playlists-card__title">{{ playlist.title }}</h2>
+            <h3 class="app-playlists-card__duration">{{ playlist.duration }}</h3>
+        </div>
+    </div>
+</div>

@@ -63,7 +63,7 @@ export class CardComponent implements OnInit, OnChanges {
     });
   }
 
-  handleClick(album: any): void {
+  /*handleClick(album: any): void {
     this.isSongShown = true;
     this.selectedAlbum = album
     this.albumService.getSongsByAlbumId(album.id).subscribe((response) => {
@@ -75,7 +75,7 @@ export class CardComponent implements OnInit, OnChanges {
         }
       })
     })
-  }
+  }*/
 
   handleClickBack(): void {
     this.isSongShown = false

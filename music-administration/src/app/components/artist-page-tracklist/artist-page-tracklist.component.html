@@ -1,0 +1,12 @@
+<div class="app-artist-tracklist__container">
+    <ol class="app-artist-tracklist__list" *ngFor="let track of inputTopFive">
+        <li class="app-artist-tracklist__item">
+            <h2 class="app-artist-tracklist__img">{{ track.picture }}</h2>
+            <div class="app-artist-tracklist__info">
+                <h3 class="app-artist-tracklist__title">{{ track.title }}</h3>
+                <h4 class="app-artist-tracklist__album" (click)="sendToAlbum(track.albumId)">{{ track.album }}</h4>
+            </div>
+            <span class="app-artist-tracklist__song-duration">{{ track.duration }}</span>
+        </li>
+    </ol>
+</div>

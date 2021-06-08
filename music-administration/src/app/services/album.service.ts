@@ -15,7 +15,7 @@ export class AlbumService {
     return this.httpService.get('/api/album/' + id.toString())
   }
 
-  getSongsByAlbumId(id: number): Observable<any> {
+  getTracksByAlbumId(id: number): Observable<any> {
     return this.httpService.get('/api/album/' + id.toString() + '/tracks')
   }
 }

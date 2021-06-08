@@ -1,0 +1,31 @@
+@import '../../../assets/styles/variables.scss';
+
+.app-album-card{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+
+    :hover{
+        background-color: $background-color-secondary;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    &__container{
+        margin-right: 25px;
+        padding: 5px;
+        width: 250px;
+    }
+    &__img{
+        border-radius: 10px;
+    }
+    &__title{
+        text-align: left;
+        margin: 10px 0px;
+        font-size: 20px;
+    }
+    &__year{
+        text-align: left;
+        font-size: 15px;
+        margin: 0px;
+    }
+}

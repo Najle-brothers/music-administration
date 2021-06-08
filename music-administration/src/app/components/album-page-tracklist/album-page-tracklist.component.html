@@ -1,0 +1,12 @@
+<div class="app-album-page__tracklist">
+    <ol class="app-album-page__list" *ngFor="let track of inputTracks">
+        <li class="app-album-page__item">
+            <spam class="app-album-page__position">{{ track.position }}</spam>
+            <div class="app-album-page__info">
+                <h2 class="app-album-page__title">{{ track.title }}</h2>
+                <h3 class="app-album-page__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
+            </div>
+            <span class="app-album-page__song-duration">{{ track.duration }}</span>
+        </li>
+    </ol>
+</div>
