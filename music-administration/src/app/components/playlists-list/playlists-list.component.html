@@ -1,5 +1,3 @@
-<div> {{ inputPlaylists | json }} </div>
-
 <div class="app-playlists-card">
     <div class="app-playlists-card__container" *ngFor="let playlist of inputPlaylists">
         <div (click)="sendToPlaylistPage(playlist.id)">

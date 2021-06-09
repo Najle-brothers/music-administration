@@ -39,7 +39,6 @@ export class SearchPageComponent implements OnInit {
   ngOnInit(): void {
     this.stateService.getSearch().subscribe((searchResponse) => {
       this.search = searchResponse
-      console.log(searchResponse)
       //this.getArtistAlbum(searchResponse)
       this.getArtistsListByName(searchResponse)
       this.getAlbumsListByName(searchResponse)
@@ -118,10 +117,10 @@ export class SearchPageComponent implements OnInit {
           id: track.id,
           title: track.title,
           duration: this.secondsToFullDuration(track.duration, true, this.twoDigits),
-          artist: track.artist.name, //hacer
-          artistId: track.artist.id, //hacer
+          artist: track.artist.name,
+          artistId: track.artist.id,
           album: track.album.title,
-          albumId: track.album.id, //hacer
+          albumId: track.album.id,
           albumPic: track.album.cover_small
         }
       })
@@ -151,26 +150,5 @@ export class SearchPageComponent implements OnInit {
   getYearFromDate(date: string): string {
     return date.slice(0,4) 
   }
-
- /* getArtistAlbum(search: string): void {
-    this.artistService.getArtistDatabyName(search).subscribe((response) => {
-      const artist = {
-        name: response.name,
-        id: response.id
-      }
-    const id = artist.id ? artist.id : ""
-      this.artistService.getAlbumsByArtistId(id).subscribe((response) => {
-        this.albums = response.data.map((album) => {
-          return {
-            artist: artist.name,
-            title: album.title,
-            picture: album.cover_medium,
-            id: album.id,
-            releaseDate: album.release_date
-          }
-        })
-      });
-    });
-  }*/
 
 }

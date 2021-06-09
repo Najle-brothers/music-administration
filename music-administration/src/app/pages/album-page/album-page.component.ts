@@ -31,7 +31,9 @@ export class AlbumPageComponent implements OnInit {
   }
 
   getAlbumInfoById(id): void {
+    console.log(id)
     this.albumService.getAlbumInfoById(id).subscribe((response) => {
+      console.log(response)
       this.selectedAlbum = {
         id: response.id,
         title: response.title,
@@ -45,7 +47,9 @@ export class AlbumPageComponent implements OnInit {
   }
 
   getAlbumTrackListById(id): void {
+    console.log(id)
     this.albumService.getTracksByAlbumId(id).subscribe((response) => {
+      console.log(response)
       this.tracks = response.data.map((track) => {
         return {
           id: track.id,

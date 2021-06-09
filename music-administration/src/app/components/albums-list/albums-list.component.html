@@ -1,6 +1,4 @@
 <h1>ComponenteAlbumList</h1>
-<div> {{ inputAlbums | json }} </div>
-
 
 <div class="app-album-card__container" *ngFor="let album of inputAlbums">
     <div (click)="sendToAlbumPage(album.id)">
