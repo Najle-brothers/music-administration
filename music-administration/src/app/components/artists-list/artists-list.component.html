@@ -1,9 +1,10 @@
+<h2 class="app-search-page__title">Artistas</h2>
+
 <div class="app-artists-card">
-    <div *ngFor="let artist of inputArtists">
+    <div *ngFor="let artist of inputArtists" class="app-artists-card__card">
         <div class="app-artists-card__container" (click)="sendToArtistPage(artist.id)">
             <img [src]="artist.picture" alt="" class="app-artists-card__img">
             <h2 class="app-artists-card__title">{{ artist.name }}</h2>
-            <h3 class="app-artists-card__fans">{{ artist.fans }}</h3>
         </div>
     </div>
 </div>

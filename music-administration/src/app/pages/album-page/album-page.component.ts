@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AlbumService } from 'src/app/services/album.service';
+import { CommonsService } from 'src/app/services/commons.service';
 import { StateService } from 'src/app/services/state.service';
 
 @Component({
@@ -17,9 +17,9 @@ export class AlbumPageComponent implements OnInit {
   public tracks = []
 
   constructor(
-    private router: Router,
     private stateService: StateService,
-    private albumService: AlbumService
+    private albumService: AlbumService,
+    private commonsService: CommonsService
   ) { }
 
   ngOnInit(): void {
@@ -38,8 +38,8 @@ export class AlbumPageComponent implements OnInit {
         id: response.id,
         title: response.title,
         picture: response.cover_xl,
-        duration: this.secondsToFullDuration(response.duration, true),
-        fans: this.fansWithCommas(response.fans),
+        duration: this.commonsService.secondsToFullDuration(response.duration, true, this.commonsService.twoDigits),
+        fans: this.commonsService.fansWithCommas(response.fans),
         artist: response.artist.name,
         artistId: response.artist.id
       }
@@ -54,44 +54,13 @@ export class AlbumPageComponent implements OnInit {
         return {
           id: track.id,
           title: track.title,
-          duration: this.secondsToMinutes(track.duration),
-          position: track.position,
-          artist: track.artist,
+          duration: this.commonsService.secondsToFullDuration(track.duration, false, this.commonsService.twoDigits),
+          position: track.track_position,
+          artist: track.artist.name,
           artistId: track.artist.id
         }
       })
     })
-  }
-
-  twoDigits(digit): string {
-    let isItADigit = digit <  10
-    if (isItADigit) {
-      return "0" + digit
-    } else {
-      return digit
-    }
-  }
-
-  secondsToMinutes(seconds: number): string {
-    const minutes: number = Math.floor(seconds / 60);
-    return this.twoDigits(minutes) + ":" + this.twoDigits(seconds - minutes * 60)
-  }
-
-  secondsToFullDuration(seconds: number, isItAnHour: boolean, /*twoDigits*/): string {
-    const minutes: number = Math.floor(seconds / 60);
-    const hours: number = Math.floor(minutes / 60);
-    if (isItAnHour) {
-      return hours + "hs " + this.twoDigits(minutes - hours * 60) + "mins" 
-      //+ this.twoDigits(seconds - minutes * 60)
-    } else {
-      return this.twoDigits(minutes) + ":" + this.twoDigits(seconds - minutes * 60)
-    }
-  }
-
-  fansWithCommas(digits): string {
-    var parts = digits.toString().split(".");
-    parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
-    return "Fans #" + parts.join(",");
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonsService } from 'src/app/services/commons.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import { SearchService } from 'src/app/services/search.service';
 import { StateService } from 'src/app/services/state.service';
@@ -33,7 +34,8 @@ export class SearchPageComponent implements OnInit {
   constructor(
     private stateService: StateService,
     private searchService: SearchService,
-    private playlistService: PlaylistsService
+    private playlistService: PlaylistsService,
+    private commonsService: CommonsService
   ) { }
 
   ngOnInit(): void {
@@ -64,8 +66,8 @@ export class SearchPageComponent implements OnInit {
         return {
         id: album.id,
         title: album.title,
-        picture: album.cover_medium,
-        releaseYear: this.getYearFromDate(album.release_date)
+        artist: album.artist.name,
+        picture: album.cover_medium
         }
       })
     })
@@ -79,7 +81,7 @@ export class SearchPageComponent implements OnInit {
           id: artist.id,
           name: artist.name,
           picture: artist.picture_medium,
-          fans: artist.nb_fan
+          fans: this.commonsService.fansWithCommas(artist.nb_fan)
         }
       })
     })
@@ -91,7 +93,8 @@ export class SearchPageComponent implements OnInit {
         return {
           id: playlist.id,
           title: playlist.title,
-          picture: playlist.picture_medium
+          picture: playlist.picture_medium,
+          user: playlist.user.name
         }
       })
       this.playlistsId = {
@@ -104,7 +107,7 @@ export class SearchPageComponent implements OnInit {
     this.playlistService.getPlaylistInfoByPlaylistId(playlistId).subscribe((response) => {
       this.playlists = response.data.map((playlist) => {
         return {
-          duration: this.secondsToFullDuration(playlist.duration, true, this.twoDigits)
+          duration: this.commonsService.secondsToFullDuration(playlist.duration, true, this.commonsService.twoDigits)
         }
       })
     })
@@ -116,7 +119,7 @@ export class SearchPageComponent implements OnInit {
         return {
           id: track.id,
           title: track.title,
-          duration: this.secondsToFullDuration(track.duration, true, this.twoDigits),
+          duration: this.commonsService.secondsToFullDuration(track.duration, false, this.commonsService.twoDigits),
           artist: track.artist.name,
           artistId: track.artist.id,
           album: track.album.title,
@@ -125,30 +128,6 @@ export class SearchPageComponent implements OnInit {
         }
       })
     })
-  }
-
-  twoDigits(digit): string {
-    let isItADigit = digit <  10
-    if (isItADigit) {
-      return "0" + digit
-    } else {
-      return digit
-    }
-  }
-
-  secondsToFullDuration(seconds: number, isItAnHour: boolean, twoDigits): string {
-    const minutes: number = Math.floor(seconds / 60);
-    const hours: number = Math.floor(minutes / 60);
-    if (isItAnHour) {
-      return hours + "hs " + this.twoDigits(minutes - hours * 60) + "mins" 
-      //+ this.twoDigits(seconds - minutes * 60)
-    } else {
-      return this.twoDigits(minutes) + ":" + this.twoDigits(seconds - minutes * 60)
-    }
-  }
-
-  getYearFromDate(date: string): string {
-    return date.slice(0,4) 
   }
 
 }

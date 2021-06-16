@@ -1,12 +1,15 @@
-<h1>ComponenteAlbumList</h1>
+<h2 class="app-search-page__title">Álbumes</h2>
 
-<div class="app-album-card__container" *ngFor="let album of inputAlbums">
-    <div (click)="sendToAlbumPage(album.id)">
-        <img [src]="album.picture" alt="" class="app-album-card__img">
-        <h2 class="app-album-card__title">{{ album.title }}</h2>
-        <div class="app-album-card__info-box">
-            <h3 class="app-album-card__artist">{{ album.artist }}</h3>
-            <h4 class="app-album-card__date">{{ album.releaseYear }}</h4>
+<div class="app-album-card">
+    <div *ngFor="let album of inputAlbums" class="app-album-card__card">
+        <div class="app-album-card__container" (click)="sendToAlbumPage(album.id)">
+            <div>
+                <img [src]="album.picture" alt="" class="app-album-card__img">
+                <div class="app-album-card__info-box">
+                    <h2 class="app-album-card__title">{{ album.title }}</h2>
+                    <h2 class="app-album-card__artist">{{ album.artist }}</h2>
+                </div>
+            </div>
         </div>
     </div>
 </div>

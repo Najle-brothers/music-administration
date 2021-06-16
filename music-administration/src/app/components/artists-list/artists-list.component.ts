@@ -21,7 +21,7 @@ export class ArtistsListComponent implements OnInit {
 
   sendToArtistPage(id: number){
     this.stateService.setId(id)
-    this.router.navigate(["/album"])
+    this.router.navigate(["/artist"])
   }
 
 }

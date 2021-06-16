@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArtistService } from 'src/app/services/artist.service';
+import { CommonsService } from 'src/app/services/commons.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import { StateService } from 'src/app/services/state.service';
 
@@ -33,7 +34,8 @@ export class ArtistPageComponent implements OnInit {
   constructor(
     private artistService: ArtistService,
     private stateService: StateService,
-    private playlistService: PlaylistsService
+    private playlistService: PlaylistsService,
+    private commonsService: CommonsService
     ) { }
 
   ngOnInit(): void {
@@ -52,7 +54,7 @@ export class ArtistPageComponent implements OnInit {
       this.selectedArtist = {
         id: response.id,
         name: response.name,
-        fans: this.fansWithCommas(response.nb_fan),
+        fans: this.commonsService.fansWithCommas(response.nb_fan),
         picture: response.picture_xl,
       }
     })
@@ -64,7 +66,7 @@ export class ArtistPageComponent implements OnInit {
         return {
         id: tracks.id,
         title: tracks.title,
-        duration: this.secondsToFullDuration(tracks.duration, false, this.twoDigits),
+        duration: this.commonsService.secondsToFullDuration(tracks.duration, false, this.commonsService.twoDigits),
         album: tracks.album.title,
         albumId: tracks.album.id,
         picture: tracks.album.cover_small
@@ -80,7 +82,7 @@ export class ArtistPageComponent implements OnInit {
           id: album.id,
           title: album.title,
           picture: album.cover_medium,
-          year: this.getYearFromDate(album.release_date)
+          year: this.commonsService.getYearFromDate(album.release_date)
         }
       })
     })
@@ -105,40 +107,11 @@ export class ArtistPageComponent implements OnInit {
     this.playlistService.getPlaylistInfoByPlaylistId(playlistId).subscribe((response) => {
       this.playlists = response.data.map((playlist) => {
         return {
-          duration: this.secondsToFullDuration(playlist.duration, true, this.twoDigits)
+          duration: this.commonsService.secondsToFullDuration(playlist.duration, true, this.commonsService.twoDigits)
         }
       })
     })
   }
 
-  twoDigits(digit): string {
-    let isItADigit = digit <  10
-    if (isItADigit) {
-      return "0" + digit
-    } else {
-      return digit
-    }
-  }
-
-  secondsToFullDuration(seconds: number, isItAnHour: boolean, twoDigits): string {
-    const minutes: number = Math.floor(seconds / 60);
-    const hours: number = Math.floor(minutes / 60);
-    if (isItAnHour) {
-      return hours + "hs " + this.twoDigits(minutes - hours * 60) + "mins" 
-      //+ this.twoDigits(seconds - minutes * 60)
-    } else {
-      return this.twoDigits(minutes) + ":" + this.twoDigits(seconds - minutes * 60)
-    }
-  }
-
-  fansWithCommas(digits): string {
-    var parts = digits.toString().split(".");
-    parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
-    return "Fans #" + parts.join(",");
-  }
-
-  getYearFromDate(date: string): string {
-    return date.slice(0,4) 
-  }
-
+  
 }

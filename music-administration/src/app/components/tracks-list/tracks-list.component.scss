@@ -1,13 +1,14 @@
 @import '../../../assets/styles/variables.scss';
 
+.app-search-page{
+    &__title{
+    font-family: $titles-cards-style;
+    margin-left: $titles-cards-marginleft;
+    }
+}
 
 .app-list-songs{
     font-family: Arial, Helvetica, sans-serif;
-    
-    &__container{
-        display: flex;
-        flex-wrap: wrap;
-    }
 
     :hover{
         background-color: $background-color-secondary;
@@ -25,6 +26,7 @@
         display: flex;
         width: 100%;
         margin: 0px;
+        margin-left: 25px;
         padding: 0px;
     }
 
@@ -33,7 +35,11 @@
         list-style-type: none;
         display: flex;
         flex-direction: row;
-        padding: 5px 0px;
+        padding: 5px;
+    }
+
+    &__img{
+        border-radius: 100px;
     }
 
     &__title{

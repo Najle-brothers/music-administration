@@ -18,14 +18,15 @@ export class SearcherComponent implements OnInit {
   ) { }
 
   sendSearch(value: string) {
-    this.stateService.setSearch(value)
-    this.router.navigate(["/search"])
+      this.stateService.setSearch(value)
+      this.router.navigate(["/search"])
   }
 
-
+  // when focus on input enter key should work as a click event
 
   ngOnInit(): void {
   }
+
 
 }
 

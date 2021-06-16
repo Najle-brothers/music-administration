@@ -1,6 +1,9 @@
-<h1>Resultados de la busqueda</h1>
+<h1 class="app-search-page__title">Resultados de la búsqueda</h1>
 
-<app-artists-list [inputArtists]="artists"></app-artists-list>
-<app-tracks-list [inputSongs]="tracks"></app-tracks-list>
-<app-albums-list [inputAlbums]="albums"></app-albums-list>
-<app-playlists-list [inputPlaylists]="playlists"></app-playlists-list>
+<app-tracks-list class="app-search-page__card" [inputSongs]="tracks"></app-tracks-list>
+
+<app-artists-list class="app-search-page__card" [inputArtists]="artists"></app-artists-list>
+
+<app-albums-list class="app-search-page__card" [inputAlbums]="albums"></app-albums-list>
+
+<app-playlists-list class="app-search-page__card" [inputPlaylists]="playlists"></app-playlists-list>
