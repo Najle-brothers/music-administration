@@ -11,11 +11,11 @@ export class AlbumService {
     private httpService: HttpClient
   ) { }
 
-  getAlbumInfoById(id: number): Observable<any> {
+  getAlbumInfoById(id): Observable<any> {
     return this.httpService.get('/api/album/' + id.toString())
   }
 
-  getSongsByAlbumId(id: number): Observable<any> {
+  getTracksByAlbumId(id): Observable<any> {
     return this.httpService.get('/api/album/' + id.toString() + '/tracks')
   }
 }

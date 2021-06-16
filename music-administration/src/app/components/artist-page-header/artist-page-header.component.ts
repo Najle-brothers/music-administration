@@ -1,0 +1,19 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { IArtist, makeArtist } from 'src/app/models/artist';
+import { ArtistService } from 'src/app/services/artist.service';
+
+@Component({
+  selector: 'app-artist-page-header',
+  templateUrl: './artist-page-header.component.html',
+  styleUrls: ['./artist-page-header.component.scss']
+})
+export class ArtistPageHeaderComponent implements OnInit {
+
+  @Input() public inputArtistInfo: IArtist = makeArtist()
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

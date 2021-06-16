@@ -11,20 +11,12 @@ export class PlaylistsService {
     private httpService: HttpClient
   ) { }
 
-  getPlaylistByArtistId(id: number): Observable <any> {
-    return this.httpService.get('/api/artist/' + id.toString() + '/playlists')
-  }
-
-  getInfoPlaylistById(id: number): Observable <any> {
+  getPlaylistInfoByPlaylistId(id): Observable <any> {
     return this.httpService.get('/api/playlist/' + id.toString())
   }
 
-  getTracksByPlaylistId(id: number): Observable <any> {
+  getPlaylistTracksByPlaylistId(id): Observable <any> {
     return this.httpService.get('/api/playlist/' + id.toString() + '/tracks')
   }
-
-  getIdByArtist(artist: string): Observable <any> {
-    return this.httpService.get('/api/search/artist?q=' + artist.toString());
-  }
-
+  
 }

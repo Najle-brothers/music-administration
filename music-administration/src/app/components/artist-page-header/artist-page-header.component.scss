@@ -1,0 +1,48 @@
+@import '../../../assets/styles/variables.scss';
+
+.app-artist-header{    
+    font-family: Arial, Helvetica, sans-serif;
+
+    &__container{
+        margin-bottom: 10px;
+        position: relative;
+        width: 100%;
+        padding: 0px;
+    }
+
+    &__information{
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        width: 50%;
+        height: 100%;
+        background-color: $background-color-main-transparency;
+        //background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $background-color-main-transparency);
+    }
+
+    &__info-box{
+        position: absolute;
+        bottom: 25px;
+        justify-content: left;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        padding-left: 30px;
+    }
+
+    &__title{
+        font-size: 50px;
+    }
+
+    &__fans{
+        display: block;
+        font-size: 20px;
+    }
+
+    &__img{
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 400px;
+    }
+}

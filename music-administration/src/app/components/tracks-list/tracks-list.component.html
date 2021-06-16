@@ -1,0 +1,15 @@
+<h2 class="app-search-page__title">Canciones</h2>
+
+<div class="app-list-songs">
+    <ol class="app-list-songs__list" *ngFor="let track of inputSongs">
+        <li class="app-list-songs__item">
+            <img [src]="track.albumPic" alt="" class="app-list-songs__img">
+            <h2 class="app-list-songs__title">{{ track.title }}</h2>
+            <div class="app-list-songs__info">
+                <h3 class="app-list-songs__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
+                <h4 class="app-list-songs__album" (click)="sendToAlbumPage(track.albumId)">{{ track.album }}</h4>
+            </div>
+            <span class="app-list-songs__duration">{{ track.duration }}</span>
+        </li>
+    </ol>
+</div>
