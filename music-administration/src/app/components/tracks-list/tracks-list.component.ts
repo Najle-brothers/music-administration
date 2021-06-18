@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonsService } from 'src/app/services/commons.service';
 import { StateService } from 'src/app/services/state.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class TracksListComponent implements OnInit {
 
   constructor(
     private stateService: StateService,
-    private router: Router
+    private router: Router,
+    public commons: CommonsService
   ) { }
 
   ngOnInit(): void {

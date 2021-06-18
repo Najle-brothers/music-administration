@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPlaylist, makePlaylist } from 'src/app/models/playlist';
+import { CommonsService } from 'src/app/services/commons.service';
 
 @Component({
   selector: 'app-playlist-page-header',
@@ -10,7 +11,9 @@ export class PlaylistPageHeaderComponent implements OnInit {
 
   @Input() public inputHeader: IPlaylist = makePlaylist()
 
-  constructor() { }
+  constructor(
+    public commons: CommonsService
+  ) { }
 
   ngOnInit(): void {
   }

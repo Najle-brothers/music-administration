@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { StateService } from './state.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonsService {
 
-  constructor() { }
+  constructor(
+    private stateService: StateService
+  ) { }
 
   twoDigits(digit): string {
     let isItADigit = digit <  10
@@ -36,5 +39,11 @@ export class CommonsService {
     parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,".");
     return parts.join(",") + " seguidores";
   }
+
+  startPlayback(id, type){
+    this.stateService.setId(id);
+    this.stateService.setType(type)
+  }
+
 
 }

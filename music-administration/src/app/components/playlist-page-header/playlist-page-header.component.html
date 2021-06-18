@@ -8,6 +8,8 @@
             <p class="app-playlists-header__description">{{ inputHeader.description }}</p>
             <span class="app-playlists-header__fans">{{ inputHeader.fans }}</span>
             <span class="app-playlists-header__duration">{{ inputHeader.duration}}</span>
+            <button class="app-playlists-header__playButton" 
+            (click)="this.commons.playlistInfo(inputHeader.id, inputHeader.type)">Play</button>
         </div>
     </div>
 </div>

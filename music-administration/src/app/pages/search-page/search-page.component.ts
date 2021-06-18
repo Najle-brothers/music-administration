@@ -124,7 +124,8 @@ export class SearchPageComponent implements OnInit {
           artistId: track.artist.id,
           album: track.album.title,
           albumId: track.album.id,
-          albumPic: track.album.cover_small
+          albumPic: track.album.cover_small,
+          type: track.type
         }
       })
     })

@@ -5,8 +5,10 @@ import { AlbumPageComponent } from './pages/album-page/album-page.component';
 import { ArtistPageComponent } from './pages/artist-page/artist-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { PlaylistPageComponent } from './pages/playlist-page/playlist-page.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 const routes: Routes = [
+  {path: "", component: LandingPageComponent},
   {path: "album", component: AlbumPageComponent},
   {path: "artist", component: ArtistPageComponent},
   {path: "search", component: SearchPageComponent},

@@ -3,7 +3,8 @@ export interface IPlaylist {
     title: string,
     description: string,
     fans:string,
-    duration: string
+    duration: string,
+    type: string
 }
 
 export function makePlaylist(): IPlaylist {
@@ -12,6 +13,7 @@ export function makePlaylist(): IPlaylist {
         title: '',
         description: '',
         fans: '',
-        duration: ''
+        duration: '',
+        type: ''
     }
 }

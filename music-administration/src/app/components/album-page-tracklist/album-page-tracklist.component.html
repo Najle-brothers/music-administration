@@ -1,6 +1,6 @@
 <div class="app-album-page">
     <ol class="app-album-page__list" *ngFor="let track of inputTracks">
-        <li class="app-album-page__item">
+        <li class="app-album-page__item" (click)="this.commons.startPlayback(track.id, track.type)">
             <span class="app-album-page__position">{{ track.position }}</span>
             <div class="app-album-page__info">
                 <h2 class="app-album-page__title">{{ track.title }}</h2>

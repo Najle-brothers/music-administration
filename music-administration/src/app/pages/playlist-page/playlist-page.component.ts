@@ -17,7 +17,8 @@ export class PlaylistPageComponent implements OnInit {
     title: '',
     description: '',
     fans: '',
-    duration: ''
+    duration: '',
+    type: ''
   }
 
   public tracks = []
@@ -43,7 +44,8 @@ export class PlaylistPageComponent implements OnInit {
         title: response.title,
         description: response.description,
         fans: this.commonsService.fansWithCommas(response.fans),
-        duration: this.commonsService.secondsToFullDuration(response.duration, true, this.commonsService.twoDigits)
+        duration: this.commonsService.secondsToFullDuration(response.duration, true, this.commonsService.twoDigits),
+        type: response.type
       }
     })
   }
@@ -59,7 +61,8 @@ export class PlaylistPageComponent implements OnInit {
           album: track.album.title,
           albumId: track.album.id, 
           duration: this.commonsService.secondsToFullDuration(track.duration, false, this.commonsService.twoDigits),
-          picture: track.album.cover_small
+          picture: track.album.cover_small,
+          type: track.type
         }
       })
     })
