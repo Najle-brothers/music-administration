@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IPlaylist, makePlaylist } from 'src/app/models/playlist';
 import { CommonsService } from 'src/app/services/commons.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import { StateService } from 'src/app/services/state.service';
@@ -12,14 +13,7 @@ export class PlaylistPageComponent implements OnInit {
 
   playlistId = ""
 
-  public playlistInfo = {
-    picture: '',
-    title: '',
-    description: '',
-    fans: '',
-    duration: '',
-    type: ''
-  }
+  public playlistInfo: IPlaylist = makePlaylist();
 
   public tracks = []
 
@@ -40,6 +34,7 @@ export class PlaylistPageComponent implements OnInit {
   getPlaylistInfoById(id): void {
     this.playlistsService.getPlaylistInfoByPlaylistId(this.playlistId).subscribe((response) => {
       this.playlistInfo = {
+        id: response.id,
         picture: response.picture_xl,
         title: response.title,
         description: response.description,

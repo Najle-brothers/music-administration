@@ -4,7 +4,8 @@ export interface IPlaylist {
     description: string,
     fans:string,
     duration: string,
-    type: string
+    type: string,
+    id: number,
 }
 
 export function makePlaylist(): IPlaylist {
@@ -14,6 +15,7 @@ export function makePlaylist(): IPlaylist {
         description: '',
         fans: '',
         duration: '',
-        type: ''
+        type: '',
+        id: 0,
     }
 }

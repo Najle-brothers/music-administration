@@ -5,7 +5,8 @@ export interface IAlbum {
     artist: string,
     fans: string,
     duration: string,
-    type: string
+    type: string,
+    artistId: string,
 }
 
 export function makeAlbum(): IAlbum {
@@ -16,6 +17,7 @@ export function makeAlbum(): IAlbum {
         artist: '',
         fans: '',
         duration: '',
-        type: ''
+        type: '',
+        artistId: '',
     }
 }

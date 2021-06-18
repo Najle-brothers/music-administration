@@ -12,10 +12,14 @@ export class PlaylistPageHeaderComponent implements OnInit {
   @Input() public inputHeader: IPlaylist = makePlaylist()
 
   constructor(
-    public commons: CommonsService
+    public commons: CommonsService,
   ) { }
 
   ngOnInit(): void {
+  }
+
+  setPlayerData(id: number, type: string) {
+    this.commons.startPlayback(id.toString(), type);
   }
 
 }

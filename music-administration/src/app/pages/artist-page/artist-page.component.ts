@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IArtist, makeArtist } from 'src/app/models/artist';
 import { ArtistService } from 'src/app/services/artist.service';
 import { CommonsService } from 'src/app/services/commons.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
@@ -13,12 +14,7 @@ export class ArtistPageComponent implements OnInit {
 
   id = ""
 
-  public selectedArtist = {
-    id: 0,
-    name: '',
-    fans: '',
-    picture: ''
-  }
+  public selectedArtist: IArtist = makeArtist();
   public topFive = []
 
   public albums = []

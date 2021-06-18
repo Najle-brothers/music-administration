@@ -1,5 +1,7 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
+import { IPlayerData } from 'src/app/models/player';
 import { StateService } from 'src/app/services/state.service';
 
 @Component({
@@ -7,9 +9,9 @@ import { StateService } from 'src/app/services/state.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit, OnChanges {
-  public type: string = "";
-  public id: string = "";
+export class FooterComponent implements OnInit {
+  public playerData: IPlayerData;
+  public subscription: Subscription = new Subscription;
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -17,17 +19,13 @@ export class FooterComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
-    this.stateService.getId().subscribe((idResponse) => {
-      this.id = idResponse
+    this.stateService.getPlayerData().subscribe((typeResponse: IPlayerData) => {
+      this.playerData = typeResponse;
     })
-    this.stateService.getType().subscribe((typeResponse) => {
-      this.type = typeResponse
-    })
-    this.trackListUrl()
   }
 
   trackListUrl(): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`http://wiget.deezer.com/widget/dark/${this.type}/${this.id}?tracklist=false`);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://widget.deezer.com/widget/dark/${this.playerData.type}/${this.playerData.id}?tracklist=false`);
   }
 
 }
