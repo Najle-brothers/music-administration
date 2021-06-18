@@ -1,6 +1,6 @@
 <div class="app-playlists-tracks">
     <ol class="app-playlists-tracks__list" *ngFor="let track of inputTracklist">
-        <li class="app-playlists-tracks__item">
+        <li class="app-playlists-tracks__item" (click)="this.commons.startPlayback(track.id, track.type)">
             <img [src]="track.picture" alt="" class="app-playlists-tracks__img">
             <h2 class="app-playlists-tracks__title">{{ track.title }}</h2>
             <div class="app-playlists-tracks__info">

@@ -29,6 +29,8 @@ import { ArtistPageAlbumComponent } from './components/artist-page-album/artist-
 import { ArtistPagePlaylistComponent } from './components/artist-page-playlist/artist-page-playlist.component';
 import { PlaylistPageHeaderComponent } from './components/playlist-page-header/playlist-page-header.component';
 import { PlaylistPageTracklistComponent } from './components/playlist-page-tracklist/playlist-page-tracklist.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { PlaylistPageTracklistComponent } from './components/playlist-page-track
     ArtistPageAlbumComponent,
     ArtistPagePlaylistComponent,
     PlaylistPageHeaderComponent,
-    PlaylistPageTracklistComponent
+    PlaylistPageTracklistComponent,
+    LandingPageComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

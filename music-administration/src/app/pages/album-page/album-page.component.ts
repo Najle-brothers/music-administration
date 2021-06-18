@@ -41,7 +41,8 @@ export class AlbumPageComponent implements OnInit {
         duration: this.commonsService.secondsToFullDuration(response.duration, true, this.commonsService.twoDigits),
         fans: this.commonsService.fansWithCommas(response.fans),
         artist: response.artist.name,
-        artistId: response.artist.id
+        artistId: response.artist.id,
+        type: response.type
       }
     })
   }
@@ -57,7 +58,8 @@ export class AlbumPageComponent implements OnInit {
           duration: this.commonsService.secondsToFullDuration(track.duration, false, this.commonsService.twoDigits),
           position: track.track_position,
           artist: track.artist.name,
-          artistId: track.artist.id
+          artistId: track.artist.id,
+          type: track.type
         }
       })
     })

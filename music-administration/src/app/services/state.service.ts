@@ -11,6 +11,8 @@ export class StateService {
 
   private id = new BehaviorSubject("")
 
+  private type = new BehaviorSubject("")
+
   constructor() { }
 
   setSearch(search: string): void {
@@ -27,5 +29,13 @@ export class StateService {
 
   getId(){
     return this.id
+  }
+
+  setType(type){
+    this.type.next(type)
+  }
+
+  getType(){
+    return this.type
   }
 }

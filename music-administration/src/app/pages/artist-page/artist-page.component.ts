@@ -69,7 +69,8 @@ export class ArtistPageComponent implements OnInit {
         duration: this.commonsService.secondsToFullDuration(tracks.duration, false, this.commonsService.twoDigits),
         album: tracks.album.title,
         albumId: tracks.album.id,
-        picture: tracks.album.cover_small
+        picture: tracks.album.cover_small,
+        type: tracks.type
         }
       })
     })
