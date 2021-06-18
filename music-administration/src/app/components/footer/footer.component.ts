@@ -7,7 +7,7 @@ import { StateService } from 'src/app/services/state.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit, OnChanges {
+export class FooterComponent implements OnInit {
   public type: string = "";
   public id: string = "";
 
@@ -27,7 +27,7 @@ export class FooterComponent implements OnInit, OnChanges {
   }
 
   trackListUrl(): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`http://wiget.deezer.com/widget/dark/${this.type}/${this.id}?tracklist=false`);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`http://widget.deezer.com/widget/dark/${this.type}/${this.id}?tracklist=false`);
   }
 
 }
