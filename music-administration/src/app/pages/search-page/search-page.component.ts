@@ -29,6 +29,11 @@ export class SearchPageComponent implements OnInit {
     id: 0
   }
 
+  public isArtistLoading: boolean = false;
+  public isAlbumLoading: boolean = false;
+  public isPlaylistLoading: boolean = false;
+  public isTrackLoading: boolean = false;
+
   public tracks = []
 
   constructor(
@@ -61,6 +66,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   getAlbumsListByName(search: string): void {
+    this.isAlbumLoading = true;
     this.searchService.getAlbumsByName(search).subscribe((response) => {
       this.albums = response.data.map((album) => {
         return {
@@ -70,11 +76,13 @@ export class SearchPageComponent implements OnInit {
         picture: album.cover_medium
         }
       })
+      this.isAlbumLoading = false;
     })
     //this.searchService.getAlbumInfoById() PREGUNTAR A LUCAS SI SE PUEDE USAR EL ID DE ACÁ - el servicio no esta hecho.
   }
 
   getArtistsListByName(search: string): void {
+    this.isArtistLoading = true;
     this.searchService.getArtistByName(search).subscribe((response) => {
       this.artists = response.data.map((artist) => {
         return {
@@ -84,10 +92,12 @@ export class SearchPageComponent implements OnInit {
           fans: this.commonsService.fansWithCommas(artist.nb_fan)
         }
       })
+      this.isArtistLoading = false;
     })
   }
 
   getPlaylistsListByName(search: string): void {
+    this.isPlaylistLoading = true;
     this.searchService.getPlaylistsByName(search).subscribe((response) => {
       this.playlists = response.data.map((playlist) => {
         return {
@@ -100,6 +110,7 @@ export class SearchPageComponent implements OnInit {
       this.playlistsId = {
         id: response.id
       }
+      this.isPlaylistLoading = false;
     })
   }
 
@@ -114,6 +125,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   getTracksListByName(search: string): void {
+    this.isTrackLoading = true;
     this.searchService.getTracksByName(search).subscribe((response) => {
       this.tracks = response.data.map((track) => {
         return {
@@ -129,6 +141,7 @@ export class SearchPageComponent implements OnInit {
         }
       })
     })
+    this.isTrackLoading = false;
   }
 
 }
