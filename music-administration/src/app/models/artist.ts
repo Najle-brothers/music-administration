@@ -1,15 +1,15 @@
 export interface IArtist {
     picture: string,
-    title: string,
     fans: string,
-    name: string
+    name: string,
+    id: number,
 }
 
 export function makeArtist(): IArtist {
     return {
         picture: '',
-        title: '',
         fans: '',
-        name: ''
+        name: '',
+        id: 0,
     }
 }

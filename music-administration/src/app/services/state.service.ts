@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ChildActivationStart } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { makePlayerData } from '../models/player';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class StateService {
 
   private id = new BehaviorSubject("")
 
-  private type = new BehaviorSubject("")
+  private playerData = new BehaviorSubject(makePlayerData())
 
   constructor() { }
 
@@ -31,11 +31,11 @@ export class StateService {
     return this.id
   }
 
-  setType(type){
-    this.type.next(type)
+  setPlayerData(type){
+    this.playerData.next(type)
   }
 
-  getType(){
-    return this.type
+  getPlayerData(){
+    return this.playerData
   }
 }

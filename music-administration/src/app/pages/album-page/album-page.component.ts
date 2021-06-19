@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IAlbum, makeAlbum } from 'src/app/models/album';
 import { AlbumService } from 'src/app/services/album.service';
 import { CommonsService } from 'src/app/services/commons.service';
 import { StateService } from 'src/app/services/state.service';
@@ -12,7 +13,7 @@ export class AlbumPageComponent implements OnInit {
 
   id = ""
 
-  public selectedAlbum = {}
+  public selectedAlbum: IAlbum = makeAlbum();
 
   public tracks = []
 
@@ -31,9 +32,7 @@ export class AlbumPageComponent implements OnInit {
   }
 
   getAlbumInfoById(id): void {
-    console.log(id)
     this.albumService.getAlbumInfoById(id).subscribe((response) => {
-      console.log(response)
       this.selectedAlbum = {
         id: response.id,
         title: response.title,
@@ -48,9 +47,7 @@ export class AlbumPageComponent implements OnInit {
   }
 
   getAlbumTrackListById(id): void {
-    console.log(id)
     this.albumService.getTracksByAlbumId(id).subscribe((response) => {
-      console.log(response)
       this.tracks = response.data.map((track) => {
         return {
           id: track.id,

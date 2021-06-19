@@ -40,9 +40,11 @@ export class CommonsService {
     return parts.join(",") + " seguidores";
   }
 
-  startPlayback(id, type){
-    this.stateService.setId(id);
-    this.stateService.setType(type)
+  startPlayback(id: string, type: string){
+    this.stateService.setPlayerData({
+      id,
+      type
+    })
   }
 
 
