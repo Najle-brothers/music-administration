@@ -1,2 +1,5 @@
-<app-album-page-header [inputAlbumHeader]="selectedAlbum"></app-album-page-header>
-<app-album-page-tracklist [inputTracks]="tracks"></app-album-page-tracklist>
+<app-loading *ngIf="isHeaderLoading"></app-loading>
+<app-album-page-header *ngIf="!isHeaderLoading" [inputAlbumHeader]="selectedAlbum"></app-album-page-header>
+
+<app-loading *ngIf="isTracksLoading"></app-loading>
+<app-album-page-tracklist *ngIf="!isTracksLoading" [inputTracks]="tracks"></app-album-page-tracklist>

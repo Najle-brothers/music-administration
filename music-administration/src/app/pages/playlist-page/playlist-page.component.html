@@ -1,2 +1,5 @@
-<app-playlist-page-header [inputHeader]="playlistInfo"></app-playlist-page-header>
-<app-playlist-page-tracklist [inputTracklist]="tracks"></app-playlist-page-tracklist>
+<app-loading *ngIf="isHeaderLoading"></app-loading>
+<app-playlist-page-header *ngIf="!isHeaderLoading" [inputHeader]="playlistInfo"></app-playlist-page-header>
+
+<app-loading *ngIf="isTrackLoading"></app-loading>
+<app-playlist-page-tracklist *ngIf="!isTrackLoading" [inputTracklist]="tracks"></app-playlist-page-tracklist>

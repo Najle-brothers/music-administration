@@ -1,13 +1,13 @@
 <h1 class="app-search-page__title">Resultados de la búsqueda</h1>
 
-<div *ngIf="isTrackLoading">LOADING...</div>
+<app-loading *ngIf="isTrackLoading"></app-loading>
 <app-tracks-list *ngIf="!isTrackLoading" class="app-search-page__card" [inputSongs]="tracks"></app-tracks-list>
 
-<div *ngIf="isArtistLoading">LOADING...</div>
+<app-loading *ngIf="isArtistLoading"></app-loading>
 <app-artists-list *ngIf="!isArtistLoading" class="app-search-page__card" [inputArtists]="artists"></app-artists-list>
 
-<div *ngIf="isAlbumLoading">LOADING...</div>
+<app-loading *ngIf="isAlbumLoading"></app-loading>
 <app-albums-list *ngIf="!isAlbumLoading" class="app-search-page__card" [inputAlbums]="albums"></app-albums-list>
 
-<div *ngIf="isPlaylistLoading">LOADING...</div>
+<app-loading *ngIf="isPlaylistLoading"></app-loading>
 <app-playlists-list *ngIf="!isPlaylistLoading" class="app-search-page__card" [inputPlaylists]="playlists"></app-playlists-list>

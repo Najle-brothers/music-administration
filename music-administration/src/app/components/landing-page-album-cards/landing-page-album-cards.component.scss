@@ -1,0 +1,48 @@
+@import '../../../assets/styles/variables.scss';
+
+.app-landing-page{
+    &__title{
+    font-family: $titles-cards-style;
+    margin-left: $titles-cards-marginleft;
+    }
+}
+
+.app-album-card{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 25px;
+
+    &__card{
+        :hover{
+            background-color: $background-color-secondary;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+    
+    &__container{
+        text-align: center;
+        width: 250px;
+        padding: 5px;   
+    }
+
+    &__img{
+        border-radius: 10px;
+    }
+
+    &__info-box{
+        text-align: left;
+        font-size: 15px;
+    }
+
+    &__title{
+        text-align: left;
+        margin: 10px 0px;
+        font-size: 20px;
+    }
+
+    &__artist{
+        margin: 0px;
+    }
+}
