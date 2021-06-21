@@ -36,6 +36,7 @@ import { LandingPageAlbumCardsComponent } from './components/landing-page-album-
 import { LandingPagePlaylistCardsComponent } from './components/landing-page-playlist-cards/landing-page-playlist-cards.component';
 import { LandingPageTrackslistComponent } from './components/landing-page-trackslist/landing-page-trackslist.component';
 import { LandingPageGreetingsComponent } from './components/landing-page-greetings/landing-page-greetings.component';
+import { PlayButtonComponent } from './components/play-button/play-button.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { LandingPageGreetingsComponent } from './components/landing-page-greetin
     LandingPageAlbumCardsComponent,
     LandingPagePlaylistCardsComponent,
     LandingPageTrackslistComponent,
-    LandingPageGreetingsComponent
+    LandingPageGreetingsComponent,
+    PlayButtonComponent
   ],
   imports: [
     BrowserModule,

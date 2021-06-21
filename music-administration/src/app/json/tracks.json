@@ -4,7 +4,9 @@
             "id": 1124841682,
             "title": "levitating",
             "artist": "Dua Lipa",
+            "artistId": 8706544,
             "album": "Future Nostalgia",
+            "albumId": 182811182,
             "duration": 203,
             "type": "track",
             "cover_small": "https://cdns-images.dzcdn.net/images/cover/d0f8d853e871838a4a6d8e5b7cdd1432/56x56-000000-80-0-0.jpg"
@@ -14,7 +16,9 @@
             "id": 1016615882,
             "title": "electrified" ,
             "artist": "Lost Frequencies",
+            "artistId": 5866223,
             "album": "Cup Of Beats",
+            "albumId": 159737512,
             "duration": 220,
             "type": "track",
             "cover_small": "https://cdns-images.dzcdn.net/images/cover/b620e0d1ed766956abd55a7bee955ba4/56x56-000000-80-0-0.jpg"
@@ -24,7 +28,9 @@
             "id": 358481641,
             "title": "hey hey hey",
             "artist": "Chemical Surf",
+            "artistId": 4747778,
             "album": "Hey Hey Hey",
+            "albumId": 41203101,
             "duration": 321,
             "type": "track",
             "cover_small": "https://cdns-images.dzcdn.net/images/cover/f57e0f06b22d7f7d6784124090fb9917/56x56-000000-80-0-0.jpg"
@@ -34,7 +40,9 @@
             "id": 532031481,
             "title": "space date",
             "artist": "Adam Beyer",
+            "artistId": 262460,
             "album": "Space Date",
+            "albumId": 69006601,
             "duration": 396,
             "type": "track",
             "cover_small": "https://cdns-images.dzcdn.net/images/cover/3a42b12d27d938293575bbc9144f6051/56x56-000000-80-0-0.jpg"
@@ -44,10 +52,12 @@
             "id": 509041232,
             "title": "your mind",
             "artist": "Adam Beyer",
+            "artistId": 262460,
             "album": "Your Mind",
+            "albumId": 65154482,
             "duration": 502,
             "type": "track",
-            "https": "//cdns-images.dzcdn.net/images/cover/6ec9e3f9a2a89cb28a674f21371d745b/56x56-000000-80-0-0.jpg"
+            "cover_small": "https://cdns-images.dzcdn.net/images/cover/6ec9e3f9a2a89cb28a674f21371d745b/56x56-000000-80-0-0.jpg"
         }
     ] 
 }

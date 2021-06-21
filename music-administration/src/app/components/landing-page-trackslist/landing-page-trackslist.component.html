@@ -1,8 +1,8 @@
 <h2 class="app-landing-page__title">Canciones escuchadas recientemente</h2>
 
 <div class="app-list-songs">
-    <ol class="app-list-songs__list" *ngFor="let track of inputSong">
-        <li class="app-list-songs__item" (click)="this.commons.startPlayback(track.id, track.type)">
+    <ol class="app-list-songs__list" *ngFor="let track of inputTrack">
+        <li class="app-list-songs__item" (click)="setPlayerData(track.id, track.type)">
             <img [src]="track.picture" alt="" class="app-list-songs__img">
             <h2 class="app-list-songs__title">{{ track.title }}</h2>
             <div class="app-list-songs__info">

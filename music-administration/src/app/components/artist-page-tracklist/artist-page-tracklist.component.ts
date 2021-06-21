@@ -26,4 +26,8 @@ export class ArtistPageTracklistComponent implements OnInit {
     this.router.navigate(['/album'])
   }
 
+  setPlayerData(id: number, type: string) {
+    this.commons.startPlayback(id.toString(), type);
+  }
+
 }

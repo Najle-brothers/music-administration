@@ -38,6 +38,10 @@
         font-size: 25px;
     }
 
+    &__detailed-info{
+        display: block;
+    }
+
     &__fans{
         display: block;
         font-size: 20px;
@@ -46,6 +50,26 @@
     &__duration{
         display: block;
         font-size: 20px;
+    }
+
+    &__playButton{
+        display: flex;
+        flex-direction: row;
+        font-size: 50px;
+
+        :hover{
+            background-color: $background-color-secondary;
+            border-radius: 100px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        :active{
+            background-color: $background-color-secondary;
+            border-radius: 100px;
+            margin: 5px;
+            cursor: pointer;
+        }
     }
 
     &__img{

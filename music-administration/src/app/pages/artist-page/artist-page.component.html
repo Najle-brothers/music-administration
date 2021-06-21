@@ -1,8 +1,8 @@
 <app-loading *ngIf="isHeaderLoading"></app-loading>
 <app-artist-page-header *ngIf="!isHeaderLoading" [inputArtistInfo]="selectedArtist"></app-artist-page-header>
 
-<app-loading *ngIf="isTracksLoading"></app-loading>
-<app-artist-page-tracklist *ngIf="!isTracksLoading" [inputTopFive]="topFive"></app-artist-page-tracklist>
+<app-loading *ngIf="isTrackLoading"></app-loading>
+<app-artist-page-tracklist *ngIf="!isTrackLoading" [inputTopFive]="topFive"></app-artist-page-tracklist>
 
 <app-loading *ngIf="isAlbumLoading"></app-loading>
 <app-artist-page-album *ngIf="!isAlbumLoading" [inputAlbums]="albums"></app-artist-page-album>

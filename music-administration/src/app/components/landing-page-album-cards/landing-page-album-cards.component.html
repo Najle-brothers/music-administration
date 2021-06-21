@@ -2,7 +2,7 @@
 
 <div class="app-album-card">
     <div *ngFor="let album of inputAlbum" class="app-album-card__card">
-        <div class="app-album-card__container" (click)="sendToAlbum(album.id)">
+        <div class="app-album-card__container" (click)="sendToAlbumPage(album.id)">
             <img [src]="album.picture" alt="" class="app-album-card__img">
             <div class="app-album-card__info-box">
                 <h2 class="app-album-card__title">{{ album.title }}</h2>

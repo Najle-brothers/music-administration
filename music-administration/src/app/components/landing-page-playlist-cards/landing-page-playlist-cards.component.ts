@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonsService } from 'src/app/services/commons.service';
 import { StateService } from 'src/app/services/state.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class LandingPagePlaylistCardsComponent implements OnInit {
 
   constructor(
     private stateService: StateService,
-    private router: Router    
+    private router: Router,
+    private commonsService: CommonsService  
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +24,10 @@ export class LandingPagePlaylistCardsComponent implements OnInit {
   sendToPlaylistPage(id: number){
     this.stateService.setId(id)
     this.router.navigate(["/playlist"])
+  }
+
+  setPlayerData(id: number, type: string) {
+    this.commonsService.startPlayback(id.toString(), type);
   }
 
 }

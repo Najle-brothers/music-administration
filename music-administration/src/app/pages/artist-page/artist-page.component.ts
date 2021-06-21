@@ -87,8 +87,8 @@ export class ArtistPageComponent implements OnInit {
           picture: tracks.album.cover_small,
           type: tracks.type
           }
-        this.isTrackLoading = false
         })
+        this.isTrackLoading = false
       })
     )
   }

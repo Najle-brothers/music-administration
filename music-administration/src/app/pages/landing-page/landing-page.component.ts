@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IUser, makeUser } from 'src/app/models/user';
+import { CommonsService } from 'src/app/services/commons.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -26,6 +27,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private userService: UserService,
+    private commonsService: CommonsService
   ) { }
 
   ngOnInit(): void {
@@ -97,8 +99,10 @@ export class LandingPageComponent implements OnInit, OnDestroy {
             id: track.id,
             title: track.title,
             artist: track.artist,
+            artistId: track.artistId,
             album: track.album,
-            duration: track.duration,
+            albumId: track.albumId,
+            duration: this.commonsService.secondsToFullDuration(track.duration, false, this.commonsService.twoDigits),
             type: track.type,
             picture: track.cover_small
           }
@@ -111,12 +115,12 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   getPlaylistsById(): void {
     this.isPlaylistLoading = true;
     this.subscription.add(
-      this.userService.getTracksByUserId().subscribe((response) => {
+      this.userService.getPlaylistsByUserId().subscribe((response) => {
         this.playlists = response.playlists.map((playlist) => {
           return {
             id: playlist.id,
             title: playlist.title,
-            duration: playlist.duration,
+            duration: this.commonsService.secondsToFullDuration(playlist.duration, true, this.commonsService.twoDigits),
             picture: playlist.picture,
             type: playlist.type
           }
