@@ -12,6 +12,7 @@ import { StateService } from 'src/app/services/state.service';
 export class FooterComponent implements OnInit {
   public playerData: IPlayerData;
   public subscription: Subscription = new Subscription;
+  public playerURL: SafeResourceUrl;
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -21,6 +22,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.stateService.getPlayerData().subscribe((typeResponse: IPlayerData) => {
       this.playerData = typeResponse;
+      this.playerURL = this.trackListUrl();
     })
   }
 

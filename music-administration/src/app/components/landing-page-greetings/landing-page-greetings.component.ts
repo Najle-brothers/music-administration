@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IUser, makeUser } from 'src/app/models/user';
 
 @Component({
   selector: 'app-landing-page-greetings',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LandingPageGreetingsComponent implements OnInit {
 
-  @Input() public inputUser = ''
+  @Input() public inputUser: IUser = makeUser();
 
   constructor() { }
 

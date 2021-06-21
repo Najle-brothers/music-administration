@@ -158,9 +158,9 @@ export class SearchPageComponent implements OnInit, OnDestroy {
             type: track.type
           }
         })
+        this.isTrackLoading = false;
       })
     )
-    this.isTrackLoading = false;
   }
 
 }

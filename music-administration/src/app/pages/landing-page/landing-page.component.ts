@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { IUser, makeUser } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -16,10 +17,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   public isAlbumLoading: boolean = false;
   public isPlaylistLoading: boolean = false;
 
-  public user = {
-    userName: ''
-  }
-
+  public user: IUser = makeUser();
   public artists = []
   public tracks = []
   public albums = []
@@ -31,9 +29,11 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.subscription.add(
-      // CÓDIGO ACÁ
-    )
+      this.getGreetingWithUserName()
+      this.getArtistById()
+      this.getAlbumsById()
+      this.getPlaylistsById()
+      this.getTracksById()
   }
 
   ngOnDestroy(): void {
@@ -45,14 +45,17 @@ export class LandingPageComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.userService.getUserData().subscribe((response) => {
         this.user = {
-          userName: response.name
+          id: response.id,
+          userName: response.name,
+          name: response.name,
+          lastName: response.lastname
         }
         this.isHeaderLoading = false
       })
     )
   }
 
-  getArtistisById(): void {
+  getArtistById(): void {
     this.isArtistLoading = true;
     this.subscription.add(
       this.userService.getArtistsByUserId().subscribe((response) => {
