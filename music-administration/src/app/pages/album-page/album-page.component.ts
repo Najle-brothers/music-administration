@@ -13,6 +13,9 @@ import { StateService } from 'src/app/services/state.service';
 export class AlbumPageComponent implements OnInit, OnDestroy {
   public subscription: Subscription = new Subscription;
 
+  public isHeaderLoading: boolean = false;
+  public isTracksLoading: boolean = false;
+
   id = ""
 
   public selectedAlbum: IAlbum = makeAlbum();
@@ -40,6 +43,7 @@ export class AlbumPageComponent implements OnInit, OnDestroy {
   }
 
   getAlbumInfoById(id): void {
+    this.isHeaderLoading = true;
     this.subscription.add(
       this.albumService.getAlbumInfoById(id).subscribe((response) => {
         this.selectedAlbum = {
@@ -52,11 +56,13 @@ export class AlbumPageComponent implements OnInit, OnDestroy {
           artistId: response.artist.id,
           type: response.type
         }
+        this.isHeaderLoading = false;
       })
     );
   }
 
   getAlbumTrackListById(id): void {
+    this.isTracksLoading = true
     this.subscription.add(
       this.albumService.getTracksByAlbumId(id).subscribe((response) => {
         this.tracks = response.data.map((track) => {
@@ -70,6 +76,7 @@ export class AlbumPageComponent implements OnInit, OnDestroy {
             type: track.type
           }
         })
+        this.isTracksLoading = false;
       })
     );
   }

@@ -1,7 +1,11 @@
-<app-artist-page-header [inputArtistInfo]="selectedArtist"></app-artist-page-header>
+<app-loading *ngIf="isHeaderLoading"></app-loading>
+<app-artist-page-header *ngIf="!isHeaderLoading" [inputArtistInfo]="selectedArtist"></app-artist-page-header>
 
-<app-artist-page-tracklist [inputTopFive]="topFive"></app-artist-page-tracklist>
+<app-loading *ngIf="isTracksLoading"></app-loading>
+<app-artist-page-tracklist *ngIf="!isTracksLoading" [inputTopFive]="topFive"></app-artist-page-tracklist>
 
-<app-artist-page-album [inputAlbums]="albums"></app-artist-page-album>
+<app-loading *ngIf="isAlbumLoading"></app-loading>
+<app-artist-page-album *ngIf="!isAlbumLoading" [inputAlbums]="albums"></app-artist-page-album>
 
-<app-artist-page-playlist [inputPlaylists]="playlists"></app-artist-page-playlist>
+<app-loading *ngIf="isPlaylistLoading"></app-loading>
+<app-artist-page-playlist *ngIf="!isPlaylistLoading" [inputPlaylists]="playlists"></app-artist-page-playlist>

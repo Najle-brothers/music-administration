@@ -31,6 +31,11 @@ import { PlaylistPageHeaderComponent } from './components/playlist-page-header/p
 import { PlaylistPageTracklistComponent } from './components/playlist-page-tracklist/playlist-page-tracklist.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { LandingPageArtistCardsComponent } from './components/landing-page-artist-cards/landing-page-artist-cards.component';
+import { LandingPageAlbumCardsComponent } from './components/landing-page-album-cards/landing-page-album-cards.component';
+import { LandingPagePlaylistCardsComponent } from './components/landing-page-playlist-cards/landing-page-playlist-cards.component';
+import { LandingPageTrackslistComponent } from './components/landing-page-trackslist/landing-page-trackslist.component';
+import { LandingPageGreetingsComponent } from './components/landing-page-greetings/landing-page-greetings.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +66,12 @@ import { LoadingComponent } from './components/loading/loading.component';
     PlaylistPageHeaderComponent,
     PlaylistPageTracklistComponent,
     LandingPageComponent,
-    LoadingComponent
+    LoadingComponent,
+    LandingPageArtistCardsComponent,
+    LandingPageAlbumCardsComponent,
+    LandingPagePlaylistCardsComponent,
+    LandingPageTrackslistComponent,
+    LandingPageGreetingsComponent
   ],
   imports: [
     BrowserModule,

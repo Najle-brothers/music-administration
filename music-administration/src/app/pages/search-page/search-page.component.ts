@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CommonsService } from 'src/app/services/commons.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 import { SearchService } from 'src/app/services/search.service';
@@ -9,7 +10,8 @@ import { StateService } from 'src/app/services/state.service';
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.scss']
 })
-export class SearchPageComponent implements OnInit {
+export class SearchPageComponent implements OnInit, OnDestroy {
+  public subscription: Subscription = new Subscription;
 
   search = ""
 
@@ -44,104 +46,121 @@ export class SearchPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.stateService.getSearch().subscribe((searchResponse) => {
-      this.search = searchResponse
+    this.subscription.add(
+      this.stateService.getSearch().subscribe((searchResponse) => {
+        this.search = searchResponse
       //this.getArtistAlbum(searchResponse)
       this.getArtistsListByName(searchResponse)
       this.getAlbumsListByName(searchResponse)
       this.getPlaylistsListByName(searchResponse)
       this.getPlaylistDurationByPlaylistId(searchResponse)
       this.getTracksListByName(searchResponse)
-    })
+      })
+    )
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   getArtistInfoByName(search: string): void {
-    this.searchService.getArtistByName(search).subscribe((response) => {
-      this.artist = {
-        id: response.id,
-        name: response.name,
-        picture: response.picture_medium
-      }
-    })
+    this.subscription.add(
+      this.searchService.getArtistByName(search).subscribe((response) => {
+        this.artist = {
+          id: response.id,
+          name: response.name,
+          picture: response.picture_medium
+        }
+      })
+    )
   }
 
   getAlbumsListByName(search: string): void {
     this.isAlbumLoading = true;
-    this.searchService.getAlbumsByName(search).subscribe((response) => {
-      this.albums = response.data.map((album) => {
-        return {
-        id: album.id,
-        title: album.title,
-        artist: album.artist.name,
-        picture: album.cover_medium
-        }
+    this.subscription.add(
+      this.searchService.getAlbumsByName(search).subscribe((response) => {
+        this.albums = response.data.map((album) => {
+          return {
+          id: album.id,
+          title: album.title,
+          artist: album.artist.name,
+          picture: album.cover_medium
+          }
+        })
+        this.isAlbumLoading = false;
       })
-      this.isAlbumLoading = false;
-    })
-    //this.searchService.getAlbumInfoById() PREGUNTAR A LUCAS SI SE PUEDE USAR EL ID DE ACÁ - el servicio no esta hecho.
+    )
   }
 
   getArtistsListByName(search: string): void {
     this.isArtistLoading = true;
-    this.searchService.getArtistByName(search).subscribe((response) => {
-      this.artists = response.data.map((artist) => {
-        return {
-          id: artist.id,
-          name: artist.name,
-          picture: artist.picture_medium,
-          fans: this.commonsService.fansWithCommas(artist.nb_fan)
-        }
+    this.subscription.add(
+      this.searchService.getArtistByName(search).subscribe((response) => {
+        this.artists = response.data.map((artist) => {
+          return {
+            id: artist.id,
+            name: artist.name,
+            picture: artist.picture_medium,
+            fans: this.commonsService.fansWithCommas(artist.nb_fan)
+          }
+        })
+        this.isArtistLoading = false;
       })
-      this.isArtistLoading = false;
-    })
+    )
   }
 
   getPlaylistsListByName(search: string): void {
     this.isPlaylistLoading = true;
-    this.searchService.getPlaylistsByName(search).subscribe((response) => {
-      this.playlists = response.data.map((playlist) => {
-        return {
-          id: playlist.id,
-          title: playlist.title,
-          picture: playlist.picture_medium,
-          user: playlist.user.name
+    this.subscription.add(
+      this.searchService.getPlaylistsByName(search).subscribe((response) => {
+        this.playlists = response.data.map((playlist) => {
+          return {
+            id: playlist.id,
+            title: playlist.title,
+            picture: playlist.picture_medium,
+            user: playlist.user.name
+          }
+        })
+        this.playlistsId = {
+          id: response.id
         }
+        this.isPlaylistLoading = false;
       })
-      this.playlistsId = {
-        id: response.id
-      }
-      this.isPlaylistLoading = false;
-    })
+    )
   }
 
   getPlaylistDurationByPlaylistId(playlistId): void {
-    this.playlistService.getPlaylistInfoByPlaylistId(playlistId).subscribe((response) => {
-      this.playlists = response.data.map((playlist) => {
-        return {
-          duration: this.commonsService.secondsToFullDuration(playlist.duration, true, this.commonsService.twoDigits)
-        }
+    this.subscription.add(
+      this.playlistService.getPlaylistInfoByPlaylistId(playlistId).subscribe((response) => {
+        this.playlists = response.data.map((playlist) => {
+          return {
+            duration: this.commonsService.secondsToFullDuration(playlist.duration, true, this.commonsService.twoDigits)
+          }
+        })
       })
-    })
+    )
   }
 
   getTracksListByName(search: string): void {
     this.isTrackLoading = true;
-    this.searchService.getTracksByName(search).subscribe((response) => {
-      this.tracks = response.data.map((track) => {
-        return {
-          id: track.id,
-          title: track.title,
-          duration: this.commonsService.secondsToFullDuration(track.duration, false, this.commonsService.twoDigits),
-          artist: track.artist.name,
-          artistId: track.artist.id,
-          album: track.album.title,
-          albumId: track.album.id,
-          albumPic: track.album.cover_small,
-          type: track.type
-        }
+    this.subscription.add(
+      this.searchService.getTracksByName(search).subscribe((response) => {
+        this.tracks = response.data.map((track) => {
+          return {
+            id: track.id,
+            title: track.title,
+            duration: this.commonsService.secondsToFullDuration(track.duration, false, this.commonsService.twoDigits),
+            artist: track.artist.name,
+            artistId: track.artist.id,
+            album: track.album.title,
+            albumId: track.album.id,
+            albumPic: track.album.cover_small,
+            type: track.type
+          }
+        })
+        this.isTrackLoading = false;
       })
-    })
-    this.isTrackLoading = false;
+    )
   }
 
 }

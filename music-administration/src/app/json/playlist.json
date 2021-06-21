@@ -1,0 +1,35 @@
+{
+    "playlists": [
+        {
+            "id": 1579931327,
+            "title": "Gym: Música para hacer ejercicio en casa 2021",
+            "duration": 39616,
+            "picture": "https://cdns-images.dzcdn.net/images/playlist/d39c6767ac3e5413e044becff203aa09/250x250-000000-80-0-0.jpg",
+            "type": "playlist"
+        },
+
+        {   
+            "id": 1868167046,
+            "title": "Top Hits Argentina",
+            "duration": 9839,
+            "picture": "https://cdns-images.dzcdn.net/images/playlist/ab74e25f45572414205040cdf881b4a7/250x250-000000-80-0-0.jpg",
+            "type": "playlist"
+        },
+    
+        {   
+            "id": 1306085715,
+            "title": "Lo-Fi Hip-Hop",
+            "duration": 20729,
+            "picture": "https://cdns-images.dzcdn.net/images/playlist/44cb7a0167cee4de2db26797c746e26c/250x250-000000-80-0-0.jpg",
+            "type": "playlist"
+        },
+    
+        {
+            "id": 2979302822,
+            "title": "West Coast Essentials",
+            "duration": 12850,
+            "picture": "https://cdns-images.dzcdn.net/images/playlist/b4acf86c718059e7defae40d19847970/250x250-000000-80-0-0.jpg",
+            "type": "playlist"
+        }
+    ]
+}
