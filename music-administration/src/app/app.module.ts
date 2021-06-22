@@ -37,6 +37,7 @@ import { LandingPagePlaylistCardsComponent } from './components/landing-page-pla
 import { LandingPageTrackslistComponent } from './components/landing-page-trackslist/landing-page-trackslist.component';
 import { LandingPageGreetingsComponent } from './components/landing-page-greetings/landing-page-greetings.component';
 import { PlayButtonComponent } from './components/play-button/play-button.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,8 @@ import { PlayButtonComponent } from './components/play-button/play-button.compon
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
