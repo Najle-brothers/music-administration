@@ -23,7 +23,7 @@ export class LandingPagePlaylistCardsComponent implements OnInit {
   
   sendToPlaylistPage(id: number){
     this.stateService.setId(id)
-    this.router.navigate(["/playlist"])
+    this.router.navigate(["/playlist", id])
   }
 
   setPlayerData(id: number, type: string) {

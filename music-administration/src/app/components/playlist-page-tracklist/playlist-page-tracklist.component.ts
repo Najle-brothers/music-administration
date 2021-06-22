@@ -28,7 +28,7 @@ export class PlaylistPageTracklistComponent implements OnInit {
 
   sendToArtistPage(id: number){
     this.stateService.setId(id)
-    this.router.navigate(["/artist"])
+    this.router.navigate(["/artist", id])
   }
 
   setPlayerData(id: number, type: string) {

@@ -10,9 +10,9 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 const routes: Routes = [
   {path: "", component: LandingPageComponent},
   {path: "album/:id", component: AlbumPageComponent},
-  {path: "artist", component: ArtistPageComponent},
+  {path: "artist/:id", component: ArtistPageComponent},
   {path: "search", component: SearchPageComponent},
-  {path: "playlist", component: PlaylistPageComponent}
+  {path: "playlist/:id", component: PlaylistPageComponent}
 ]
 
 @NgModule({

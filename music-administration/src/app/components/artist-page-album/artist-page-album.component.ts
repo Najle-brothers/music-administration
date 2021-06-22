@@ -21,7 +21,7 @@ export class ArtistPageAlbumComponent implements OnInit {
 
   sendToAlbum(id: number){
     this.stateService.setId(id)
-    this.router.navigate(['/album'])
+    this.router.navigate(['/album', id])
   }
 
 }
