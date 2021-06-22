@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CommonsService } from 'src/app/services/commons.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
@@ -42,19 +43,19 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     private stateService: StateService,
     private searchService: SearchService,
     private playlistService: PlaylistsService,
-    private commonsService: CommonsService
+    private commonsService: CommonsService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     this.subscription.add(
-      this.stateService.getSearch().subscribe((searchResponse) => {
-        this.search = searchResponse
-      //this.getArtistAlbum(searchResponse)
-      this.getArtistsListByName(searchResponse)
-      this.getAlbumsListByName(searchResponse)
-      this.getPlaylistsListByName(searchResponse)
-      this.getPlaylistDurationByPlaylistId(searchResponse)
-      this.getTracksListByName(searchResponse)
+      this.route.params.subscribe((params) => {
+        this.search = params.search
+        //this.getArtistAlbum(searchResponse)
+        this.getArtistsListByName(this.search)
+        this.getAlbumsListByName(this.search)
+        this.getPlaylistsListByName(this.search)
+        this.getTracksListByName(this.search)
       })
     )
   }
@@ -129,7 +130,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     )
   }
 
-  getPlaylistDurationByPlaylistId(playlistId): void {
+  /*getPlaylistDurationByPlaylistId(playlistId): void {
     this.subscription.add(
       this.playlistService.getPlaylistInfoByPlaylistId(playlistId).subscribe((response) => {
         this.playlists = response.data.map((playlist) => {
@@ -139,7 +140,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
         })
       })
     )
-  }
+  }*/
 
   getTracksListByName(search: string): void {
     this.isTrackLoading = true;

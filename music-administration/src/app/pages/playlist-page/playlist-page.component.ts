@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IPlaylist, makePlaylist } from 'src/app/models/playlist';
 import { CommonsService } from 'src/app/services/commons.service';
@@ -25,15 +26,16 @@ export class PlaylistPageComponent implements OnInit {
   constructor(
     private stateService: StateService,
     private playlistsService: PlaylistsService,
-    private commonsService: CommonsService
+    private commonsService: CommonsService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     this.subscription.add(
-      this.stateService.getId().subscribe((idResponse) => {
-        this.playlistId = idResponse
-        this.getPlaylistInfoById(idResponse)
-        this.getPlaylistTracksById(idResponse)
+      this.route.params.subscribe((params) => {
+        this.playlistId = params.id;
+        this.getPlaylistInfoById(this.playlistId);
+        this.getPlaylistTracksById(this.playlistId);
       })
     )
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IArtist, makeArtist } from 'src/app/models/artist';
 import { ArtistService } from 'src/app/services/artist.service';
@@ -38,18 +39,19 @@ export class ArtistPageComponent implements OnInit {
     private artistService: ArtistService,
     private stateService: StateService,
     private playlistService: PlaylistsService,
-    private commonsService: CommonsService
+    private commonsService: CommonsService,
+    private route: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
     this.subscription.add(
-      this.stateService.getId().subscribe((idResponse) => {
-        this.id = idResponse
-        this.getArtistInfoById(idResponse)
-        this.getTopFiveListById(idResponse)
-        this.getArtistAlbumsById(idResponse)
-        this.getArtistPlaylistsById(idResponse)
-        this.getPlaylistDurationByPlaylistId(idResponse)
+      this.route.params.subscribe((params) => {
+        this.id = params.id;
+        this.getArtistInfoById(this.id);
+        this.getTopFiveListById(this.id);
+        this.getArtistAlbumsById(this.id);
+        this.getArtistPlaylistsById(this.id);
+        this.getPlaylistDurationByPlaylistId(this.id);
       })
     )
   }
