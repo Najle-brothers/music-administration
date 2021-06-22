@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: "", component: LandingPageComponent},
   {path: "album/:id", component: AlbumPageComponent},
   {path: "artist/:id", component: ArtistPageComponent},
-  {path: "search", component: SearchPageComponent},
+  {path: "search/:search", component: SearchPageComponent},
   {path: "playlist/:id", component: PlaylistPageComponent},
   {path: '**', redirectTo: ""}
 ]
