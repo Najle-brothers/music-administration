@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IAlbum, makeAlbum } from 'src/app/models/album';
 import { AlbumService } from 'src/app/services/album.service';
@@ -25,16 +26,17 @@ export class AlbumPageComponent implements OnInit, OnDestroy {
   constructor(
     private stateService: StateService,
     private albumService: AlbumService,
+    private route: ActivatedRoute,
     private commonsService: CommonsService
   ) { }
 
   ngOnInit(): void {
     this.subscription.add(
-      this.stateService.getId().subscribe((idResponse) => {
-        this.id = idResponse
-        this.getAlbumInfoById(idResponse)
-        this.getAlbumTrackListById(idResponse)
-      })
+      this.route.params.subscribe(params => {
+        this.id = params.id;
+        this.getAlbumInfoById(params.id);
+        this.getAlbumTrackListById(params.id);
+     })
     );
   }
 

@@ -9,7 +9,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 
 const routes: Routes = [
   {path: "", component: LandingPageComponent},
-  {path: "album", component: AlbumPageComponent},
+  {path: "album/:id", component: AlbumPageComponent},
   {path: "artist", component: ArtistPageComponent},
   {path: "search", component: SearchPageComponent},
   {path: "playlist", component: PlaylistPageComponent}
