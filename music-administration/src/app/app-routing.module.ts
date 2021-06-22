@@ -12,7 +12,8 @@ const routes: Routes = [
   {path: "album/:id", component: AlbumPageComponent},
   {path: "artist/:id", component: ArtistPageComponent},
   {path: "search", component: SearchPageComponent},
-  {path: "playlist/:id", component: PlaylistPageComponent}
+  {path: "playlist/:id", component: PlaylistPageComponent},
+  {path: '**', redirectTo: ""}
 ]
 
 @NgModule({
