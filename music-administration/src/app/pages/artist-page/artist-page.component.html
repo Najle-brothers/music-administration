@@ -1,11 +1,19 @@
-<app-loading *ngIf="isHeaderLoading"></app-loading>
-<app-artist-page-header *ngIf="!isHeaderLoading" [inputArtistInfo]="selectedArtist"></app-artist-page-header>
+<div class="artist-page">
+    <app-loading *ngIf="isHeaderLoading" class="artist-page__loading"></app-loading>
+    <app-artist-page-header *ngIf="!isHeaderLoading" class="artist-page__header" [inputArtistInfo]="selectedArtist"></app-artist-page-header>
 
-<app-loading *ngIf="isTrackLoading"></app-loading>
-<app-artist-page-tracklist *ngIf="!isTrackLoading" [inputTopFive]="topFive"></app-artist-page-tracklist>
+    <app-loading *ngIf="isTrackLoading" class="artist-page__loading"></app-loading>
+    <div class="artist-page__card">
+        <app-artist-page-tracklist *ngIf="!isTrackLoading" [inputTopFive]="topFive"></app-artist-page-tracklist>
+    </div>
 
-<app-loading *ngIf="isAlbumLoading"></app-loading>
-<app-artist-page-album *ngIf="!isAlbumLoading" [inputAlbums]="albums"></app-artist-page-album>
+    <app-loading *ngIf="isAlbumLoading" class="artist-page__loading"></app-loading>
+    <div class="artist-page__card">
+        <app-artist-page-album *ngIf="!isAlbumLoading" [inputAlbums]="albums"></app-artist-page-album>
+    </div>  
 
-<app-loading *ngIf="isPlaylistLoading"></app-loading>
-<app-artist-page-playlist *ngIf="!isPlaylistLoading" [inputPlaylists]="playlists"></app-artist-page-playlist>
+    <app-loading *ngIf="isPlaylistLoading" class="artist-page__loading"></app-loading>
+    <div class="artist-page__card">
+        <app-artist-page-playlist *ngIf="!isPlaylistLoading" [inputPlaylists]="playlists"></app-artist-page-playlist>
+    </div>
+</div>

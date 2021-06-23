@@ -1,5 +1,11 @@
-<app-loading *ngIf="isHeaderLoading"></app-loading>
-<app-album-page-header *ngIf="!isHeaderLoading" [inputAlbumHeader]="selectedAlbum"></app-album-page-header>
+<div class="album-page">
+    <app-loading *ngIf="isHeaderLoading" class="album-page__loading"></app-loading>
+    <app-album-page-header *ngIf="!isHeaderLoading" [inputAlbumHeader]="selectedAlbum"></app-album-page-header>
 
-<app-loading *ngIf="isTracksLoading"></app-loading>
-<app-album-page-tracklist *ngIf="!isTracksLoading" [inputTracks]="tracks"></app-album-page-tracklist>
+    <div class="album-page__tracks">
+        <app-loading *ngIf="isTracksLoading" class="album-page__loading"></app-loading>
+        <div class="album-page__card">
+            <app-album-page-tracklist *ngIf="!isTracksLoading" [inputTracks]="tracks"></app-album-page-tracklist>
+        </div>
+    </div>
+</div>

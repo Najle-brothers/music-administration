@@ -6,12 +6,14 @@
         <div class="app-album-page__info-box">
             <h1 class="app-album-page__title">{{ inputAlbumHeader.title }}</h1>
             <p class="app-album-page__artist">{{ inputAlbumHeader.artist }}</p>
-            <div class="app-album-page__detailed-info">
-                <span class="app-album-page__fans">{{ inputAlbumHeader.fans }}</span>
-                <span class="app-album-page__duration">{{ inputAlbumHeader.duration }}</span> 
-            </div>
-            <app-play-button class="app-album-page__playButton" 
-            (click)="setPlayerData(inputAlbumHeader.id, inputAlbumHeader.type)"></app-play-button>         
+            <div class="app-album-page__playback-info">
+                <div class="app-album-page__detailed-info">
+                    <span class="app-album-page__fans">{{ inputAlbumHeader.fans }}</span>
+                    <span class="app-album-page__duration">{{ inputAlbumHeader.duration }}</span> 
+                </div>
+                <app-play-button class="app-album-page__playButton" 
+                (click)="setPlayerData(inputAlbumHeader.id, inputAlbumHeader.type)"></app-play-button>  
+            </div>       
         </div>
     </div>
 </div>

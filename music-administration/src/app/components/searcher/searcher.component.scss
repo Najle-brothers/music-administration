@@ -11,6 +11,10 @@
         padding: 10px 10px 10px 34px;
         font-size: 17px;
         background-color: $background-color-menu;   
+
+        &:focus-visible{
+            outline: none;
+        }
     }
     &__button{
         font-size: 17px;

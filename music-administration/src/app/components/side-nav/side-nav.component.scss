@@ -7,6 +7,6 @@
     display: flex;
     &__app-menu{
         padding-top: 10px;
-        padding-left: 30px;
+        min-width: 170px;
     }
 }
