@@ -1,6 +1,9 @@
 @import '../../../assets/styles/variables.scss';
 
-.app-search-page{
+.search-page{
+
+    padding: 0px 25px;
+
     &__title{
         font-family: $titles-cards-style;
         margin-left: $titles-cards-marginleft;

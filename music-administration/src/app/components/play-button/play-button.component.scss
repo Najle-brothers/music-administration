@@ -1,14 +1,19 @@
 @import '../../../assets/styles/variables.scss';
 
 .app-play-button{
-    width: 50px;
-    display: block;
+
+    position: relative;
 
     :hover{
         background-color: $background-color-secondary;
         border-radius: 100px;
-        margin: 5px;
         cursor: pointer;
+        width: 60px;
+    }
+
+    &__img{
+        width: 50px;
+        position: absolute;
     }
 }
 

@@ -6,10 +6,14 @@
         <div class="app-playlists-header__info-box">
             <h1 class="app-playlists-header__title">{{ inputHeader.title }}</h1>
             <p class="app-playlists-header__description">{{ inputHeader.description }}</p>
-            <span class="app-playlists-header__fans">{{ inputHeader.fans }}</span>
-            <span class="app-playlists-header__duration">{{ inputHeader.duration}}</span>
-            <app-play-button class="app-album-page__playButton" 
-            (click)="setPlayerData(inputHeader.id, inputHeader.type)"></app-play-button>
+            <div class="app-playlists-header__playback-info">
+                <div class="app-playlists-header__detailed-info">
+                    <span class="app-playlists-header__fans">{{ inputHeader.fans }}</span>
+                    <span class="app-playlists-header__duration">{{ inputHeader.duration}}</span>
+                </div>
+                <app-play-button class="app-playlists-header__playButton" 
+                (click)="setPlayerData(inputHeader.id, inputHeader.type)"></app-play-button>
+            </div>
         </div>
     </div>
 </div>

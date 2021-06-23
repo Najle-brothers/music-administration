@@ -1,0 +1,14 @@
+.artist-page{
+
+    &__loading{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__card{
+        padding: 0px 25px;
+    }
+
+}

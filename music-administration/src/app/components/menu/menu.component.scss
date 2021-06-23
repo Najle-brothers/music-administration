@@ -1,13 +1,11 @@
 @import '../../../assets/styles/variables.scss';
 
-*{
-    margin: 0px;
-    padding: 0px;
-}
-
 .app-menu {
     font-family: Arial, Helvetica, sans-serif;
     &__list{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         list-style-type: none;
         &-item{
             padding-top: 15px;
@@ -17,7 +15,6 @@
             }
             :active{
                 color: $text-color-active;
-                background-color: $background-color-secondary;
             }
         display: flex;
         align-items: center;
