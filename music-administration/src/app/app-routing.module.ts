@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: "search/:search", component: SearchPageComponent},
   {path: "playlist/:id", component: PlaylistPageComponent},
   {path: "error", component: ErrorPageComponent},
-  {path: '**', redirectTo: ""}
+  {path: '**', redirectTo: "/error"}
 ]
 
 @NgModule({

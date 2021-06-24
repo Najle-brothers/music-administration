@@ -16,7 +16,7 @@ export class ErrorPageComponent implements OnInit {
   }
 
   sendToLandingPage(){
-    this.router.navigate(['/*'])
+    this.router.navigate(['/'])
   }
 
 }
