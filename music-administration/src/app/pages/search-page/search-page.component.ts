@@ -2,9 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CommonsService } from 'src/app/services/commons.service';
-import { PlaylistsService } from 'src/app/services/playlists.service';
 import { SearchService } from 'src/app/services/search.service';
-import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-search-page',
@@ -23,10 +21,9 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   }
 
   public artists = []
-
   public albums = []
-
   public playlists = []
+  public tracks = []
 
   public playlistsId = {
     id: 0
@@ -37,12 +34,8 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   public isPlaylistLoading: boolean = false;
   public isTrackLoading: boolean = false;
 
-  public tracks = []
-
   constructor(
-    private stateService: StateService,
     private searchService: SearchService,
-    private playlistService: PlaylistsService,
     private commonsService: CommonsService,
     private route: ActivatedRoute,
   ) { }
@@ -162,6 +155,22 @@ export class SearchPageComponent implements OnInit, OnDestroy {
         this.isTrackLoading = false;
       })
     )
+  }
+
+  get cutTracks(){
+    return this.tracks.slice(0,4)
+  }
+
+  get cutArtists(){
+    return this.artists.slice(0,7)
+  }
+
+  get cutAlbums(){
+    return this.albums.slice(0,7)
+  }
+
+  get cutPlaylists(){
+    return this.playlists.slice(0,7)
   }
 
 }

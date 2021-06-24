@@ -4,16 +4,16 @@
 
     <app-loading *ngIf="isTrackLoading" class="artist-page__loading"></app-loading>
     <div class="artist-page__card">
-        <app-artist-page-tracklist *ngIf="!isTrackLoading" [inputTopFive]="topFive"></app-artist-page-tracklist>
+        <app-artist-page-tracklist *ngIf="!isTrackLoading" [inputTopFive]="cutTracks"></app-artist-page-tracklist>
     </div>
 
     <app-loading *ngIf="isAlbumLoading" class="artist-page__loading"></app-loading>
     <div class="artist-page__card">
-        <app-artist-page-album *ngIf="!isAlbumLoading" [inputAlbums]="albums"></app-artist-page-album>
+        <app-artist-page-album *ngIf="!isAlbumLoading" [inputAlbums]="cutAlbums"></app-artist-page-album>
     </div>  
 
     <app-loading *ngIf="isPlaylistLoading" class="artist-page__loading"></app-loading>
     <div class="artist-page__card">
-        <app-artist-page-playlist *ngIf="!isPlaylistLoading" [inputPlaylists]="playlists"></app-artist-page-playlist>
+        <app-artist-page-playlist *ngIf="!isPlaylistLoading" [inputPlaylists]="cutPlaylists"></app-artist-page-playlist>
     </div>
 </div>

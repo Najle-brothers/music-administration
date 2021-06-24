@@ -1,15 +1,15 @@
 <div class="search-page">
     <h1 class="search-page__title">Resultados de la búsqueda</h1>
 
-    <app-loading *ngIf="isTrackLoading"></app-loading>
-    <app-tracks-list *ngIf="!isTrackLoading" class="search-page__card" [inputSongs]="tracks"></app-tracks-list>
+    <app-loading *ngIf="isTrackLoading" class="search-page__loading"></app-loading>
+    <app-tracks-list *ngIf="!isTrackLoading" class="search-page__card" [inputSongs]="cutTracks"></app-tracks-list>
 
-    <app-loading *ngIf="isArtistLoading"></app-loading>
-    <app-artists-list *ngIf="!isArtistLoading" class="search-page__card" [inputArtists]="artists"></app-artists-list>
+    <app-loading *ngIf="isArtistLoading" class="search-page__loading"></app-loading>
+    <app-artists-list *ngIf="!isArtistLoading" class="search-page__card" [inputArtists]="cutArtists"></app-artists-list>
 
-    <app-loading *ngIf="isAlbumLoading"></app-loading>
-    <app-albums-list *ngIf="!isAlbumLoading" class="search-page__card" [inputAlbums]="albums"></app-albums-list>
+    <app-loading *ngIf="isAlbumLoading" class="search-page__loading"></app-loading>
+    <app-albums-list *ngIf="!isAlbumLoading" class="search-page__card" [inputAlbums]="cutAlbums"></app-albums-list>
 
-    <app-loading *ngIf="isPlaylistLoading"></app-loading>
-    <app-playlists-list *ngIf="!isPlaylistLoading" class="search-page__card" [inputPlaylists]="playlists"></app-playlists-list>
+    <app-loading *ngIf="isPlaylistLoading" class="search-page__loading"></app-loading>
+    <app-playlists-list *ngIf="!isPlaylistLoading" class="search-page__card" [inputPlaylists]="cutPlaylists"></app-playlists-list>
 </div>

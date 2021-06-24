@@ -4,11 +4,13 @@
     &__title{
     font-family: $titles-cards-style;
     margin-left: $titles-cards-marginleft;
+    color: $text-color-primary;
     }
 }
 
 .app-artists-card{
     font-family: Arial, Helvetica, sans-serif;
+    color: $text-color-primary;
     display: flex;
     flex-wrap: wrap;
 
@@ -27,7 +29,8 @@
 
     }
         
-    &__container{
+    &__container{        
+        margin-right: 25px;
         text-align: center;
         padding: 5px;
         width: 250px;

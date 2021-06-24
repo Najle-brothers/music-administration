@@ -3,6 +3,7 @@
 
 .app-artist-tracklist{
     font-family: Arial, Helvetica, sans-serif;
+    color: $text-color-primary;
 
     :hover{
         background-color: $background-color-secondary;
@@ -60,6 +61,11 @@
         font-size: 15px;
         text-decoration: none;
         margin: 0px;
+
+        &:hover{
+            text-decoration: underline;
+        }
+        
         /*font-size: 20px;
         text-decoration: none;
         margin: 0px;

@@ -4,11 +4,13 @@
     &__title{
         font-family: $titles-cards-style;
         margin-left: $titles-cards-marginleft;
+        color: $text-color-primary;
     }
 }
 
 .app-playlists-card{
     font-family: Arial, Helvetica, sans-serif;
+    color: $text-color-primary;
     display: flex;
     flex-wrap: wrap;
 

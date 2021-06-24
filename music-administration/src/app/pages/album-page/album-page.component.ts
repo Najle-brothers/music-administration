@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { IAlbum, makeAlbum } from 'src/app/models/album';
 import { AlbumService } from 'src/app/services/album.service';
 import { CommonsService } from 'src/app/services/commons.service';
-import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-album-page',
@@ -24,7 +23,6 @@ export class AlbumPageComponent implements OnInit, OnDestroy {
   public tracks = []
 
   constructor(
-    private stateService: StateService,
     private albumService: AlbumService,
     private route: ActivatedRoute,
     private commonsService: CommonsService

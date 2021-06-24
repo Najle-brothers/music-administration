@@ -5,7 +5,6 @@ import { IArtist, makeArtist } from 'src/app/models/artist';
 import { ArtistService } from 'src/app/services/artist.service';
 import { CommonsService } from 'src/app/services/commons.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
-import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-artist-page',
@@ -18,26 +17,22 @@ export class ArtistPageComponent implements OnInit {
   public isHeaderLoading: boolean = false;
   public isTrackLoading: boolean = false;
   public isAlbumLoading: boolean = false;
-  public isPlaylistLoading: boolean = false
+  public isPlaylistLoading: boolean = false;
 
   id = ""
 
   public selectedArtist: IArtist = makeArtist();
-  public topFive = []
 
-  public albums = []
-
-  public playlists = []
+  public tracklist = [];
+  public albums = [];
+  public playlists = [];
 
   public playlistsId = {
     id: 0
   }
 
-  public playlistDuration = ''
-
   constructor(
     private artistService: ArtistService,
-    private stateService: StateService,
     private playlistService: PlaylistsService,
     private commonsService: CommonsService,
     private route: ActivatedRoute,
@@ -48,7 +43,7 @@ export class ArtistPageComponent implements OnInit {
       this.route.params.subscribe((params) => {
         this.id = params.id;
         this.getArtistInfoById(this.id);
-        this.getTopFiveListById(this.id);
+        this.getTracklistListById(this.id);
         this.getArtistAlbumsById(this.id);
         this.getArtistPlaylistsById(this.id);
         this.getPlaylistDurationByPlaylistId(this.id);
@@ -75,11 +70,11 @@ export class ArtistPageComponent implements OnInit {
     )
   }
 
-  getTopFiveListById(id): void {
+  getTracklistListById(id): void {
     this.isTrackLoading = true;
     this.subscription.add(
       this.artistService.getArtist5TopListById(id).subscribe((response) => {
-        this.topFive = response.data.map((tracks) => {
+        this.tracklist = response.data.map((tracks) => {
           return {
           id: tracks.id,
           title: tracks.title,
@@ -123,7 +118,7 @@ export class ArtistPageComponent implements OnInit {
             picture: playlist.picture_medium,
           }
         })
-        this.isPlaylistLoading = false; //QUEDA CARGANDO PARA SIEMPRE
+        this.isPlaylistLoading = false;
         this.playlistsId = {
           id: response.id
         }
@@ -141,6 +136,18 @@ export class ArtistPageComponent implements OnInit {
         })
       })
     )
+  }
+
+  get cutTracks(){
+    return this.tracklist.slice(0,4)
+  }
+
+  get cutAlbums() {
+    return this.albums.slice(0, 7)
+  }
+
+  get cutPlaylists(){
+    return this.playlists.slice(0,7)
   }
 
   

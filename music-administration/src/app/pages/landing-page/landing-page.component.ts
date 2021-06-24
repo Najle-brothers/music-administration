@@ -129,5 +129,21 @@ export class LandingPageComponent implements OnInit, OnDestroy {
       })
     )
   }
+  
+  get cutTracks(){
+    return this.tracks.slice(0,4)
+  }
+
+  get cutArtists(){
+    return this.artists.slice(0,7)
+  }
+
+  get cutAlbums() {
+    return this.albums.slice(0, 7)
+  }
+
+  get cutPlaylists(){
+    return this.playlists.slice(0,7)
+  }
 
 }

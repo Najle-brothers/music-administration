@@ -6,6 +6,7 @@ import { ArtistPageComponent } from './pages/artist-page/artist-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { PlaylistPageComponent } from './pages/playlist-page/playlist-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
   {path: "", component: LandingPageComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: "artist/:id", component: ArtistPageComponent},
   {path: "search/:search", component: SearchPageComponent},
   {path: "playlist/:id", component: PlaylistPageComponent},
+  {path: "error", component: ErrorPageComponent},
   {path: '**', redirectTo: ""}
 ]
 

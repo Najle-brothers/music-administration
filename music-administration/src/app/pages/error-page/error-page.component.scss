@@ -1,0 +1,36 @@
+@import '../../../assets/styles/variables.scss';
+
+.error-page{
+    margin: 0px;
+    padding: 0px;
+    font-family: $titles-cards-style;
+    color: $text-color-primary;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 100px;
+
+    &__title{
+        margin: 0px;
+        padding: 0px;
+        font-size: 70px;
+    }
+
+    &__text{
+        margin: 0px;
+        padding: 0px;
+        font-size: 30px;
+    }
+
+    &__text2{
+        margin: 0px;
+        padding: 0px;
+        font-size: 20px;
+    }
+
+    &__click{
+        color: $text-color-active;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

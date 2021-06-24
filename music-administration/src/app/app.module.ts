@@ -38,6 +38,7 @@ import { LandingPageTrackslistComponent } from './components/landing-page-tracks
 import { LandingPageGreetingsComponent } from './components/landing-page-greetings/landing-page-greetings.component';
 import { PlayButtonComponent } from './components/play-button/play-button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LandingPagePlaylistCardsComponent,
     LandingPageTrackslistComponent,
     LandingPageGreetingsComponent,
-    PlayButtonComponent
+    PlayButtonComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

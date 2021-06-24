@@ -4,11 +4,13 @@
     &__title{
     font-family: $titles-cards-style;
     margin-left: $titles-cards-marginleft;
+    color: $text-color-primary;
     }
 }
 
 .app-album-card{
     font-family: Arial, Helvetica, sans-serif;
+    color: $text-color-primary;
     display: flex;
     flex-wrap: wrap;
 
@@ -21,6 +23,7 @@
     }
     
     &__container{
+        margin-right: 25px;
         text-align: center;
         width: 250px;
         padding: 5px;   
