@@ -1,0 +1,15 @@
+<div class="albums-page">
+    <h2 class="albums-page__title">Álbumes</h2>
+</div>
+
+<div class="album-card">
+    <div *ngFor="let album of inputAlbums" class="album-card__card">
+        <div class="album-card__container" (click)="sendToAlbum(album.id)">
+            <img [src]="album.picture" alt="" class="album-card__img">
+            <div class="album-card__info-box">
+                <h2 class="album-card__title">{{ album.title }}</h2>
+                <h3 class="album-card__year">{{ album.year }}</h3>
+            </div>
+        </div>
+    </div>
+</div>

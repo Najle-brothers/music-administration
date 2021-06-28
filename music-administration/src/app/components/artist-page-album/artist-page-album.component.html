@@ -1,12 +1,17 @@
-<h2 class="app-artist-page__title">Álbumes</h2>
+<div class="artist-page">
+    <h2 class="artist-page__title">Álbumes</h2>
+    <div class="artist-page__vertodo">
+        <h3 class="artist-page__ver-todo" (click)="sendToAllAlbums(inputArtistId.id)">ver todo</h3>
+    </div>
+</div>
 
-<div class="app-album-card">
-    <div *ngFor="let album of inputAlbums" class="app-album-card__card">
-        <div class="app-album-card__container" (click)="sendToAlbum(album.id)">
-            <img [src]="album.picture" alt="" class="app-album-card__img">
-            <div class="app-album-card__info-box">
-                <h2 class="app-album-card__title">{{ album.title }}</h2>
-                <h3 class="app-album-card__year">{{ album.year }}</h3>
+<div class="album-card">
+    <div *ngFor="let album of inputAlbums" class="album-card__card">
+        <div class="album-card__container" (click)="sendToAlbum(album.id)">
+            <img [src]="album.picture" alt="" class="album-card__img">
+            <div class="album-card__info-box">
+                <h2 class="album-card__title">{{ album.title }}</h2>
+                <h3 class="album-card__year">{{ album.year }}</h3>
             </div>
         </div>
     </div>

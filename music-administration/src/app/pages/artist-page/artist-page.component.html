@@ -9,11 +9,11 @@
 
     <app-loading *ngIf="isAlbumLoading" class="artist-page__loading"></app-loading>
     <div class="artist-page__card">
-        <app-artist-page-album *ngIf="!isAlbumLoading" [inputAlbums]="cutAlbums"></app-artist-page-album>
+        <app-artist-page-album *ngIf="!isAlbumLoading" [inputAlbums]="cutAlbums" [inputArtistId]="artistId"></app-artist-page-album>
     </div>  
 
     <app-loading *ngIf="isPlaylistLoading" class="artist-page__loading"></app-loading>
     <div class="artist-page__card">
-        <app-artist-page-playlist *ngIf="!isPlaylistLoading" [inputPlaylists]="cutPlaylists"></app-artist-page-playlist>
+        <app-artist-page-playlist *ngIf="!isPlaylistLoading" [inputPlaylists]="cutPlaylists" [inputArtistId]="artistId"></app-artist-page-playlist>
     </div>
 </div>

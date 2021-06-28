@@ -1,0 +1,7 @@
+<div class="artist-playlists-page">
+    <app-loading *ngIf="isPlaylistLoading" class="artist-playlists-page__loading"></app-loading>
+    <div class="artist-playlists-page__cards">
+        <app-all-artist-playlists *ngIf="!isPlaylistLoading" 
+        [inputPlaylists]="playlists"></app-all-artist-playlists>
+    </div>
+</div>

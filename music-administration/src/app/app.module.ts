@@ -39,6 +39,18 @@ import { LandingPageGreetingsComponent } from './components/landing-page-greetin
 import { PlayButtonComponent } from './components/play-button/play-button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { ArtistAlbumsPageComponent } from './pages/artist-albums-page/artist-albums-page.component';
+import { ArtistPlaylistsPageComponent } from './pages/artist-playlists-page/artist-playlists-page.component';
+import { AllArtistAlbumsComponent } from './components/all-artist-albums/all-artist-albums.component';
+import { AllArtistPlaylistsComponent } from './components/all-artist-playlists/all-artist-playlists.component';
+import { SearchTracksPageComponent } from './pages/search-tracks-page/search-tracks-page.component';
+import { SearchAlbumsPageComponent } from './pages/search-albums-page/search-albums-page.component';
+import { SearchPlaylistsPageComponent } from './pages/search-playlists-page/search-playlists-page.component';
+import { SearchArtistsPageComponent } from './pages/search-artists-page/search-artists-page.component';
+import { AllSearchArtistsComponent } from './components/all-search-artists/all-search-artists.component';
+import { AllSearchPlaylistsComponent } from './components/all-search-playlists/all-search-playlists.component';
+import { AllSearchAlbumsComponent } from './components/all-search-albums/all-search-albums.component';
+import { AllSearchTracksComponent } from './components/all-search-tracks/all-search-tracks.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +88,19 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
     LandingPageTrackslistComponent,
     LandingPageGreetingsComponent,
     PlayButtonComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ArtistAlbumsPageComponent,
+    ArtistPlaylistsPageComponent,
+    AllArtistAlbumsComponent,
+    AllArtistPlaylistsComponent,
+    SearchTracksPageComponent,
+    SearchAlbumsPageComponent,
+    SearchPlaylistsPageComponent,
+    SearchArtistsPageComponent,
+    AllSearchArtistsComponent,
+    AllSearchPlaylistsComponent,
+    AllSearchAlbumsComponent,
+    AllSearchTracksComponent
   ],
   imports: [
     BrowserModule,

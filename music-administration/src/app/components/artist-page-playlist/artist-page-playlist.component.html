@@ -1,11 +1,16 @@
-<h2 class="app-artist-page__title">Playlists</h2>
+<div class="artist-page">
+    <h2 class="artist-page__title">Playlists</h2>
+    <div class="artist-page__vertodo">
+        <h3 class="artist-page__ver-todo" (click)="sendToAllPlaylists(inputArtistId.id)">ver todo</h3>
+    </div>
+</div>
 
-<div class="app-playlists-card">
-    <div class="app-playlists-card__container" *ngFor="let playlist of inputPlaylists">
+<div class="playlists-card">
+    <div class="playlists-card__container" *ngFor="let playlist of inputPlaylists">
         <div (click)="sendToPlaylistPage(playlist.id)">
-            <img [src]="playlist.picture" alt="" class="app-playlists-card__img">
-            <h2 class="app-playlists-card__title">{{ playlist.title }}</h2>
-            <h3 class="app-playlists-card__duration">{{ playlist.duration }}</h3>
+            <img [src]="playlist.picture" alt="" class="playlists-card__img">
+            <h2 class="playlists-card__title">{{ playlist.title }}</h2>
+            <h3 class="playlists-card__duration">{{ playlist.duration }}</h3>
         </div>
     </div>
 </div>

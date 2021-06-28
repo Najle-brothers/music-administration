@@ -1,0 +1,19 @@
+@import '../../../assets/styles/variables.scss';
+
+.playlists-page{
+    
+    &__loading{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    padding: 0px 25px;
+
+    &__title{
+        font-family: $titles-cards-style;
+        margin-left: $titles-cards-marginleft;
+        color: $text-color-primary;
+    }
+}

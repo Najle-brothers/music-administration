@@ -9,7 +9,10 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class ArtistPageAlbumComponent implements OnInit {
 
-  @Input() public inputAlbums = []
+  @Input() public inputAlbums = [];
+  @Input() public inputArtistId = {
+    id: 0,
+  };
 
   constructor(
     private stateService: StateService,
@@ -22,6 +25,10 @@ export class ArtistPageAlbumComponent implements OnInit {
   sendToAlbum(id: number){
     this.stateService.setId(id)
     this.router.navigate(['/album', id])
+  }
+
+  sendToAllAlbums(id: number){
+    this.router.navigate(['/artist/albums', id])
   }
 
 }
