@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IArtist, makeArtist } from 'src/app/models/artist';
-import { ArtistService } from 'src/app/services/artist.service';
 
 @Component({
   selector: 'app-artist-page-header',

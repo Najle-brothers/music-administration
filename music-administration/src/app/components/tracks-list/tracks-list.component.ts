@@ -10,7 +10,8 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class TracksListComponent implements OnInit {
 
-  @Input() public inputSongs = []
+  @Input() public inputSongs = [];
+  @Input() public inputSearch = "";
 
   constructor(
     private stateService: StateService,
@@ -31,5 +32,8 @@ export class TracksListComponent implements OnInit {
     this.router.navigate(["/artist", id])
   }
 
+  sendToAllTracks(search: string){
+    this.router.navigate(["/search/tracks", search])
+  }
 
 }

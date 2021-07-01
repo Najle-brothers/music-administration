@@ -9,7 +9,10 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class ArtistPagePlaylistComponent implements OnInit {
 
-  @Input() public inputPlaylists = []
+  @Input() public inputPlaylists = [];
+  @Input() public inputArtistId = {
+    id: 0,
+  };
 
   constructor(
     private router: Router,
@@ -20,8 +23,12 @@ export class ArtistPagePlaylistComponent implements OnInit {
   }
 
   sendToPlaylistPage(id: number){
-    this.stateService.setId(id)
+    this.stateService.setId(id);
     this.router.navigate(['/playlist', id])
+  }
+
+  sendToAllPlaylists(id: number){
+    this.router.navigate(['/artist/playlists', id])
   }
 
 }

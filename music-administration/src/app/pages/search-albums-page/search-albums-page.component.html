@@ -1,0 +1,5 @@
+<div class="albums-page">
+    <app-loading class="albums-page__loading" *ngIf="isAlbumLoading"></app-loading>
+    <app-all-search-albums class="albums-page__card" *ngIf="!isAlbumLoading" 
+    [inputAlbums]="albums"></app-all-search-albums>
+</div>

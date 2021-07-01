@@ -1,0 +1,6 @@
+<div class="artists-page">
+    <app-loading class="artists-page__loading" *ngIf="isArtistLoading"></app-loading>
+    <app-all-search-artists class="artists-page__loading" *ngIf="!isArtistLoading" 
+    [inputArtists]="artists"></app-all-search-artists>
+</div>
+

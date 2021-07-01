@@ -1,0 +1,12 @@
+<div class="artists-page">
+    <h2 class="artists-page__title">Artistas</h2>
+</div>
+
+<div class="artist-card">
+    <div *ngFor="let artist of inputArtists" class="artist-card__card">
+        <div class="artist-card__container" (click)="sendToArtistPage(artist.id)">
+            <img [src]="artist.picture" alt="" class="artist-card__img">
+            <h2 class="artist-card__title">{{ artist.name }}</h2>
+        </div>
+    </div>
+</div>

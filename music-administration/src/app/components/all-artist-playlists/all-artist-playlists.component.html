@@ -1,0 +1,12 @@
+<div class="artist-page">
+    <h2 class="artist-page__title">Playlists</h2>
+</div>
+
+<div class="playlists-card">
+    <div class="playlists-card__container" *ngFor="let playlist of inputPlaylists">
+        <div (click)="sendToPlaylistPage(playlist.id)">
+            <img [src]="playlist.picture" alt="" class="playlists-card__img">
+            <h2 class="playlists-card__title">{{ playlist.title }}</h2>
+        </div>
+    </div>
+</div>

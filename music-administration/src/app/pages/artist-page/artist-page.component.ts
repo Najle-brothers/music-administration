@@ -30,6 +30,10 @@ export class ArtistPageComponent implements OnInit {
   public playlistsId = {
     id: 0
   }
+  public artistId = {
+    id: 0
+  }
+  
 
   constructor(
     private artistService: ArtistService,
@@ -66,6 +70,9 @@ export class ArtistPageComponent implements OnInit {
           picture: response.picture_xl,
         }
         this.isHeaderLoading = false;
+        this.artistId = {
+          id: response.id
+        }
       })
     )
   }

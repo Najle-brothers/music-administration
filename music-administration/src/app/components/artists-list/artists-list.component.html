@@ -1,10 +1,15 @@
-<h2 class="app-search-page__title">Artistas</h2>
+<div class="search-page">
+    <h2 class="search-page__title">Artistas</h2>
+    <div class="search-page__vertodo">
+        <h3 class="search-page__ver-todo" (click)="sendToAllArtists(inputSearch)">ver todo</h3>
+    </div>
+</div>
 
-<div class="app-artists-card">
-    <div *ngFor="let artist of inputArtists" class="app-artists-card__card">
-        <div class="app-artists-card__container" (click)="sendToArtistPage(artist.id)">
-            <img [src]="artist.picture" alt="" class="app-artists-card__img">
-            <h2 class="app-artists-card__title">{{ artist.name }}</h2>
+<div class="artists-card">
+    <div *ngFor="let artist of inputArtists" class="artists-card__card">
+        <div class="artists-card__container" (click)="sendToArtistPage(artist.id)">
+            <img [src]="artist.picture" alt="" class="artists-card__img">
+            <h2 class="artists-card__title">{{ artist.name }}</h2>
         </div>
     </div>
 </div>
