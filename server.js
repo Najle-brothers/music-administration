@@ -6,11 +6,10 @@ const PORT = process.env.PORT || 5000;
 
 // Proxy deezer api
 const apiProxy = httpProxy('https://api.deezer.com/', {
-  proxyReqPathResolver: function (req, res) {
-    return new Promise(function (resolve, reject) {
+  proxyReqPathResolver: function (req) {
+    return new Promise(function (resolve) {
       setTimeout(function () {
-        const uri = decodeURIComponent(req.url.split('uri=').pop().split('&token=').shift().split('&provider=').shift())
-        const url= 'https://api.deezer.com' + uri.split('/api')[1];
+        const url= 'https://api.deezer.com' + req.url.split('/api')[1];
         resolve(url);
       }, 200);
     });
