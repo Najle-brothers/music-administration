@@ -1,0 +1,15 @@
+@import '../../../assets/styles/variables.scss';
+
+.artist-playlists-page{
+    font-family: $titles-cards-style;
+    margin-left: $titles-cards-marginleft;
+    color: $text-color-primary;
+    padding: 0px 25px;
+
+    &__loading{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
