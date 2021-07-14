@@ -1,4 +1,10 @@
+@import '../../../assets/styles/variables.scss';
+
 .artist-albums-page{
+    font-family: $titles-cards-style;
+    margin-left: $titles-cards-marginleft;
+    color: $text-color-primary;
+    padding: 0px 25px;
 
     &__loading{
         width: 100%;
@@ -6,9 +12,4 @@
         flex-direction: column;
         align-items: center;
     }
-
-    &__card{
-        padding: 0px 25px;
-    }
-
 }

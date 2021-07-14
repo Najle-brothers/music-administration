@@ -81,4 +81,12 @@
         justify-content: center;
         align-items: center;
     }
+
+    @media (max-width: 600px) {
+        &__duration{
+            background-color: red;
+            
+        }
+    }
+
 }

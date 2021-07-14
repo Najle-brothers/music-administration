@@ -1,1 +1,17 @@
-<p>all-search-tracks works!</p>
+<div class="search-page">
+    <h2 class="search-page__title">Canciones</h2>
+</div>
+
+<div class="list-songs">
+    <ol class="list-songs__list" *ngFor="let track of inputTracks">
+        <li class="list-songs__item" (click)="this.commons.startPlayback(track.id, track.type)">
+            <img [src]="track.albumPic" alt="" class="list-songs__img">
+            <h2 class="list-songs__title">{{ track.title }}</h2>
+            <div class="list-songs__info">
+                <h3 class="list-songs__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
+                <h4 class="list-songs__album" (click)="sendToAlbumPage(track.albumId)">{{ track.album }}</h4>
+            </div>
+            <span class="list-songs__duration">{{ track.duration }}</span>
+        </li>
+    </ol>
+</div>

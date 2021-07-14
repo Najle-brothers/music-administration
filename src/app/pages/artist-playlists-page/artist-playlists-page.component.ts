@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ArtistService } from 'src/app/services/artist.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class ArtistPlaylistsPageComponent implements OnInit {
   public playlists = [];
 
   constructor(
-    private playlistService: PlaylistsService,
+    private artistService: ArtistService,
     private route: ActivatedRoute,
   ) { }
 
@@ -37,12 +38,12 @@ export class ArtistPlaylistsPageComponent implements OnInit {
   getArtistPlaylistsById(id): void {
     this.isPlaylistLoading = true;
     this.subscription.add(
-      this.playlistService.getPlaylistInfoByPlaylistId(id).subscribe((response) => {
+      this.artistService.getPlaylistsByArtistId(id).subscribe((response) => {
         this.playlists = response.data.map((playlist) => {
           return {
             id: playlist.id,
             title: playlist.title,
-            picture: playlist.picture_medium,
+            picture: playlist.picture_medium
           }
         })
       })
