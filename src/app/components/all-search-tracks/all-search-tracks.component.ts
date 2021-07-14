@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonsService } from 'src/app/services/commons.service';
 
 @Component({
   selector: 'app-all-search-tracks',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllSearchTracksComponent implements OnInit {
 
-  constructor() { }
+  @Input() public inputTracks = [];
+
+  constructor(
+    private router: Router,
+    public commons: CommonsService
+  ) { }
 
   ngOnInit(): void {
   }
+  
+  sendToAlbumPage(id: number){
+    this.router.navigate(["/album", id])
+  }
 
+  sendToArtistPage(id: number){
+    this.router.navigate(["/artist", id])
+  }
+  
 }

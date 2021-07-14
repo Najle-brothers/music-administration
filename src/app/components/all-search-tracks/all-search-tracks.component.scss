@@ -1,0 +1,101 @@
+@import '../../../assets/styles/variables.scss';
+
+.search-page{
+    font-family: $titles-cards-style;
+    color: $text-color-primary;
+    display: flex;
+    align-items: baseline;
+
+    &__title{
+        margin-left: $titles-cards-marginleft;
+        flex: 4;
+        padding-left: 12px;
+    }
+}
+
+.list-songs{
+    font-family: Arial, Helvetica, sans-serif;
+    color: $text-color-primary;
+
+    :hover{
+        background-color: $background-color-secondary;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    :active{
+        color: $text-color-active;
+        background-color: $background-color-secondary;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    &__list{
+        display: flex;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    &__item{
+        width: 100%;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+    }
+
+    &__img{
+        border-radius: 100px;
+    }
+
+    &__title{
+        flex: 4;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding-left: 20px;
+        font-size: 20px;
+    }
+
+    &__info{
+        flex: 3;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: center;
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    &__artist{
+        font-size: 20px;
+        text-decoration: none;
+        margin: 0px;
+        padding-bottom: 5px;
+        display: block;
+
+        &:hover{
+            text-decoration: underline;
+        }
+
+    }
+
+    &__album{
+        font-size: 10px;
+        text-decoration: none;
+        margin: 0px;
+        display: block;
+
+        &:hover{
+            text-decoration: underline;
+        }
+        
+    }
+
+    &__duration{
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}

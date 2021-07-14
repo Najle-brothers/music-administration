@@ -1,1 +1,5 @@
-<app-all-search-tracks></app-all-search-tracks>
+<div class="tracks-page">
+    <app-loading class="tracks-page__loading" *ngIf="isTrackLoading"></app-loading>
+    <app-all-search-tracks class="tracks-page__card" *ngIf="!isTrackLoading"
+    [inputTracks]="tracks"></app-all-search-tracks>
+</div>
