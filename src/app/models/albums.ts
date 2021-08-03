@@ -5,6 +5,7 @@ export interface IAlbums {
     title: string,
     artist: string,
     explicitContent: boolean,
+    year: number,
 }
 
 export function makeAlbums(): IAlbums {
@@ -14,6 +15,7 @@ export function makeAlbums(): IAlbums {
         small_picture: '',
         title: '',
         artist: '',
-        explicitContent: false
+        explicitContent: false,
+        year: 0,
     }
 }

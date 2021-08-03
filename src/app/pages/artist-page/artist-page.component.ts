@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IAlbums } from 'src/app/models/albums';
 import { IArtist, makeArtist } from 'src/app/models/artist';
+import { IPlaylists } from 'src/app/models/playlists';
 import { ITracks } from 'src/app/models/tracks';
 import { IUser } from 'src/app/models/user';
 import { ArtistService } from 'src/app/services/artist.service';
@@ -30,7 +31,7 @@ export class ArtistPageComponent implements OnInit {
   public allTracks: ITracks[] = [];
   public tracks: ITracks[] = [];
   public albums: IAlbums[] = [];
-  public playlists = [];
+  public playlists: IPlaylists[] = [];
   public explicitContent: boolean = false;
 
   public playlistsId = {
@@ -113,7 +114,7 @@ export class ArtistPageComponent implements OnInit {
   getArtistAlbumsById(id): void {
     this.isAlbumLoading = true
     this.subscription.add(
-      this.artistService.getAlbumsByArtistId(id).subscribe((response) => {
+      this.artistService.getAlbumsByArtistId(id).subscribe((response: any) => {
         this.albums = response.data.map((album) => {
           return {
             id: album.id,
@@ -160,17 +161,15 @@ export class ArtistPageComponent implements OnInit {
     )
   }*/
 
-  get cutTracks(){
+  get cutTracks(): ITracks[] {
     return this.tracks.slice(0,4)
   }
 
-  get cutAlbums() {
+  get cutAlbums(): IAlbums[] {
     return this.albums.slice(0, 7)
   }
 
-  get cutPlaylists(){
+  get cutPlaylists(): IPlaylists[] {
     return this.playlists.slice(0,7)
   }
-
-  
 }

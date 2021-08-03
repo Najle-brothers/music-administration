@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IPlaylist, makePlaylist } from 'src/app/models/playlist';
+import { ITracks } from 'src/app/models/tracks';
 import { IUser } from 'src/app/models/user';
 import { CommonsService } from 'src/app/services/commons.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
@@ -19,12 +20,12 @@ export class PlaylistPageComponent implements OnInit {
   public isTrackLoading: boolean = false;
   public isUserLoading: boolean = false;
 
-  playlistId = ""
+  public playlistId: number = 0;
 
   public playlistInfo: IPlaylist = makePlaylist();
 
-  public tracks = [];
-  public allTracks = [];
+  public tracks: ITracks[] = [];
+  public allTracks: ITracks[] = [];
   public explicitContent: boolean = false;
 
   constructor(

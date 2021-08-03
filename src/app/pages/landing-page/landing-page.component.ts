@@ -1,5 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { IAlbums } from 'src/app/models/albums';
+import { IArtists } from 'src/app/models/artists';
+import { IPlaylists } from 'src/app/models/playlists';
+import { ITracks } from 'src/app/models/tracks';
 import { IUser, makeUser } from 'src/app/models/user';
 import { CommonsService } from 'src/app/services/commons.service';
 import { UserService } from 'src/app/services/user.service';
@@ -20,13 +24,12 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   public isUserLoading: boolean = false;
 
   public user: IUser = makeUser();
-  public artists = [];
-  public tracks = [];
-  public allTracks = [];
+  public artists: IArtists[] = [];
+  public tracks: ITracks[] = [];
+  public allTracks: ITracks[] = [];
   public albums = [];
-  public allAlbums = [];
-  public playlists = [];
-  public genres = [];
+  public allAlbums: IAlbums[] = [];
+  public playlists: IPlaylists[] = [];
   public explicitContent: boolean = false;
 
   constructor(
@@ -49,7 +52,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   getGreetingWithUserName(): void {
     this.isHeaderLoading = true;
     this.subscription.add(
-      this.userService.getUserData().subscribe((response) => {
+      this.userService.getUserData().subscribe((response: any) => {
         this.user = {
           id: response.id,
           userName: response.name,
@@ -65,7 +68,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   getArtistById(): void {
     this.isArtistLoading = true;
     this.subscription.add(
-      this.userService.getArtistsByUserId().subscribe((response) => {
+      this.userService.getArtistsByUserId().subscribe((response: any) => {
         this.artists = response.artist.map((artist) => {
           return {
             id: artist.id,
@@ -82,7 +85,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   getAlbumsById(): void {
     this.isAlbumLoading = true;
     this.subscription.add(
-      this.userService.getAlbumsByUserId().subscribe((response) => {
+      this.userService.getAlbumsByUserId().subscribe((response: any) => {
         this.allAlbums = response.albums.map((album) => {
           return {
             id: album.id,
@@ -104,9 +107,9 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   }
 
   getTracksById(): void {
-    this.isTracksLoading= true;
+    this.isTracksLoading = true;
     this.subscription.add(
-      this.userService.getTracksByUserId().subscribe((response) => {
+      this.userService.getTracksByUserId().subscribe((response: any) => {
         this.allTracks = response.tracks.map((track) => {
           return {
             id: track.id,
@@ -135,7 +138,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   getPlaylistsById(): void {
     this.isPlaylistLoading = true;
     this.subscription.add(
-      this.userService.getPlaylistsByUserId().subscribe((response) => {
+      this.userService.getPlaylistsByUserId().subscribe((response: any) => {
         this.playlists = response.playlists.map((playlist) => {
           return {
             id: playlist.id,
@@ -151,19 +154,19 @@ export class LandingPageComponent implements OnInit, OnDestroy {
     )
   }
   
-  get cutTracks(){
+  get cutTracks(): ITracks[] {
     return this.tracks.slice(0,4)
   }
 
-  get cutArtists(){
+  get cutArtists(): IArtists[] {
     return this.artists.slice(0,7)
   }
 
-  get cutAlbums() {
+  get cutAlbums(): IAlbums[] {
     return this.albums.slice(0, 7)
   }
 
-  get cutPlaylists(){
+  get cutPlaylists(): IPlaylists[] {
     return this.playlists.slice(0,7)
   }
 

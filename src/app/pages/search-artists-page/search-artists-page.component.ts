@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IArtists } from 'src/app/models/artists';
 import { CommonsService } from 'src/app/services/commons.service';
 import { SearchService } from 'src/app/services/search.service';
 
@@ -14,8 +15,8 @@ export class SearchArtistsPageComponent implements OnInit {
 
   public isArtistLoading: boolean = false;
 
-  public search = "";
-  public artists = [];
+  public search: string = "";
+  public artists: IArtists[] = [];
 
   constructor(
     private searchService: SearchService,
@@ -39,11 +40,11 @@ export class SearchArtistsPageComponent implements OnInit {
   getArtistsListByName(search): void {
     this.isArtistLoading = true;
     this.subscription.add(
-      this.searchService.getArtistByName(search).subscribe((response) => {
+      this.searchService.getArtistByName(search).subscribe((response: any) => {
         this.artists = response.data.map((artist) => {
           return {
             id: artist.id,
-            name: artist.name,
+            artist: artist.name,
             picture: artist.picture_medium,
             small_picture: artist.picture_small,
             fans: this.commonsService.fansWithCommas(artist.nb_fan),
