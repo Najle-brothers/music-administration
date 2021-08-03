@@ -11,3 +11,13 @@
         </div>
     </div>
 </div>
+
+<div class="app-list-playlists">
+    <ol class="app-list-playlists__list" *ngFor="let playlist of inputPlaylist">
+        <li class="app-list-playlists__item" (click)="sendToPlaylistPage(playlist.id)">
+            <img [src]="playlist.small_picture" alt="" class="app-list-playlists__small-img">
+            <h2 class="app-list-playlists__title">{{ playlist.title }}</h2>
+            <span class="app-list-playlists__duration">{{ playlist.duration }}</span>
+        </li>
+    </ol>
+</div>

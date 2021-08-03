@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ITracks } from '../models/tracks';
 import { StateService } from './state.service';
 
 @Injectable({
@@ -40,11 +41,26 @@ export class CommonsService {
     return parts.join(",") + " seguidores";
   }
 
-  startPlayback(id: string, type: string){
+  startPlayback(id: string, type: string): void{
     this.stateService.setPlayerData({
       id,
       type
     })
   }
-  
+
+  explicitLyrics(option: boolean, array): ITracks[] {
+    if(option){
+      var resultado = array;
+    }else{
+      console.log(array)
+      //var resultado = array.filter((track) => track.explicit === false);
+      var resultado = array.filter(
+        (track) => {
+          return track.explicit === false
+        }
+      );
+    }
+    return resultado;
+  }
+
 }

@@ -7,3 +7,11 @@
     color: $text-color-primary;
     }
 }
+
+@media screen and (max-width: 350px) {
+    .app-landing-page{
+        &__title{
+            font-size: 20px;
+        }
+    }
+}

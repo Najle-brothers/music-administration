@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IAlbums } from 'src/app/models/albums';
 import { IArtist, makeArtist } from 'src/app/models/artist';
+import { ITracks } from 'src/app/models/tracks';
+import { IUser } from 'src/app/models/user';
 import { ArtistService } from 'src/app/services/artist.service';
 import { CommonsService } from 'src/app/services/commons.service';
-import { PlaylistsService } from 'src/app/services/playlists.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-artist-page',
@@ -18,14 +21,17 @@ export class ArtistPageComponent implements OnInit {
   public isTrackLoading: boolean = false;
   public isAlbumLoading: boolean = false;
   public isPlaylistLoading: boolean = false;
+  public isUserLoading: boolean = false;
 
-  id = ""
+  public id: string = ""
 
   public selectedArtist: IArtist = makeArtist();
 
-  public tracklist = [];
-  public albums = [];
+  public allTracks: ITracks[] = [];
+  public tracks: ITracks[] = [];
+  public albums: IAlbums[] = [];
   public playlists = [];
+  public explicitContent: boolean = false;
 
   public playlistsId = {
     id: 0
@@ -34,10 +40,9 @@ export class ArtistPageComponent implements OnInit {
     id: 0
   }
   
-
   constructor(
     private artistService: ArtistService,
-    private playlistService: PlaylistsService,
+    private userService: UserService,
     private commonsService: CommonsService,
     private route: ActivatedRoute,
     ) { }
@@ -50,7 +55,7 @@ export class ArtistPageComponent implements OnInit {
         this.getTracklistListById(this.id);
         this.getArtistAlbumsById(this.id);
         this.getArtistPlaylistsById(this.id);
-        this.getPlaylistDurationByPlaylistId(this.id);
+        /*this.getPlaylistDurationByPlaylistId(this.id);*/
       })
     )
   }
@@ -62,12 +67,13 @@ export class ArtistPageComponent implements OnInit {
   getArtistInfoById(id): void {
     this.isHeaderLoading = true;
     this.subscription.add(
-      this.artistService.getArtistDatabyId(id).subscribe((response) => {
+      this.artistService.getArtistDatabyId(id).subscribe((response: any) => {
         this.selectedArtist = {
           id: response.id,
           name: response.name,
           fans: this.commonsService.fansWithCommas(response.nb_fan),
           picture: response.picture_xl,
+          medium_picture: response.picture_medium,
         }
         this.isHeaderLoading = false;
         this.artistId = {
@@ -80,8 +86,8 @@ export class ArtistPageComponent implements OnInit {
   getTracklistListById(id): void {
     this.isTrackLoading = true;
     this.subscription.add(
-      this.artistService.getArtist5TopListById(id).subscribe((response) => {
-        this.tracklist = response.data.map((tracks) => {
+      this.artistService.getArtist5TopListById(id).subscribe((response: any) => {
+        this.allTracks = response.data.map((tracks) => {
           return {
           id: tracks.id,
           title: tracks.title,
@@ -89,10 +95,17 @@ export class ArtistPageComponent implements OnInit {
           album: tracks.album.title,
           albumId: tracks.album.id,
           picture: tracks.album.cover_small,
-          type: tracks.type
+          type: tracks.type,
+          explicit: tracks.explicit_lyrics,
           }
         })
-        this.isTrackLoading = false
+        this.isUserLoading = true;
+        this.userService.getUserData().subscribe((response: IUser) => {
+          this.explicitContent = this.explicitContent;
+          this.tracks = this.commonsService.explicitLyrics(this.explicitContent, this.allTracks);
+          this.isUserLoading = false;
+        })
+        this.isTrackLoading = false;
       })
     )
   }
@@ -106,6 +119,7 @@ export class ArtistPageComponent implements OnInit {
             id: album.id,
             title: album.title,
             picture: album.cover_medium,
+            small_picture: album.cover_small,
             year: this.commonsService.getYearFromDate(album.release_date)
           }
         })
@@ -123,17 +137,18 @@ export class ArtistPageComponent implements OnInit {
             id: playlist.id,
             title: playlist.title,
             picture: playlist.picture_medium,
+            small_picture: playlist.picture_small,
           }
         })
-        this.isPlaylistLoading = false;
         this.playlistsId = {
           id: response.id
         }
+        this.isPlaylistLoading = false;
       })
     )
   }
 
-  getPlaylistDurationByPlaylistId(playlistId): void {
+  /*getPlaylistDurationByPlaylistId(playlistId): void {
     this.subscription.add(
       this.playlistService.getPlaylistInfoByPlaylistId(playlistId).subscribe((response) => {
         this.playlists = response.data.map((playlist) => {
@@ -143,10 +158,10 @@ export class ArtistPageComponent implements OnInit {
         })
       })
     )
-  }
+  }*/
 
   get cutTracks(){
-    return this.tracklist.slice(0,4)
+    return this.tracks.slice(0,4)
   }
 
   get cutAlbums() {

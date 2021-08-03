@@ -6,16 +6,64 @@
     background-color: $background-color-secondary;
     color: $text-color-primary;
     display: flex;
-    flex-direction: row;
+
+    &__spot{
+        width: $size-menu-width;
+        max-width: $size-menu-width;
+        min-width: $size-menu-width;
+    }
+
+    &__elements {
+        margin: 0px;
+        display: flex;
+        align-items: center;
+        width: calc(100% - #{$size-menu-width})
+    }
+
     &__searcher{
         width: 90%;
-        padding-top: 20px;
-        padding-left: 215px;
+        min-width: 250px;
     }
+
     &__profile-icon{
-        margin-left: 35px;
         width: 10%;
-        padding-top: 15px;
-        padding-left: 30px;
+        margin-right: 10px;
+        padding-left: 70px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .app-header{
+        &__spot{
+            display: none;
+        }
+
+        &__elements {
+            width: 100%;
+            padding: 0px 25px
+        }
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    .app-header{
+        &__spot{
+            display: none;
+        }
+
+        &__elements {
+            width: 100%;
+            padding: 0px 25px
+        }
+
+        &__searcher {
+            min-width: 10px;
+        }
+
+        &__profile-icon{
+            padding-left: 55px;
+            width: 10%;
+        }
     }
 }

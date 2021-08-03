@@ -2,14 +2,14 @@
     <app-loading *ngIf="isHeaderLoading"></app-loading>
     <app-landing-page-greetings [inputUser]="user"></app-landing-page-greetings>
 
-    <app-loading *ngIf="isTracksLoading"></app-loading>
-    <app-landing-page-trackslist [inputTrack]="cutTracks" *ngIf="!isTracksLoading"></app-landing-page-trackslist>
+    <app-loading *ngIf="isTracksLoading || isUserLoading"></app-loading>
+    <app-landing-page-trackslist [inputTrack]="cutTracks" *ngIf="!isTracksLoading && !isUserLoading"></app-landing-page-trackslist>
 
     <app-loading *ngIf="isArtistLoading"></app-loading>
     <app-landing-page-artist-cards [inputArtist]="cutArtists" *ngIf="!isArtistLoading"></app-landing-page-artist-cards>
 
-    <app-loading *ngIf="isAlbumLoading"></app-loading>
-    <app-landing-page-album-cards [inputAlbum]="cutAlbums" *ngIf="!isAlbumLoading"></app-landing-page-album-cards>
+    <app-loading *ngIf="isAlbumLoading || isUserLoading"></app-loading>
+    <app-landing-page-album-cards [inputAlbum]="cutAlbums" *ngIf="!isAlbumLoading && !isUserLoading"></app-landing-page-album-cards>
 
     <app-loading *ngIf="isPlaylistLoading"></app-loading>
     <app-landing-page-playlist-cards [inputPlaylist]="cutPlaylists" *ngIf="!isPlaylistLoading"></app-landing-page-playlist-cards>

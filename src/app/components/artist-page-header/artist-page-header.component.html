@@ -1,11 +1,29 @@
-<div class="app-artist-header__container">
-    <div>
-        <img class="app-artist-header__img" [src]="inputArtistInfo.picture" alt="">
-    </div>
-    <div class="app-artist-header__information">
-        <div class="app-artist-header__info-box">
-            <h1 class="app-artist-header__title">{{ inputArtistInfo.name }}</h1>
-            <span class="app-artist-header__fans">{{ inputArtistInfo.fans }}</span>
+<div class="app-artist-header">
+    <div class="app-artist-header__container">
+        <div>
+            <img class="app-artist-header__img" [src]="inputArtistInfo.picture" alt="">
         </div>
+        <div class="app-artist-header__information">
+            <div class="app-artist-header__info-box">
+                <h1 class="app-artist-header__title">{{ inputArtistInfo.name }}</h1>
+                <span class="app-artist-header__fans">{{ inputArtistInfo.fans }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="small-header">
+    <div class="small-header__container">
+        <div>
+            <img class="small-header__img" [src]="inputArtistInfo.medium_picture" alt="">
+        </div>
+        <div class="small-header__information">
+            <div class="small-header__info-box">
+                <h1 class="small-header__artist">{{ inputArtistInfo.name }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="small-header__fans-box">
+        <span class="small-header__fans">{{ inputArtistInfo.fans }}</span>
     </div>
 </div>

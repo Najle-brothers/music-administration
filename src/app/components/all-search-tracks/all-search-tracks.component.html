@@ -9,8 +9,21 @@
             <h2 class="list-songs__title">{{ track.title }}</h2>
             <div class="list-songs__info">
                 <h3 class="list-songs__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
-                <h4 class="list-songs__album" (click)="sendToAlbumPage(track.albumId)">{{ track.album }}</h4>
+                <div class="list-songs__explicit">
+                    <h4 class="list-songs__album" (click)="sendToAlbumPage(track.albumId)">{{ track.album }}</h4>
+                    <app-explicit-content *ngIf="track.explicit"></app-explicit-content>
+                </div>
             </div>
+
+            <div class="list-songs__small-info">
+                <h3 class="list-songs__small-title">{{ track.title }}</h3>
+                <div class="list-songs__explicit">
+                    <h3 class="list-songs__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
+                    <app-explicit-content *ngIf="track.explicit"></app-explicit-content>
+                </div>
+            </div>
+
+
             <span class="list-songs__duration">{{ track.duration }}</span>
         </li>
     </ol>

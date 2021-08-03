@@ -4,6 +4,7 @@
             "id": 5350217,
             "artist": "Layton Giordani",
             "picture_medium": "https://cdns-images.dzcdn.net/images/artist/09c77850bb8fd6fe27d991d4f3f5283d/250x250-000000-80-0-0.jpg",
+            "picture_small": "https://cdns-images.dzcdn.net/images/artist/b501f836427557596380b272f420196a/56x56-000000-80-0-0.jpg",
             "type": "artist"
         },
 
@@ -11,6 +12,7 @@
             "id": 9757762,
             "artist": "Amelie Lens",
             "picture_medium": "https://cdns-images.dzcdn.net/images/artist/ef4cff7f0cbb8e8ca265481e0f20e2f0/250x250-000000-80-0-0.jpg",
+            "picture_small": "https://cdns-images.dzcdn.net/images/artist/ef4cff7f0cbb8e8ca265481e0f20e2f0/56x56-000000-80-0-0.jpg",
             "type": "artist"
         },
 
@@ -18,6 +20,7 @@
             "id": 1658572,
             "artist": "Purple Disco Machine",
             "picture_medium": "https://cdns-images.dzcdn.net/images/artist/6d144ec40e8d8ce280eacfe16b3010e3/250x250-000000-80-0-0.jpg",
+            "picture_small": "https://cdns-images.dzcdn.net/images/artist/6d144ec40e8d8ce280eacfe16b3010e3/56x56-000000-80-0-0.jpg",
             "type": "artist"
         },
 
@@ -25,6 +28,7 @@
             "id": 1005,
             "artist": "Aerosmith",
             "picture_medium": "https://cdns-images.dzcdn.net/images/artist/bcd4360759ccdbbe9a1b1f1adf288962/250x250-000000-80-0-0.jpg",
+            "picture_small": "https://cdns-images.dzcdn.net/images/artist/bcd4360759ccdbbe9a1b1f1adf288962/56x56-000000-80-0-0.jpg",
             "type": "artist"
         }
     ]

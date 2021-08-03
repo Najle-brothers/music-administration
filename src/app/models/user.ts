@@ -2,7 +2,8 @@ export interface IUser {
     id: number,
     userName: string,
     name: string,
-    lastName: string
+    lastName: string,
+    explicitContent: boolean,
 }
 
 export function makeUser(): IUser {
@@ -10,6 +11,7 @@ export function makeUser(): IUser {
         id: 0,
         userName: '',
         name: '',
-        lastName: ''
+        lastName: '',
+        explicitContent: false,
     }
 }

@@ -11,7 +11,7 @@ export class AlbumService {
     private httpService: HttpClient
   ) { }
 
-  getAlbumInfoById(id): Observable<any> {
+  getAlbumInfoById(id: number): Observable<any> {
     return this.httpService.get('/api/album/' + id.toString())
   }
 

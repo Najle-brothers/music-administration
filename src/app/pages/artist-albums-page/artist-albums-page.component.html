@@ -1,7 +1,7 @@
 <div class="artist-albums-page">
-    <app-loading *ngIf="isAlbumLoading" class="artist-albums-page__loading"></app-loading>
+    <app-loading *ngIf="isAlbumLoading || isUserLoading" class="artist-albums-page__loading"></app-loading>
     <div class="artist-albums-page__cards">  
-        <app-all-artist-albums *ngIf="!isAlbumLoading" 
+        <app-all-artist-albums *ngIf="!isAlbumLoading && !isUserLoading" 
         [inputAlbums]="albums"></app-all-artist-albums>
     </div>
 </div>

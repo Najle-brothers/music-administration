@@ -2,8 +2,8 @@
     <app-loading *ngIf="isHeaderLoading" class="playlist-page__loading"></app-loading>
     <app-playlist-page-header *ngIf="!isHeaderLoading" [inputHeader]="playlistInfo"></app-playlist-page-header>
 
-    <app-loading *ngIf="isTrackLoading" class="playlist-page__loading"></app-loading>
+    <app-loading *ngIf="isTrackLoading || isUserLoading" class="playlist-page__loading"></app-loading>
     <div class="playlist-page__card">
-        <app-playlist-page-tracklist *ngIf="!isTrackLoading" [inputTracklist]="tracks"></app-playlist-page-tracklist>
+        <app-playlist-page-tracklist *ngIf="!isTrackLoading && !isUserLoading" [inputTracklist]="tracks"></app-playlist-page-tracklist>
     </div>
 </div>

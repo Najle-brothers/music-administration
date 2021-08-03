@@ -17,17 +17,21 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   public isArtistLoading: boolean = false;
   public isAlbumLoading: boolean = false;
   public isPlaylistLoading: boolean = false;
+  public isUserLoading: boolean = false;
 
   public user: IUser = makeUser();
-  public artists = []
-  public tracks = []
-  public albums = []
-  public playlists = []
-  public genres = []
+  public artists = [];
+  public tracks = [];
+  public allTracks = [];
+  public albums = [];
+  public allAlbums = [];
+  public playlists = [];
+  public genres = [];
+  public explicitContent: boolean = false;
 
   constructor(
     private userService: UserService,
-    private commonsService: CommonsService
+    private commonsService: CommonsService,
   ) { }
 
   ngOnInit(): void {
@@ -50,7 +54,8 @@ export class LandingPageComponent implements OnInit, OnDestroy {
           id: response.id,
           userName: response.name,
           name: response.name,
-          lastName: response.lastname
+          lastName: response.lastname,
+          explicitContent: response.explicitContent,
         }
         this.isHeaderLoading = false
       })
@@ -65,7 +70,8 @@ export class LandingPageComponent implements OnInit, OnDestroy {
           return {
             id: artist.id,
             artist: artist.artist,
-            picture: artist.picture_medium
+            picture: artist.picture_medium,
+            small_picture: artist.picture_small,
           }
         })
         this.isArtistLoading = false
@@ -77,15 +83,22 @@ export class LandingPageComponent implements OnInit, OnDestroy {
     this.isAlbumLoading = true;
     this.subscription.add(
       this.userService.getAlbumsByUserId().subscribe((response) => {
-        this.albums = response.albums.map((album) => {
+        this.allAlbums = response.albums.map((album) => {
           return {
             id: album.id,
             title: album.title,
             artist: album.artist,
-            picture: album.picture
+            picture: album.picture,
+            small_picture: album.small_picture,
           }
         })
-        this.isAlbumLoading = false
+        this.isUserLoading = true;
+        this.userService.getUserData().subscribe((response: IUser) => {
+          this.explicitContent = response.explicitContent;
+          this.albums = this.commonsService.explicitLyrics(this.explicitContent, this.allAlbums);
+          this.isUserLoading = false;
+        })
+        this.isAlbumLoading = false;
       })
     )
   }
@@ -94,7 +107,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
     this.isTracksLoading= true;
     this.subscription.add(
       this.userService.getTracksByUserId().subscribe((response) => {
-        this.tracks = response.tracks.map((track) => {
+        this.allTracks = response.tracks.map((track) => {
           return {
             id: track.id,
             title: track.title,
@@ -104,8 +117,15 @@ export class LandingPageComponent implements OnInit, OnDestroy {
             albumId: track.albumId,
             duration: this.commonsService.secondsToFullDuration(track.duration, false, this.commonsService.twoDigits),
             type: track.type,
-            picture: track.cover_small
+            picture: track.cover_small,
+            explicit: track.explicit_lyrics,
           }
+        })
+        this.isUserLoading = true;
+        this.userService.getUserData().subscribe((response: IUser) => {
+          this.explicitContent = response.explicitContent;
+          this.tracks = this.commonsService.explicitLyrics(this.explicitContent, this.allTracks);
+          this.isUserLoading = false;
         })
         this.isTracksLoading = false;
       })
@@ -122,6 +142,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
             title: playlist.title,
             duration: this.commonsService.secondsToFullDuration(playlist.duration, true, this.commonsService.twoDigits),
             picture: playlist.picture,
+            small_picture: playlist.picture_small,
             type: playlist.type
           }
         })

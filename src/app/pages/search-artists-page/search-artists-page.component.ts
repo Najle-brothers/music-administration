@@ -45,6 +45,7 @@ export class SearchArtistsPageComponent implements OnInit {
             id: artist.id,
             name: artist.name,
             picture: artist.picture_medium,
+            small_picture: artist.picture_small,
             fans: this.commonsService.fansWithCommas(artist.nb_fan),
           }
         })

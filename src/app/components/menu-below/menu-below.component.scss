@@ -1,0 +1,49 @@
+@import '../../../assets/styles/variables.scss';
+
+.app-menu-below {
+    margin: 0px;
+    height: $size-menu-below-height;
+    width: 100%;
+    background-color: $background-color-secondary;
+    font-family: Arial, Helvetica, sans-serif;
+
+    &__list{
+        margin: 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        list-style-type: none;
+        &-item{
+            cursor: pointer;
+            :hover{
+                color: $text-color-active;
+            }
+            :active{
+                color: $text-color-active;
+            }
+        display: flex;
+        flex: 2;
+        align-items: center;
+        }
+    }
+
+    &__div{
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__icon{
+        width: 15px;
+        height: 15px;
+        background: none;
+    }
+
+    &__span{
+        padding-top: 5px;
+        font-size: 10px;
+        color: $text-color-primary;
+    }
+}

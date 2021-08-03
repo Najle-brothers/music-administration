@@ -1,5 +1,6 @@
 export interface IPlaylist {
     picture: string,
+    medium_picture: string,
     title: string,
     description: string,
     fans:string,
@@ -11,6 +12,7 @@ export interface IPlaylist {
 export function makePlaylist(): IPlaylist {
     return {
         picture: '',
+        medium_picture: '',
         title: '',
         description: '',
         fans: '',

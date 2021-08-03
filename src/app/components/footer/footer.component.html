@@ -1,11 +1,17 @@
 <div class="app-footer">
-    <iframe
-        title="deezer-widget" 
-        [src]="playerURL" 
-        width="100%"
-        height="80"
-        frameborder="0"
-        allowtransparency="true"
-        allow="encrypted-media; clipboard-write">
-    </iframe>
+
+    <div class="app-footer__player">
+        <iframe
+            title="deezer-widget" 
+            [src]="playerURL" 
+            width="100%"
+            height="80"
+            frameborder="0"
+            allowtransparency="true"
+            allow="encrypted-media; clipboard-write">
+        </iframe>
+    </div>
+
+    <app-menu-below class="app-footer__menu"></app-menu-below>
+
 </div>

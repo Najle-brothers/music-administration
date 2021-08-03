@@ -43,7 +43,8 @@ export class SearchAlbumsPageComponent implements OnInit {
           id: album.id,
           title: album.title,
           artist: album.artist.name,
-          picture: album.cover_medium
+          picture: album.cover_medium,
+          small_picture: album.cover_small,
           }
         })
         this.isAlbumLoading = false;

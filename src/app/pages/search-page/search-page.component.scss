@@ -17,3 +17,29 @@
         color: $text-color-primary;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .search-page {
+        &__title {
+            padding-left: 12px;
+            max-height: 30px;
+            font-size: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .search-page {
+        &__title {
+            font-size: 25px;
+        }
+    }    
+}
+
+@media screen and (max-width: 390px) {
+    .search-page {
+        &__title {
+            display: none;
+        }
+    }    
+}

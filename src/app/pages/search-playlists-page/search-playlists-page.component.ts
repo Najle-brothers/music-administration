@@ -43,6 +43,7 @@ export class SearchPlaylistsPageComponent implements OnInit {
             id: playlist.id,
             title: playlist.title,
             picture: playlist.picture_medium,
+            small_picture: playlist.picture_small,
             user: playlist.user.name
           }
         })

@@ -1,8 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IAlbums } from 'src/app/models/albums';
+import { IArtist } from 'src/app/models/artist';
+import { IPlaylists } from 'src/app/models/playlists';
+import { ITracks } from 'src/app/models/tracks';
+import { IUser } from 'src/app/models/user';
 import { CommonsService } from 'src/app/services/commons.service';
 import { SearchService } from 'src/app/services/search.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-search-page',
@@ -12,7 +18,7 @@ import { SearchService } from 'src/app/services/search.service';
 export class SearchPageComponent implements OnInit, OnDestroy {
   public subscription: Subscription = new Subscription;
 
-  search = ""
+  public search: string = ""
 
   public artist = {
     id: 0,
@@ -20,10 +26,13 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     picture: ''
   }
 
-  public artists = []
-  public albums = []
-  public playlists = []
-  public tracks = []
+  public artists: IArtist[] = [];
+  public albums = [];
+  public allAlbums: IAlbums[]= [];
+  public playlists: IPlaylists[] = [];
+  public tracks: ITracks[] = [];
+  public allTracks: ITracks[] = [];
+  public explicitContent: boolean = false;
 
   public playlistsId = {
     id: 0
@@ -33,11 +42,13 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   public isAlbumLoading: boolean = false;
   public isPlaylistLoading: boolean = false;
   public isTrackLoading: boolean = false;
+  public isUserLoading: boolean = false;
 
   constructor(
     private searchService: SearchService,
     private commonsService: CommonsService,
     private route: ActivatedRoute,
+    private userService: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -59,7 +70,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
 
   getArtistInfoByName(search: string): void {
     this.subscription.add(
-      this.searchService.getArtistByName(search).subscribe((response) => {
+      this.searchService.getArtistByName(search).subscribe((response: any) => {
         this.artist = {
           id: response.id,
           name: response.name,
@@ -72,14 +83,22 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   getAlbumsListByName(search: string): void {
     this.isAlbumLoading = true;
     this.subscription.add(
-      this.searchService.getAlbumsByName(search).subscribe((response) => {
-        this.albums = response.data.map((album) => {
+      this.searchService.getAlbumsByName(search).subscribe((response: any) => {
+        this.allAlbums = response.data.map((album) => {
           return {
           id: album.id,
           title: album.title,
           artist: album.artist.name,
-          picture: album.cover_medium
+          picture: album.cover_medium,
+          small_picture: album.cover_small,
+          explicitContent: album.explicit_lyrics,
           }
+        })
+        this.isUserLoading = true;
+        this.userService.getUserData().subscribe((response: IUser) => {
+          this.explicitContent = response.explicitContent;
+          this.albums = this.commonsService.explicitLyrics(this.explicitContent, this.allAlbums);
+          this.isUserLoading = false;
         })
         this.isAlbumLoading = false;
       })
@@ -89,12 +108,13 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   getArtistsListByName(search: string): void {
     this.isArtistLoading = true;
     this.subscription.add(
-      this.searchService.getArtistByName(search).subscribe((response) => {
+      this.searchService.getArtistByName(search).subscribe((response: any) => {
         this.artists = response.data.map((artist) => {
           return {
             id: artist.id,
             name: artist.name,
             picture: artist.picture_medium,
+            small_picture: artist.picture_small,
             fans: this.commonsService.fansWithCommas(artist.nb_fan)
           }
         })
@@ -106,12 +126,13 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   getPlaylistsListByName(search: string): void {
     this.isPlaylistLoading = true;
     this.subscription.add(
-      this.searchService.getPlaylistsByName(search).subscribe((response) => {
+      this.searchService.getPlaylistsByName(search).subscribe((response: any) => {
         this.playlists = response.data.map((playlist) => {
           return {
             id: playlist.id,
             title: playlist.title,
             picture: playlist.picture_medium,
+            small_picture: playlist.picture_small,
             user: playlist.user.name
           }
         })
@@ -138,8 +159,8 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   getTracksListByName(search: string): void {
     this.isTrackLoading = true;
     this.subscription.add(
-      this.searchService.getTracksByName(search).subscribe((response) => {
-        this.tracks = response.data.map((track) => {
+      this.searchService.getTracksByName(search).subscribe((response: any) => {
+        this.allTracks = response.data.map((track) => {
           return {
             id: track.id,
             title: track.title,
@@ -149,27 +170,34 @@ export class SearchPageComponent implements OnInit, OnDestroy {
             album: track.album.title,
             albumId: track.album.id,
             albumPic: track.album.cover_small,
-            type: track.type
+            type: track.type,
+            explicit: track.explicit_lyrics,
           }
+        })        
+        this.isUserLoading = true;
+        this.userService.getUserData().subscribe((response) => {
+          this.explicitContent = response.explicitContent;
+          this.tracks = this.commonsService.explicitLyrics(this.explicitContent, this.allTracks)
+          this.isUserLoading = false;
         })
         this.isTrackLoading = false;
       })
     )
   }
 
-  get cutTracks(){
+  get cutTracks (): ITracks[] {
     return this.tracks.slice(0,4)
   }
 
-  get cutArtists(){
+  get cutArtists(): IArtist[] {
     return this.artists.slice(0,7)
   }
 
-  get cutAlbums(){
+  get cutAlbums():IAlbums[] {
     return this.albums.slice(0,7)
   }
 
-  get cutPlaylists(){
+  get cutPlaylists(): IPlaylists[] {
     return this.playlists.slice(0,7)
   }
 

@@ -11,3 +11,15 @@
         </div>
     </div>
 </div>
+
+<div class="app-list-album">
+    <ol class="app-list-album__list" *ngFor="let album of inputAlbum">
+        <li class="app-list-album__item" (click)="sendToAlbumPage(album.id)">
+            <img [src]="album.small_picture" alt="" class="app-list-album__small-img">
+            <div class="app-list-album__info">
+                <h3 class="app-list-album__artist">{{ album.title }}</h3>
+                <h4 class="app-list-album__album">{{ album.artist }}</h4>
+            </div>
+        </li>
+    </ol>
+</div>

@@ -8,3 +8,12 @@
         </div>
     </div>
 </div>
+
+<div class="app-list-artists">
+    <ol class="app-list-artists__list" *ngFor="let artist of inputArtist">
+        <li class="app-list-artists__item" (click)="sendToArtistPage(artist.id)">
+            <img [src]="artist.small_picture" alt="" class="app-list-artists__small-img">
+            <h2 class="app-list-artists__title">{{ artist.artist }}</h2>
+        </li>
+    </ol>
+</div>

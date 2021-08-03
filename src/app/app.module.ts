@@ -51,6 +51,8 @@ import { AllSearchArtistsComponent } from './components/all-search-artists/all-s
 import { AllSearchPlaylistsComponent } from './components/all-search-playlists/all-search-playlists.component';
 import { AllSearchAlbumsComponent } from './components/all-search-albums/all-search-albums.component';
 import { AllSearchTracksComponent } from './components/all-search-tracks/all-search-tracks.component';
+import { ExplicitContentComponent } from './components/explicit-content/explicit-content.component';
+import { MenuBelowComponent } from './components/menu-below/menu-below.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +102,9 @@ import { AllSearchTracksComponent } from './components/all-search-tracks/all-sea
     AllSearchArtistsComponent,
     AllSearchPlaylistsComponent,
     AllSearchAlbumsComponent,
-    AllSearchTracksComponent
+    AllSearchTracksComponent,
+    ExplicitContentComponent,
+    MenuBelowComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { makePlayerData } from '../models/player';
+import { IPlayerData, makePlayerData } from '../models/player';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class StateService {
 
   private search = new BehaviorSubject("")
 
-  private id = new BehaviorSubject("")
+  private id = new BehaviorSubject(0)
 
   private playerData = new BehaviorSubject(makePlayerData())
 
@@ -19,7 +19,7 @@ export class StateService {
     this.search.next(search)
   }
 
-  getSearch() {
+  getSearch(): BehaviorSubject<string> {
     return this.search
   }
 
@@ -27,15 +27,15 @@ export class StateService {
     this.id.next(id)
   }
 
-  getId(){
+  getId(): BehaviorSubject<number>{
     return this.id
   }
 
-  setPlayerData(type){
+  setPlayerData(type): void{
     this.playerData.next(type)
   }
 
-  getPlayerData(){
+  getPlayerData(): BehaviorSubject<IPlayerData>{
     return this.playerData
   }
 }

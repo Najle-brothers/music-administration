@@ -1,19 +1,47 @@
-<div class="app-album-page__container">
-    <div>
-        <img class="app-album-page__img" [src]="inputAlbumHeader.picture" alt="">
+<div class="album-page">
+    <div class="album-page__container">
+        <div>
+            <img class="album-page__img" [src]="inputAlbumHeader.picture" alt="">
+        </div>
+        <div class="album-page__information">
+            <div class="album-page__info-box">
+                <h1 class="album-page__title">{{ inputAlbumHeader.title }}</h1>
+                <p class="album-page__artist">{{ inputAlbumHeader.artist }}</p>
+                <div class="album-page__playback-info">
+                    <div class="album-page__detailed-info">
+                        <span class="album-page__fans">{{ inputAlbumHeader.fans }}</span>
+                        <span class="album-page__duration">{{ inputAlbumHeader.duration }}</span> 
+                    </div>
+                    <app-play-button class="album-page__playButton" 
+                    (click)="setPlayerData(inputAlbumHeader.id, inputAlbumHeader.type)"></app-play-button>  
+                </div>       
+            </div>
+        </div>
     </div>
-    <div class="app-album-page__information">
-        <div class="app-album-page__info-box">
-            <h1 class="app-album-page__title">{{ inputAlbumHeader.title }}</h1>
-            <p class="app-album-page__artist">{{ inputAlbumHeader.artist }}</p>
-            <div class="app-album-page__playback-info">
-                <div class="app-album-page__detailed-info">
-                    <span class="app-album-page__fans">{{ inputAlbumHeader.fans }}</span>
-                    <span class="app-album-page__duration">{{ inputAlbumHeader.duration }}</span> 
+</div>
+
+<div class="small-header">
+    <div class="small-header__container">
+        <div class="small-header__img-background">
+            <img class="small-header__img" [src]="inputAlbumHeader.medium_picture" alt="">
+        </div>
+        <div class="small-header__information">
+            <h1 class="small-header__title">{{ inputAlbumHeader.title }}</h1>
+
+            <div class="small-header__infobox-button">
+                <div class="small-header__info-box">
+                    <p class="small-header__artist">{{ inputAlbumHeader.artist }}</p>
+                    <div class="small-header__detailed-info">
+                        <span class="small-header__fans">{{ inputAlbumHeader.fans }}</span>
+                        <span class="small-header__duration">{{ inputAlbumHeader.duration }}</span> 
+                    </div>
                 </div>
-                <app-play-button class="app-album-page__playButton" 
-                (click)="setPlayerData(inputAlbumHeader.id, inputAlbumHeader.type)"></app-play-button>  
-            </div>       
+                <div class="small-header__button">
+                    <app-play-button class="small-header__playButton" 
+                    (click)="setPlayerData(inputAlbumHeader.id, inputAlbumHeader.type)"></app-play-button>
+                </div>
+            </div>  
+
         </div>
     </div>
 </div>

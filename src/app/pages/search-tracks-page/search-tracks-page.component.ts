@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IUser } from 'src/app/models/user';
 import { CommonsService } from 'src/app/services/commons.service';
 import { SearchService } from 'src/app/services/search.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-search-tracks-page',
@@ -13,14 +15,18 @@ export class SearchTracksPageComponent implements OnInit {
   public subscription: Subscription = new Subscription;
 
   public isTrackLoading: boolean = false;
+  public isUserLoading: boolean = false;
 
   public search = "";
   public tracks = [];
+  public allTracks = [];
+  public explicitContent: boolean = false;
 
   constructor(
     private searchService: SearchService,
     private commonsService: CommonsService,
     private route: ActivatedRoute,
+    private userService: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +42,7 @@ export class SearchTracksPageComponent implements OnInit {
     this.isTrackLoading = true;
     this.subscription.add(
       this.searchService.getTracksByName(search).subscribe((response) => {
-        this.tracks = response.data.map((track) => {
+        this.allTracks = response.data.map((track) => {
           return {
             id: track.id,
             title: track.title,
@@ -46,8 +52,15 @@ export class SearchTracksPageComponent implements OnInit {
             album: track.album.title,
             albumId: track.album.id,
             albumPic: track.album.cover_small,
-            type: track.type
+            type: track.type,
+            explicit: track.explicit_lyrics,
           }
+        })
+        this.isUserLoading = true;
+        this.userService.getUserData().subscribe((response: IUser) => {
+          this.explicitContent = response.explicitContent;
+          this.tracks = this.commonsService.explicitLyrics(this.explicitContent, this.allTracks);
+          this.isUserLoading = false;
         })
         this.isTrackLoading = false;
       })

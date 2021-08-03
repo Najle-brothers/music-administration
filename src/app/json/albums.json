@@ -5,6 +5,7 @@
             "title": "Animal",
             "artist": "Maria Becerra",
             "picture": "https://cdns-images.dzcdn.net/images/cover/02699858279d14278cc80272cd4c626c/250x250-000000-80-0-0.jpg",
+            "small_picture": "https://cdns-images.dzcdn.net/images/cover/02699858279d14278cc80272cd4c626c/56x56-000000-80-0-0.jpg",
             "genre_id": 197,
             "type": "album"
         },
@@ -14,6 +15,7 @@
             "title": "oops.. I did it again",
             "artist": "Britney Spears",
             "picture": "https://cdns-images.dzcdn.net/images/cover/3ce175f943216df8304ece5f3d80334b/250x250-000000-80-0-0.jpg",
+            "small_picture": "https://cdns-images.dzcdn.net/images/cover/3ce175f943216df8304ece5f3d80334b/56x56-000000-80-0-0.jpg",
             "genre_id": 132,
             "type": "album"
         },
@@ -23,6 +25,7 @@
             "title": "Space driver",
             "artist": "Boris Brejcha",
             "picture": "https://cdns-images.dzcdn.net/images/cover/3f6a5c286c2b7e88a8a98b618a97b96c/250x250-000000-80-0-0.jpg",
+            "small_picture": "https://cdns-images.dzcdn.net/images/cover/3f6a5c286c2b7e88a8a98b618a97b96c/56x56-000000-80-0-0.jpg",
             "genre_id": 106,
             "type": "album"
         },
@@ -32,6 +35,7 @@
             "title": "Cup of Beats",
             "artist": "Lost Frequencies",
             "picture": "https://cdns-images.dzcdn.net/images/cover/b620e0d1ed766956abd55a7bee955ba4/250x250-000000-80-0-0.jpg",
+            "small_picture": "https://cdns-images.dzcdn.net/images/cover/b620e0d1ed766956abd55a7bee955ba4/56x56-000000-80-0-0.jpg",
             "genre_id": 113,
             "type": "album"
         }

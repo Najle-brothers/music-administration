@@ -43,7 +43,8 @@ export class ArtistPlaylistsPageComponent implements OnInit {
           return {
             id: playlist.id,
             title: playlist.title,
-            picture: playlist.picture_medium
+            picture: playlist.picture_medium,
+            small_picture: playlist.picture_small,
           }
         })
       })
