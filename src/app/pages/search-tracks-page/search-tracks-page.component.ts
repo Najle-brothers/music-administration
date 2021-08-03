@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ITracks } from 'src/app/models/tracks';
 import { IUser } from 'src/app/models/user';
 import { CommonsService } from 'src/app/services/commons.service';
 import { SearchService } from 'src/app/services/search.service';
@@ -17,9 +18,9 @@ export class SearchTracksPageComponent implements OnInit {
   public isTrackLoading: boolean = false;
   public isUserLoading: boolean = false;
 
-  public search = "";
+  public search: string = "";
   public tracks = [];
-  public allTracks = [];
+  public allTracks: ITracks[] = [];
   public explicitContent: boolean = false;
 
   constructor(
@@ -41,7 +42,7 @@ export class SearchTracksPageComponent implements OnInit {
   getTracksListByName(search: string): void {
     this.isTrackLoading = true;
     this.subscription.add(
-      this.searchService.getTracksByName(search).subscribe((response) => {
+      this.searchService.getTracksByName(search).subscribe((response: any) => {
         this.allTracks = response.data.map((track) => {
           return {
             id: track.id,
@@ -51,7 +52,7 @@ export class SearchTracksPageComponent implements OnInit {
             artistId: track.artist.id,
             album: track.album.title,
             albumId: track.album.id,
-            albumPic: track.album.cover_small,
+            picture: track.album.cover_small,
             type: track.type,
             explicit: track.explicit_lyrics,
           }

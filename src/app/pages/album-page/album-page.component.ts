@@ -20,7 +20,7 @@ export class AlbumPageComponent implements OnInit, OnDestroy {
   public isTracksLoading: boolean = false;
   public isUserLoading: boolean = false;
 
-  public id: string = ""
+  public id: number = 0;
 
   public selectedAlbum: IAlbum = makeAlbum();
 

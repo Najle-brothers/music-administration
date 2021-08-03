@@ -18,7 +18,7 @@ export class ArtistAlbumsPageComponent implements OnInit {
   public isAlbumLoading: boolean = false;
   public isUserLoading: boolean = false;
 
-  public id = "";
+  public id: number = 0;
   public allAlbums: IAlbums[] = [];
   public albums = [];
   public explicitContent: boolean = false;
@@ -57,7 +57,7 @@ export class ArtistAlbumsPageComponent implements OnInit {
             picture: album.cover_medium,
             small_picture: album.cover_small,
             year: this.commonsService.getYearFromDate(album.release_date),
-            explicit: album.explicit_lyrics,
+            explicitContent: album.explicit_lyrics,
           }
         })
         this.isUserLoading = true

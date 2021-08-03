@@ -3,6 +3,7 @@ export interface IPlaylists {
     small_picture: string,
     title: string,
     id: number,
+    user: string,
 }
 
 export function makePlaylists(): IPlaylists {
@@ -11,5 +12,6 @@ export function makePlaylists(): IPlaylists {
         small_picture: '',
         title: '',
         id: 0,
+        user:'',
     }
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IPlaylist } from 'src/app/models/playlist';
+import { IPlaylists } from 'src/app/models/playlists';
 import { ArtistService } from 'src/app/services/artist.service';
-import { PlaylistsService } from 'src/app/services/playlists.service';
 
 @Component({
   selector: 'app-artist-playlists-page',
@@ -14,8 +15,8 @@ export class ArtistPlaylistsPageComponent implements OnInit {
 
   public isPlaylistLoading: boolean = false;
 
-  public id = "";
-  public playlists = [];
+  public id: number = 0;
+  public playlists: IPlaylists[] = [];
 
   constructor(
     private artistService: ArtistService,
@@ -38,7 +39,7 @@ export class ArtistPlaylistsPageComponent implements OnInit {
   getArtistPlaylistsById(id): void {
     this.isPlaylistLoading = true;
     this.subscription.add(
-      this.artistService.getPlaylistsByArtistId(id).subscribe((response) => {
+      this.artistService.getPlaylistsByArtistId(id).subscribe((response: any) => {
         this.playlists = response.data.map((playlist) => {
           return {
             id: playlist.id,

@@ -7,6 +7,9 @@ export interface ITracks {
     artistId: number,
     type: string,
     explicit: boolean,
+    picture: string,
+    album: string,
+    albumId: number
 }
 
 export function makeTracks(): ITracks {
@@ -19,5 +22,8 @@ export function makeTracks(): ITracks {
         artistId: 0,
         type: '',
         explicit: true,
+        picture: '',
+        album: '',
+        albumId: 0,
     }
 }
