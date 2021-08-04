@@ -73,14 +73,53 @@
     }
 }
 
-@media screen and (min-width: 800px) {
-    .list-artists {
-    display: none;
-}  
-
+@media screen and (max-width: 1400px) {
+    .artist-card {
+        &__container {
+            margin-right: 15px;
+        }
+    }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1120px) {
+    .artist-card {
+        &__container {
+            width: 140px;
+            margin-right: 25px;
+        }
+
+        &__img {
+            display: block;
+            position: relative;
+            width: 140px;
+            object-fit: cover;
+            object-position: 50% 35%;
+        }
+
+        &__title{
+            font-size: 15px;
+        }
+        &__fans{
+            font-size: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .artist-card {
+        &__container {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media screen and (min-width: 710px) {
+    .list-artists {
+    display: none;
+    }  
+}
+
+@media screen and (max-width: 710px) {
     .artists-card {
         display: none;
     }
