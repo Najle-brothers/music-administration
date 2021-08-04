@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import userData from '../json/user.json';
 import albumsData from '../json/albums.json';
 import artistData from '../json/artists.json';
@@ -14,7 +15,9 @@ export class UserService {
   constructor() { }
 
   getUserData(): Observable<any> {
-    return of(userData);
+    return of(userData).pipe(
+      delay(500)
+    );
 }
 
   getTracksByUserId(): Observable<any> {
@@ -37,3 +40,4 @@ export class UserService {
     return of();
   }
 }
+

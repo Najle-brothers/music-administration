@@ -13,3 +13,12 @@
         </div>
     </div>
 </div>
+
+<div class="list-artists">
+    <ol class="list-artists__list" *ngFor="let artist of inputArtists">
+        <li class="list-artists__item" (click)="sendToArtistPage(artist.id)">
+            <img [src]="artist.small_picture" alt="" class="list-artists__small-img">
+            <h2 class="list-artists__title">{{ artist.name }}</h2>
+        </li>
+    </ol>
+</div>

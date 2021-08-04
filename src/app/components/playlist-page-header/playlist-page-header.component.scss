@@ -1,6 +1,6 @@
 @import '../../../assets/styles/variables.scss';
 
-.app-playlists-header{ 
+.playlists-header{ 
     &__container{
         margin-bottom: 10px;
         position: relative;
@@ -27,7 +27,9 @@
         align-items: center;
         align-content: center;
         flex-wrap: wrap;
-        padding-left: 30px;
+        max-height: 350px;
+        margin-top: 30px;
+        padding: 00px 10px 30px 30px;
     }
 
     &__playback-info{
@@ -36,11 +38,13 @@
     }
 
     &__title{
-        font-size: 50px;
+        font-size: 35px;
+        margin: 0px;
     }
 
     &__description{
-        font-size: 25px;
+        font-size: 20px;
+        margin: 15px 0px;
     }
 
     &__detailed-info{
@@ -71,4 +75,82 @@
         object-position: 50% 35%;
     }
     
+}
+
+@media screen and (min-width: 600px) {
+    .small-header {
+        display: none;
+    }
+} 
+
+@media screen and (max-width: 600px) {
+    .playlists-header {
+        display: none;
+    }
+
+    .small-header {
+        font-family: Arial, Helvetica, sans-serif;
+
+        &__container {
+            width: 100%;
+            padding: 10px 0px;
+            background-color: $background-color-main-transparency;
+            margin-bottom: 10px;
+            max-height: 370px;
+        }
+        
+        &__img-background {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__information {
+            padding: 0px 10px;
+            max-height: 110px;
+        }
+
+        &__title {
+            font-size: 20px;
+            margin: 10px 0px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        &__infobox-button {
+            display: flex;
+            flex-direction: row;
+        }
+
+        &__info-box {
+            flex-direction: column;
+            flex: 3;
+            margin: 10px 0px;
+        }
+
+        &__description {
+            font-size: 10px;
+            margin: 0px;
+            max-width: 200px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        &__detailed-info {
+            font-size: 10px;
+            flex-direction: row;
+            margin: 0px;
+            padding-top: 5px;
+        }
+
+        &__fans {
+            margin-right: 10px;
+        }
+
+        &__button {
+            display: flex;
+            flex: 1;
+        }
+    } 
 }

@@ -51,3 +51,159 @@
         margin: 0px;
     }
 }
+
+@media screen and (max-width: 1400px) {
+    .album-card {
+        &__container {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .album-card {
+        &__container {
+            width: 140px;
+            margin-right: 25px;
+        }
+
+        &__img {
+            display: block;
+            position: relative;
+            width: 140px;
+            object-fit: cover;
+            object-position: 50% 35%;
+        }
+
+        &__title{
+            font-size: 15px;
+        }
+        &__artist{
+            font-size: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .album-card {
+        &__container {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media screen and (min-width: 710px) {
+    .list-album {
+        display: none;
+    }
+} 
+
+@media screen and (max-width: 710px) {
+    .album-card {
+        display: none;
+    }
+
+    .list-album {
+        font-family: Arial, Helvetica, sans-serif;
+        color: $text-color-primary;
+
+        :hover{
+            background-color: $background-color-secondary;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        :active{
+            color: $text-color-active;
+            background-color: $background-color-secondary;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        &__list{
+            display: flex;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        &__item{
+            width: 100%;
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+        }
+
+        &__small-img{
+            border-radius: 100px;
+            max-height: 56px;
+            &:hover{
+                border-radius: 100px !important; 
+            }
+        }
+
+        &__info{
+            flex: 3;
+            flex-wrap: wrap;
+            justify-content: left;
+            align-items: center;
+            padding-top: 10px;
+            padding-left: 10px;
+            max-height: 56px;
+        }
+
+        &__title{
+            font-size: 20px;
+            text-decoration: none;
+            margin: 0px;
+            padding-bottom: 5px;
+            display: block;
+
+            &:hover{
+                text-decoration: underline;
+            }
+
+        }
+
+        &__artist{
+            font-size: 15px;
+            text-decoration: none;
+            margin: 0px;
+            display: block;
+
+            &:hover{
+                text-decoration: underline;
+            }
+            
+        }        
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .album-card {
+        display: none;
+    }
+
+    .list-album {
+        &__title {
+            font-size: 15px;
+        }
+
+        &__artist {
+            font-size: 10px;
+        }
+
+        &__info{
+            max-height: 56px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .search-page {
+        &__title {
+        font-size: 20px;
+        flex: 2;
+        }
+    }
+}

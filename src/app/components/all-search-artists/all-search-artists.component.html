@@ -6,7 +6,16 @@
     <div *ngFor="let artist of inputArtists" class="artist-card__card">
         <div class="artist-card__container" (click)="sendToArtistPage(artist.id)">
             <img [src]="artist.picture" alt="" class="artist-card__img">
-            <h2 class="artist-card__title">{{ artist.name }}</h2>
+            <h2 class="artist-card__title">{{ artist.artist }}</h2>
         </div>
     </div>
+</div>
+
+<div class="list-artists">
+    <ol class="list-artists__list" *ngFor="let artist of inputArtists">
+        <li class="list-artists__item" (click)="sendToArtistPage(artist.id)">
+            <img [src]="artist.small_picture" alt="" class="list-artists__small-img">
+            <h2 class="list-artists__title">{{ artist.artist }}</h2>
+        </li>
+    </ol>
 </div>

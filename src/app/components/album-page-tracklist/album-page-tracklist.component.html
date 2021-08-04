@@ -1,12 +1,15 @@
-<div class="app-album-page">
-    <ol class="app-album-page__list" *ngFor="let track of inputTracks">
-        <li class="app-album-page__item" (click)="setPlayerData(track.id, track.type)">
-            <span class="app-album-page__position">{{ track.position }}</span>
-            <div class="app-album-page__info">
-                <h2 class="app-album-page__title">{{ track.title }}</h2>
-                <h3 class="app-album-page__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
+<div class="album-page">
+    <ol class="album-page__list" *ngFor="let track of inputTracks">
+        <li class="album-page__item" (click)="setPlayerData(track.id, track.type)">
+            <span class="album-page__position">{{ track.position }}</span>
+            <div class="album-page__info">
+                <h2 class="album-page__title">{{ track.title }}</h2>
+                <div class="album-page__explicit">
+                    <h3 class="album-page__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
+                    <app-explicit-content *ngIf="track.explicit"></app-explicit-content>
+                </div>
             </div>
-            <span class="app-album-page__duration">{{ track.duration }}</span>
+            <span class="album-page__duration">{{ track.duration }}</span>
         </li>
     </ol>
 </div>

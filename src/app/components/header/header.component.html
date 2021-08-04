@@ -1,4 +1,9 @@
 <div class="app-header">
-    <app-searcher (eventSearch)="sendSearch($event)" class="app-header__searcher"></app-searcher>
-    <app-profile-icon class="app-header__profile-icon"></app-profile-icon>
+    <div class="app-header__spot"></div>
+    <div class="app-header__elements">
+        <app-searcher (eventSearch)="sendSearch($event)" class="app-header__searcher"></app-searcher>
+        <div class="app-header__profile-icon">
+            <app-profile-icon></app-profile-icon>
+        </div>
+    </div>
 </div>

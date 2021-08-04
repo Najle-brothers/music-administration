@@ -1,13 +1,25 @@
-<div class="app-playlists-tracks">
-    <ol class="app-playlists-tracks__list" *ngFor="let track of inputTracklist">
-        <li class="app-playlists-tracks__item" (click)="setPlayerData(track.id, track.type)">
-            <img [src]="track.picture" alt="" class="app-playlists-tracks__img">
-            <h2 class="app-playlists-tracks__title">{{ track.title }}</h2>
-            <div class="app-playlists-tracks__info">
-                <h3 class="app-playlists-tracks__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
-                <h4 class="app-playlists-tracks__album" (click)="sendToAlbumPage(track.albumId)">{{ track.album }}</h4>
+<div class="playlists-tracks">
+    <ol class="playlists-tracks__list" *ngFor="let track of inputTracklist">
+        <li class="playlists-tracks__item" (click)="setPlayerData(track.id, track.type)">
+            <img [src]="track.picture" alt="" class="playlists-tracks__img">
+            <h2 class="playlists-tracks__title">{{ track.title }}</h2>
+            <div class="playlists-tracks__info">
+                <h3 class="playlists-tracks__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
+                <div class="playlists-tracks__explicit">
+                    <h4 class="playlists-tracks__album" (click)="sendToAlbumPage(track.albumId)">{{ track.album }}</h4>
+                    <app-explicit-content *ngIf="track.explicit"></app-explicit-content>
+                </div>
             </div>
-            <span class="app-playlists-tracks__duration">{{ track.duration }}</span>
+
+            <div class="playlists-tracks__small-info">
+                <h3 class="playlists-tracks__small-title">{{ track.title }}</h3>
+                <div class="playlists-tracks__explicit">
+                    <h3 class="playlists-tracks__artist" (click)="sendToArtistPage(track.artistId)">{{ track.artist }}</h3>
+                    <app-explicit-content *ngIf="track.explicit"></app-explicit-content>
+                </div>
+            </div>
+
+            <span class="playlists-tracks__duration">{{ track.duration }}</span>
         </li>
     </ol>
 </div>

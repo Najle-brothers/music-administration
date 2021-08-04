@@ -12,6 +12,8 @@ export class ArtistPageTracklistComponent implements OnInit {
 
   @Input() public inputTopFive = []
 
+  public noExplicitTracklist = [this.inputTopFive.filter((track => track.explicit = false))];
+
   constructor(
     private stateService: StateService,
     private router: Router,

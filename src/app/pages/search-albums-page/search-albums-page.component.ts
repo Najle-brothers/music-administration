@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IAlbums } from 'src/app/models/albums';
 import { SearchService } from 'src/app/services/search.service';
 
 @Component({
@@ -13,8 +14,8 @@ export class SearchAlbumsPageComponent implements OnInit {
 
   public isAlbumLoading: boolean = false;
 
-  public search = "";
-  public albums = [];
+  public search: string = "";
+  public albums: IAlbums[] = [];
 
   constructor(
     private searchService: SearchService,
@@ -37,13 +38,14 @@ export class SearchAlbumsPageComponent implements OnInit {
   getAlbumsListByName(search): void {
     this.isAlbumLoading = true;
     this.subscription.add(
-      this.searchService.getAlbumsByName(search).subscribe((response) => {
+      this.searchService.getAlbumsByName(search).subscribe((response: any) => {
         this.albums = response.data.map((album) => {
           return {
           id: album.id,
           title: album.title,
           artist: album.artist.name,
-          picture: album.cover_medium
+          picture: album.cover_medium,
+          small_picture: album.cover_small,
           }
         })
         this.isAlbumLoading = false;

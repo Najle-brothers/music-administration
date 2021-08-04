@@ -1,10 +1,19 @@
-<h2 class="app-landing-page__title">Tus artistas favoritos</h2>
+<h2 class="landing-page__title">Tus artistas favoritos</h2>
 
-<div class="app-artists-card">
-    <div *ngFor="let artist of inputArtist" class="app-artists-card__card">
-        <div class="app-artists-card__container" (click)="sendToArtistPage(artist.id)">
-            <img [src]="artist.picture" alt="" class="app-artists-card__img">
-            <h2 class="app-artists-card__title">{{ artist.artist }}</h2>
+<div class="artists-card">
+    <div *ngFor="let artist of inputArtist" class="artists-card__card">
+        <div class="artists-card__container" (click)="sendToArtistPage(artist.id)">
+            <img [src]="artist.picture" alt="" class="artists-card__img">
+            <h2 class="artists-card__title">{{ artist.artist }}</h2>
         </div>
     </div>
+</div>
+
+<div class="list-artists">
+    <ol class="list-artists__list" *ngFor="let artist of inputArtist">
+        <li class="list-artists__item" (click)="sendToArtistPage(artist.id)">
+            <img [src]="artist.small_picture" alt="" class="list-artists__small-img">
+            <h2 class="list-artists__title">{{ artist.artist }}</h2>
+        </li>
+    </ol>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { IPlaylists } from 'src/app/models/playlists';
 import { SearchService } from 'src/app/services/search.service';
 
 @Component({
@@ -13,8 +14,8 @@ export class SearchPlaylistsPageComponent implements OnInit {
 
   public isPlaylistLoading: boolean = false;
 
-  public search = "";
-  public playlists = [];
+  public search: string = "";
+  public playlists: IPlaylists[] = [];
 
   constructor(
     private searchService: SearchService,
@@ -37,12 +38,13 @@ export class SearchPlaylistsPageComponent implements OnInit {
   getPlaylistsListByName(search: string): void {
     this.isPlaylistLoading = true;
     this.subscription.add(
-      this.searchService.getPlaylistsByName(search).subscribe((response) => {
+      this.searchService.getPlaylistsByName(search).subscribe((response: any) => {
         this.playlists = response.data.map((playlist) => {
           return {
             id: playlist.id,
             title: playlist.title,
             picture: playlist.picture_medium,
+            small_picture: playlist.picture_small,
             user: playlist.user.name
           }
         })

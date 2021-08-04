@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IPlaylist, makePlaylist } from 'src/app/models/playlist';
+import { ITracks } from 'src/app/models/tracks';
+import { IUser } from 'src/app/models/user';
 import { CommonsService } from 'src/app/services/commons.service';
 import { PlaylistsService } from 'src/app/services/playlists.service';
-import { StateService } from 'src/app/services/state.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-playlist-page',
@@ -16,18 +18,21 @@ export class PlaylistPageComponent implements OnInit {
 
   public isHeaderLoading: boolean = false;
   public isTrackLoading: boolean = false;
+  public isUserLoading: boolean = false;
 
-  playlistId = ""
+  public playlistId: number = 0;
 
   public playlistInfo: IPlaylist = makePlaylist();
 
-  public tracks = []
+  public tracks: ITracks[] = [];
+  public allTracks: ITracks[] = [];
+  public explicitContent: boolean = false;
 
   constructor(
-    private stateService: StateService,
     private playlistsService: PlaylistsService,
     private commonsService: CommonsService,
     private route: ActivatedRoute,
+    private userService: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +56,7 @@ export class PlaylistPageComponent implements OnInit {
         this.playlistInfo = {
           id: response.id,
           picture: response.picture_xl,
+          medium_picture: response.picture_medium,
           title: response.title,
           description: response.description,
           fans: this.commonsService.fansWithCommas(response.fans),
@@ -66,7 +72,7 @@ export class PlaylistPageComponent implements OnInit {
     this.isTrackLoading = true; 
     this.subscription.add(
       this.playlistsService.getPlaylistTracksByPlaylistId(this.playlistId).subscribe((response) => {
-        this.tracks = response.data.map((track) => {
+        this.allTracks = response.data.map((track) => {
           return {
             id: track.id,
             title: track.title,
@@ -76,8 +82,15 @@ export class PlaylistPageComponent implements OnInit {
             albumId: track.album.id, 
             duration: this.commonsService.secondsToFullDuration(track.duration, false, this.commonsService.twoDigits),
             picture: track.album.cover_small,
-            type: track.type
+            type: track.type,
+            explicit: track.explicit_lyrics,
           }
+        })
+        this.isUserLoading = true;
+        this.userService.getUserData().subscribe((response: IUser) => {
+          this.explicitContent = response.explicitContent;
+          this.tracks = this.commonsService.explicitLyrics(this.explicitContent, this.allTracks);
+          this.isUserLoading= false;
         })
         this.isTrackLoading = false;
       })

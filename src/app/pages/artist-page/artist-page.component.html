@@ -2,9 +2,9 @@
     <app-loading *ngIf="isHeaderLoading" class="artist-page__loading"></app-loading>
     <app-artist-page-header *ngIf="!isHeaderLoading" class="artist-page__header" [inputArtistInfo]="selectedArtist"></app-artist-page-header>
 
-    <app-loading *ngIf="isTrackLoading" class="artist-page__loading"></app-loading>
+    <app-loading *ngIf="isTrackLoading || isUserLoading" class="artist-page__loading"></app-loading>
     <div class="artist-page__card">
-        <app-artist-page-tracklist *ngIf="!isTrackLoading" [inputTopFive]="cutTracks"></app-artist-page-tracklist>
+        <app-artist-page-tracklist *ngIf="!isTrackLoading && !isUserLoading" [inputTopFive]="cutTracks"></app-artist-page-tracklist>
     </div>
 
     <app-loading *ngIf="isAlbumLoading" class="artist-page__loading"></app-loading>

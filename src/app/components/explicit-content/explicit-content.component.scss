@@ -1,0 +1,17 @@
+@import '../../../assets/styles/variables.scss';
+
+.explicit{        
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: $background-color-menu;
+    border-radius: 10px;
+
+    &__icon{
+        size: 15px;
+        color: $text-color-primary;
+    }
+}

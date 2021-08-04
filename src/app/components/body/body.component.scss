@@ -6,3 +6,9 @@
     background-color: $background-color-main;
     overflow: auto;
 }
+
+@media screen and (max-width: 815px) {
+    .app-body {
+        height: calc(100% - (#{$size-footer-height} + #{$size-menu-below-height}));
+    }
+}

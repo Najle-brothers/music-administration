@@ -3,9 +3,9 @@
     <app-album-page-header *ngIf="!isHeaderLoading" [inputAlbumHeader]="selectedAlbum"></app-album-page-header>
 
     <div class="album-page__tracks">
-        <app-loading *ngIf="isTracksLoading" class="album-page__loading"></app-loading>
+        <app-loading *ngIf="isTracksLoading || isUserLoading" class="album-page__loading"></app-loading>
         <div class="album-page__card">
-            <app-album-page-tracklist *ngIf="!isTracksLoading" [inputTracks]="tracks"></app-album-page-tracklist>
+            <app-album-page-tracklist *ngIf="!isTracksLoading && !isUserLoading" [inputTracks]="tracks"></app-album-page-tracklist>
         </div>
     </div>
 </div>

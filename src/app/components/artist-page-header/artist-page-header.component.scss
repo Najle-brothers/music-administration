@@ -1,6 +1,6 @@
 @import '../../../assets/styles/variables.scss';
 
-.app-artist-header{
+.artist-header{
 
     &__container{
         margin-bottom: 10px;
@@ -47,4 +47,75 @@
         object-fit: cover;
         object-position: 50% 35%;
     }
+}
+
+@media screen and (min-width: 600px) {
+    .small-header {
+        display: none;
+    }
+} 
+
+@media screen and (max-width: 600px) {
+    .artist-header {
+        display: none;
+    }
+
+    .small-header {
+        font-family: Arial, Helvetica, sans-serif;
+
+        &__container {
+            position: relative;
+            width: 100%;
+            padding: 0px;
+        }
+
+        &__information{
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            height: 30%;
+            width: 100%;
+            background-color: $background-color-main-transparency;
+            //background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $background-color-main-transparency);
+        }
+
+        &__info-box{
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100%;
+            bottom: 25px;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            flex-wrap: wrap;
+            padding-left: 10px;
+        }
+
+        &__artist{
+            font-size: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        &__img {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: 50% 35%;
+        }
+
+        &__fans-box{
+            margin: 0px;
+            padding: 10px 0px;
+            width: 100%;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0), $background-color-main-transparency);
+        }
+
+        &__fans {
+            padding-left: 10px;
+        }
+
+    } 
 }

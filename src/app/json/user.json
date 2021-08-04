@@ -2,5 +2,7 @@
     "id": 10,
     "name": "Dani",
     "lastname": "Lopez",
-    "username": "DaaniL"
+    "username": "DaaniL",
+    "explicitContent": true
+
 }

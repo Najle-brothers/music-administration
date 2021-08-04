@@ -72,3 +72,131 @@
         border-radius: 10px;
     }
 }
+
+@media screen and (max-width: 1400px) {
+    .artist-card {
+        &__container {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .artist-card {
+        &__container {
+            width: 140px;
+            margin-right: 25px;
+        }
+
+        &__img {
+            display: block;
+            position: relative;
+            width: 140px;
+            object-fit: cover;
+            object-position: 50% 35%;
+        }
+
+        &__title{
+            font-size: 15px;
+        }
+        &__fans{
+            font-size: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .artist-card {
+        &__container {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media screen and (min-width: 710px) {
+    .list-artists {
+    display: none;
+    }  
+}
+
+@media screen and (max-width: 710px) {
+    .artists-card {
+        display: none;
+    }
+
+    .list-artists {
+        font-family: Arial, Helvetica, sans-serif;
+        color: $text-color-primary;
+    
+        :hover{
+            background-color: $background-color-secondary;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        :active{
+            color: $text-color-active;
+            background-color: $background-color-secondary;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    
+        &__list{
+            display: flex;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+    
+        &__item{
+            width: 100%;
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+        }
+    
+        &__small-img{
+            border-radius: 100px;
+            max-height: 56px;
+            &:hover{
+                border-radius: 100px !important; 
+            }
+        }
+    
+        &__title{
+            flex: 4;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding-left: 20px;
+            font-size: 20px;
+            max-height: 56px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .artists-card {
+        display: none;
+    }
+
+    .list-artists {
+        &__title {
+            font-size: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .search-page {
+        &__title {
+        font-size: 20px;
+        flex: 2;
+        }
+
+        &__ver-todo {
+            flex: 2;
+            font-size: 12px;
+        }
+    }
+}
