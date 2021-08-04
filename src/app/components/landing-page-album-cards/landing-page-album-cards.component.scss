@@ -1,6 +1,6 @@
 @import '../../../assets/styles/variables.scss';
 
-.app-landing-page{
+.landing-page{
     &__title{
     font-family: $titles-cards-style;
     margin-left: $titles-cards-marginleft;
@@ -8,7 +8,7 @@
     }
 }
 
-.app-album-card{
+.album-card{
     font-family: Arial, Helvetica, sans-serif;
     color: $text-color-primary;
     display: flex;
@@ -50,18 +50,58 @@
 
 }
 
-@media screen and (min-width: 800px) {
-    .app-list-album {
+@media screen and (max-width: 1400px) {
+    .album-card {
+        &__container {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .album-card {
+        &__container {
+            width: 140px;
+            margin-right: 25px;
+        }
+
+        &__img {
+            display: block;
+            position: relative;
+            width: 140px;
+            object-fit: cover;
+            object-position: 50% 35%;
+        }
+
+        &__title{
+            font-size: 15px;
+        }
+        &__artist{
+            font-size: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .album-card {
+        &__container {
+            margin-right: 15px;
+        }
+    }
+}
+
+@media screen and (min-width: 710px) {
+    .list-album {
         display: none;
     }
 } 
 
-@media screen and (max-width: 800px) {
-    .app-album-card {
+@media screen and (max-width: 710px) {
+    .album-card {
         display: none;
     }
 
-    .app-list-album {
+    .list-album {
         font-family: Arial, Helvetica, sans-serif;
         color: $text-color-primary;
 
@@ -137,7 +177,7 @@
 }
 
 @media screen and (max-width: 370px) {
-    .app-landing-page__title {
+    .landing-page__title {
         font-size: 20px;
     }
 }

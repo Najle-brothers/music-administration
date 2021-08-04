@@ -7,7 +7,7 @@
     background-color: $background-color-secondary;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 815px) {
     .app-footer {
         &__menu{
             display: none;
@@ -15,7 +15,7 @@
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 815px) {
     .app-footer{
         height: calc(#{$size-footer-height} + #{$size-menu-below-height});
     }

@@ -1,24 +1,24 @@
-<h2 class="app-landing-page__title">Álbumes más escuchados</h2>
+<h2 class="landing-page__title">Álbumes más escuchados</h2>
 
-<div class="app-album-card">
-    <div *ngFor="let album of inputAlbum" class="app-album-card__card">
-        <div class="app-album-card__container" (click)="sendToAlbumPage(album.id)">
-            <img [src]="album.picture" alt="" class="app-album-card__img">
-            <div class="app-album-card__info-box">
-                <h2 class="app-album-card__title">{{ album.title }}</h2>
-                <h3 class="app-album-card__artist">{{ album.artist }}</h3>
+<div class="album-card">
+    <div *ngFor="let album of inputAlbum" class="album-card__card">
+        <div class="album-card__container" (click)="sendToAlbumPage(album.id)">
+            <img [src]="album.picture" alt="" class="album-card__img">
+            <div class="album-card__info-box">
+                <h2 class="album-card__title">{{ album.title }}</h2>
+                <h3 class="album-card__artist">{{ album.artist }}</h3>
             </div>
         </div>
     </div>
 </div>
 
-<div class="app-list-album">
-    <ol class="app-list-album__list" *ngFor="let album of inputAlbum">
-        <li class="app-list-album__item" (click)="sendToAlbumPage(album.id)">
-            <img [src]="album.small_picture" alt="" class="app-list-album__small-img">
-            <div class="app-list-album__info">
-                <h3 class="app-list-album__artist">{{ album.title }}</h3>
-                <h4 class="app-list-album__album">{{ album.artist }}</h4>
+<div class="list-album">
+    <ol class="list-album__list" *ngFor="let album of inputAlbum">
+        <li class="list-album__item" (click)="sendToAlbumPage(album.id)">
+            <img [src]="album.small_picture" alt="" class="list-album__small-img">
+            <div class="list-album__info">
+                <h3 class="list-album__artist">{{ album.title }}</h3>
+                <h4 class="list-album__album">{{ album.artist }}</h4>
             </div>
         </li>
     </ol>
