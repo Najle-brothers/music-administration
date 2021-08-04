@@ -20,13 +20,11 @@
     }*/
 
     &__card{
-    
         :hover{
             background-color: $background-color-secondary;
             border-radius: 10px;
             cursor: pointer;
         }
-
     }
         
     &__container{
@@ -79,6 +77,7 @@
         &__title{
             font-size: 15px;
         }
+        
         &__fans{
             font-size: 10px;
         }
@@ -150,7 +149,7 @@
             justify-content: left;
             align-items: center;
             padding-left: 20px;
-            font-size: 20px;
+            font-size: 15px;
         }
     }
 }

@@ -21,5 +21,5 @@ export class PlaylistPageHeaderComponent implements OnInit {
   setPlayerData(id: number, type: string) {
     this.commons.startPlayback(id.toString(), type);
   }
-
+  
 }
