@@ -8,7 +8,6 @@
 
     &__title{
         margin-left: $titles-cards-marginleft;
-        flex: 4;
         padding-left: 12px;
     }
 }
@@ -102,7 +101,7 @@
     &__duration{
         flex: 3;
         display: flex;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
     }
     

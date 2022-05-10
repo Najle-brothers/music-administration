@@ -5,15 +5,15 @@
     color: $text-color-primary;
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
 
     &__title{
         margin-left: $titles-cards-marginleft;
-        flex: 4;
         padding-left: 12px;
     }
 
     &__vertodo{
-        flex: 1.5;
+        justify-content: end;
     }
 
     &__ver-todo{
@@ -116,7 +116,7 @@
     &__duration{
         flex: 3;
         display: flex;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
     }
     

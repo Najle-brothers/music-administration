@@ -8,6 +8,8 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  public isUserLoggedIn: boolean = false;
+
   @Output() eventSearch = new EventEmitter<string>();
 
   sendSearch(search: string) {

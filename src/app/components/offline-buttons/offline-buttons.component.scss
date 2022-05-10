@@ -1,0 +1,41 @@
+@import '../../../assets/styles/variables.scss';
+
+.off-buttons{
+
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    font-family: $titles-cards-style;
+    //justify-content: flex-end;
+    //justify-content: space-between;
+
+    &__register{
+        margin-right: 25px;
+        padding: 10px 10px;
+        color: $text-color-active;
+
+        &:hover{
+            cursor: pointer;
+            background-color: $background-color-secondary;
+            border-radius: 10px;
+        }
+    }
+
+    &__login{
+        padding: 10px 10px;
+        color: $background-color-main;
+        background-color: $text-color-active;
+        border-radius: 10px;
+
+        &:hover{
+            cursor: pointer;
+            color: $text-color-primary;
+        }
+    }    
+}
+
+@media screen and (max-width: 1024px){
+    .off-buttons{
+        font-size: 10px;
+    }
+}

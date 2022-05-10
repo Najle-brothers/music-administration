@@ -3,14 +3,26 @@
 .app-header {
     width: 100%;
     height: $size-header-height;
-    background-color: $background-color-secondary;
+    background-color: $background-color-menu;
     color: $text-color-primary;
     display: flex;
 
-    &__spot{
+    &__logo{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         width: $size-menu-width;
         max-width: $size-menu-width;
         min-width: $size-menu-width;
+    }
+
+    &__icon{
+        max-height: 60px;
+        width: 120;
+        padding: 10px 0px 10px 40px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     &__elements {
@@ -30,11 +42,28 @@
         margin-right: 10px;
         padding-left: 70px;
     }
+
+    // offline
+
+    &__off-elements{
+        width: 100%;
+        margin: 0px 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
+
+/*@media screen and (max-width: 1024px) {
+    .app-header{
+
+    }
+}*/
 
 @media screen and (max-width: 800px) {
     .app-header{
-        &__spot{
+        &__logo{
             display: none;
         }
 
@@ -48,7 +77,7 @@
 
 @media screen and (max-width: 425px) {
     .app-header{
-        &__spot{
+        &__logo{
             display: none;
         }
 

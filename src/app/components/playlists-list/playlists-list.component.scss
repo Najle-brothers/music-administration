@@ -5,15 +5,15 @@
     color: $text-color-primary;
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
 
     &__title{
         margin-left: $titles-cards-marginleft;
-        flex: 4;
         padding-left: 12px;
     }
 
     &__vertodo{
-        flex: 1.5;
+        justify-content: end;
     }
 
     &__ver-todo{
@@ -33,6 +33,7 @@
     color: $text-color-primary;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 
     &__card{
         :hover{
@@ -43,7 +44,6 @@
     }
 
     &__container{
-        margin-right: 25px;
         padding: 5px;
         width: 250px;
     }
@@ -70,19 +70,11 @@
     }
 }
 
-@media screen and (max-width: 1400px) {
-    .playlists-card {
-        &__container {
-            margin-right: 15px;
-        }
-    }
-}
 
 @media screen and (max-width: 1120px) {
     .playlists-card {
         &__container {
             width: 140px;
-            margin-right: 25px;
         }
 
         &__img {
@@ -98,14 +90,6 @@
         }
         &__user{
             font-size: 10px;
-        }
-    }
-}
-
-@media screen and (max-width: 790px) {
-    .playlists-card {
-        &__container {
-            margin-right: 15px;
         }
     }
 }

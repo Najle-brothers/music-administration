@@ -13,24 +13,17 @@
     color: $text-color-primary;
     display: flex;
     flex-wrap: wrap;
-
-    /*&__generos{
-        font-size: 20px;
-        display: block;
-    }*/
+    justify-content: space-between;
 
     &__card{
-    
         :hover{
             background-color: $background-color-secondary;
             border-radius: 10px;
             cursor: pointer;
         }
-
     }
         
     &__container{
-        margin-right: 25px;
         text-align: center;
         padding: 5px;
         width: 250px;
@@ -53,19 +46,10 @@
     }  
 }
 
-@media screen and (max-width: 1400px) {
-    .artists-card {
-        &__container {
-            margin-right: 15px;
-        }
-    }
-}
-
-@media screen and (max-width: 1120px) {
+@media screen and (max-width: 1300px) {
     .artists-card {
         &__container {
             width: 140px;
-            margin-right: 25px;
         }
 
         &__img {
@@ -85,19 +69,10 @@
     }
 }
 
-@media screen and (max-width: 790px) {
-    .artists-card {
-        &__container {
-            margin-right: 15px;
-        }
-    }
-}
-
 @media screen and (min-width: 710px) {
-    .list-artists {
-    display: none;
-}  
-
+        .list-artists {
+        display: none;
+    }  
 }
 
 @media screen and (max-width: 710px) {

@@ -36,7 +36,7 @@
         list-style-type: none;
         display: flex;
         flex-direction: row;
-        padding: 5px;
+        padding: 5px 20px;
     }
 
     &__img{
@@ -102,7 +102,7 @@
     &__duration{
         flex: 3;
         display: flex;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
     }
 }

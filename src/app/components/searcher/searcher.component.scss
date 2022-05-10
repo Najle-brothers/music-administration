@@ -1,32 +1,45 @@
 @import '../../../assets/styles/variables.scss';
 
 .app-searcher {
-    position: relative;
-    &__div{
-        box-sizing: border-box;
-    }
-    &__input{
-        width: 100%;
+    display: flex;
+
+    &__form {
         border-radius: 10px;
-        padding: 10px 10px 10px 34px;
+        padding: 10px;
         font-size: 17px;
-        background-color: $background-color-menu;   
+        background-color: $background-color-secondary; 
+        display: flex;
+    }
+
+    &__button{
+        display: flex;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+    }
+
+    &__icon{
+        width: 15px;
+        height: 15px;
+    }
+
+    &__input{
+        width: 250px;
+        background-color: transparent;
+        border: none;
 
         &:focus-visible{
             outline: none;
         }
     }
-    &__button{
-        font-size: 17px;
-        border: none;
-        cursor: pointer;
-        background-color: transparent;
-        position: absolute;
-        top: 14px;
-        left: 7px;
-    }
-    &__icon{
-        width: 15px;
-        height: 15px;
+}
+
+@media screen and (max-width: 1024px){
+    .app-searcher{
+        &__input{
+            padding-right: 10px;
+            font-size: 10px;
+        }   
     }
 }

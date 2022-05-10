@@ -15,6 +15,7 @@
     color: $text-color-primary;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 
     :hover{
         background-color: $background-color-secondary;
@@ -23,7 +24,6 @@
     }
 
     &__container{
-        margin-right: 25px;
         padding: 5px;
         width: 250px;
     }
@@ -34,22 +34,9 @@
 
     &__title{
         text-align: left;
-        margin: 10px 0px;
+        margin: 0px;
+        padding: 5px;
         font-size: 20px;
-    }
-
-    &__duration{
-        text-align: left;
-        margin: 10px 0px;
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .artist-card {
-        &__container {
-            margin-right: 15px;
-        }
     }
 }
 
@@ -57,7 +44,6 @@
     .artist-card {
         &__container {
             width: 140px;
-            margin-right: 25px;
         }
 
         &__img {
@@ -70,17 +56,6 @@
 
         &__title{
             font-size: 15px;
-        }
-        &__duration{
-            font-size: 10px;
-        }
-    }
-}
-
-@media screen and (max-width: 790px) {
-    .artist-card {
-        &__container {
-            margin-right: 15px;
         }
     }
 }

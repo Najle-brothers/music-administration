@@ -7,7 +7,6 @@
     &__title{
         margin-left: $titles-cards-marginleft;
         padding-left: 12px;
-        margin-right: 25px;
     }
 }
 
@@ -16,7 +15,7 @@
     color: $text-color-primary;
     display: flex;
     flex-wrap: wrap;
-    margin-right: 25px;
+    justify-content: space-between;
 
     :hover{
         background-color: $background-color-secondary;
@@ -25,7 +24,6 @@
     }
 
     &__container{
-        margin-right: 25px;
         padding: 5px;
         width: 250px;
     }
@@ -36,22 +34,8 @@
 
     &__title{
         text-align: left;
-        margin: 10px 0px;
+        margin: 0px;
         font-size: 20px;
-    }
-
-    &__duration{
-        text-align: left;
-        margin: 10px 0px;
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .playlists-card {
-        &__container {
-            margin-right: 15px;
-        }
     }
 }
 
@@ -59,7 +43,6 @@
     .playlists-card {
         &__container {
             width: 140px;
-            margin-right: 25px;
         }
 
         &__img {
@@ -75,14 +58,6 @@
         }
         &__duration{
             font-size: 10px;
-        }
-    }
-}
-
-@media screen and (max-width: 790px) {
-    .playlists-card {
-        &__container {
-            margin-right: 15px;
         }
     }
 }

@@ -29,7 +29,7 @@
         list-style-type: none;
         display: flex;
         flex-direction: row;
-        padding: 5px;
+        padding: 5px 20px;
     }
 
     &__img{
@@ -42,8 +42,8 @@
         flex-wrap: wrap;
         justify-content: left;
         align-items: center;
-        padding-top: 10px;
-        padding-left: 10px;
+        padding-top: 5px;
+        padding-left: 20px;
     }
 
     &__title{
@@ -84,7 +84,7 @@
     &__song-duration{
         flex: 3;
         display: flex;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
     }
 }

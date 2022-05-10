@@ -53,6 +53,7 @@ import { AllSearchAlbumsComponent } from './components/all-search-albums/all-sea
 import { AllSearchTracksComponent } from './components/all-search-tracks/all-search-tracks.component';
 import { ExplicitContentComponent } from './components/explicit-content/explicit-content.component';
 import { MenuBelowComponent } from './components/menu-below/menu-below.component';
+import { OfflineButtonsComponent } from './components/offline-buttons/offline-buttons.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { MenuBelowComponent } from './components/menu-below/menu-below.component
     AllSearchAlbumsComponent,
     AllSearchTracksComponent,
     ExplicitContentComponent,
-    MenuBelowComponent
+    MenuBelowComponent,
+    OfflineButtonsComponent
   ],
   imports: [
     BrowserModule,

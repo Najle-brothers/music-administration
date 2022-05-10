@@ -1,9 +1,19 @@
 <div class="app-header">
-    <div class="app-header__spot"></div>
-    <div class="app-header__elements">
+
+    <div class="app-header__logo">
+        <img src="../../../assets/img/SoundID.png" alt="" class="app-header__icon">
+    </div>
+
+    <div *ngIf="isUserLoggedIn" class="app-header__elements">
         <app-searcher (eventSearch)="sendSearch($event)" class="app-header__searcher"></app-searcher>
         <div class="app-header__profile-icon">
             <app-profile-icon></app-profile-icon>
         </div>
     </div>
+
+    <div *ngIf="!isUserLoggedIn" class="app-header__off-elements">
+        <app-searcher (eventSearch)="sendSearch($event)" class="app-header__off-searcher"></app-searcher>
+        <app-offline-buttons class="app-header__off-buttons"></app-offline-buttons>
+    </div>
+    
 </div>

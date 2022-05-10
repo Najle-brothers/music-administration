@@ -1,7 +1,4 @@
 <div class="landing-page">
-    <app-loading *ngIf="isHeaderLoading"></app-loading>
-    <app-landing-page-greetings [inputUser]="user"></app-landing-page-greetings>
-
     <app-loading *ngIf="isTracksLoading || isUserLoading"></app-loading>
     <app-landing-page-trackslist [inputTrack]="cutTracks" *ngIf="!isTracksLoading && !isUserLoading"></app-landing-page-trackslist>
 

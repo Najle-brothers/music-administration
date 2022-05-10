@@ -16,6 +16,7 @@
     color: $text-color-primary;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 
     &__card{
         :hover{
@@ -26,7 +27,6 @@
     }
 
     &__container{
-        margin-right: 25px;
         text-align: center;
         padding: 5px;
         width: 250px;
@@ -48,19 +48,10 @@
     }
 }
 
-@media screen and (max-width: 1400px) {
-    .album-card {
-        &__container {
-            margin-right: 15px;
-        }
-    }
-}
-
 @media screen and (max-width: 1120px) {
     .album-card {
         &__container {
             width: 140px;
-            margin-right: 25px;
         }
 
         &__img {
@@ -76,14 +67,6 @@
         }
         &__year{
             font-size: 10px;
-        }
-    }
-}
-
-@media screen and (max-width: 790px) {
-    .album-card {
-        &__container {
-            margin-right: 15px;
         }
     }
 }
